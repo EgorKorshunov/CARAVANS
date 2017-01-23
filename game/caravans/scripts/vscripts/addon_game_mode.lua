@@ -29,6 +29,11 @@ function Caravans:InitGameMode()
 	    GameRules:LockCustomGameSetupTeamAssignment(true)
     GameRules:SetCustomGameSetupRemainingTime(0)
     GameRules:SetCustomGameSetupAutoLaunchDelay(0)
+	local startwp = Entities:FindByName(nil,"wp2")
+    local test = CreateUnitByName("npc_dota_creep_goodguys_melee",startwp:GetAbsOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
+    
+    test:SetInitialGoalEntity(startwp)
+
 end
 
 -- Evaluate the state of the game
