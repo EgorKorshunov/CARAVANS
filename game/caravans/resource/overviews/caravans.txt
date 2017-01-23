@@ -1,0 +1,8 @@
+caravans
+{
+	material materials/overviews/home_button.vmat
+	pos_x -7096
+	pos_y 7096
+	scale 13
+}
+

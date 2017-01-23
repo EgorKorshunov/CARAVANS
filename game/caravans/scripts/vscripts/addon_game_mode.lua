@@ -1,7 +1,7 @@
 -- Generated from template
 
-if CAddonTemplateGameMode == nil then
-	CAddonTemplateGameMode = class({})
+if Caravans == nil then
+	Caravans = class({})
 end
 
 function Precache( context )
@@ -16,17 +16,28 @@ end
 
 -- Create the game mode when we activate
 function Activate()
-	GameRules.AddonTemplate = CAddonTemplateGameMode()
-	GameRules.AddonTemplate:InitGameMode()
+	Caravans = Caravans()
+	Caravans:InitGameMode()
+	GameRules.Caravans = Caravans
 end
 
-function CAddonTemplateGameMode:InitGameMode()
-	print( "Template addon is loaded." )
+function Caravans:InitGameMode()
+
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+
+	GameRules:SetPreGameTime(180)
+	    GameRules:LockCustomGameSetupTeamAssignment(true)
+    GameRules:SetCustomGameSetupRemainingTime(0)
+    GameRules:SetCustomGameSetupAutoLaunchDelay(0)
+	local startwp = Entities:FindByName(nil,"wp2")
+    local test = CreateUnitByName("npc_dota_creep_goodguys_melee",startwp:GetAbsOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
+    
+    test:SetInitialGoalEntity(startwp)
+
 end
 
 -- Evaluate the state of the game
-function CAddonTemplateGameMode:OnThink()
+function Caravans:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		--print( "Template addon script is running." )
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
