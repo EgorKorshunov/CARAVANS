@@ -15,4 +15,6 @@
   min-width: 100%;
   min-height: 100%;
   visibility: visible;
+  background-image: url("file://{images}/custom_game/loading_screen/caravans_loadscreen.psd");
+  background-size: 100% 100%;
 }

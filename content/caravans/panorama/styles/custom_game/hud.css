@@ -1,0 +1,43 @@
+.HUDRoot
+{
+	height: 100%;
+	width: 100%;
+}
+#HPBARCaravan
+{
+	align: center top;
+	height: 7%;
+	width: 30%;
+	margin-top: 8%;
+}
+#hpbg
+{
+	align: center center;
+	margin-top: 40%;
+	height: 16px;
+	width: 452px;
+	background-image: url("file://{images}/custom_game/hpbarbg.png");
+	background-size: 100% 100%;
+	z-index: 0;
+}
+#HP
+{
+	align: left center;
+	height: 100%;
+	width: 100%;
+	background-image: url("file://{images}/custom_game/hpbar.png");
+	background-size: 100% 100%;
+	z-index: 1;
+	border-radius: 10px;
+}
+#hpbarlabel
+{
+	horizontal-align: center;
+	vertical-align: top;
+	font-family: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	margin-top: 5%;
+	font-size:30px;
+	font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px;
+	color: #d0d0d0;
+}
