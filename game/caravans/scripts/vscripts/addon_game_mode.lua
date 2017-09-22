@@ -8,6 +8,9 @@ end
 _G.CaravanUnitTable = {}
 
 LinkLuaModifier("modifier_presents","modifier_presents.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_spawnpoint","modifiers",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_frostivus_aura","modifiers",LUA_MODIFIER_MOTION_NONE)
 
 function Precache( context )
 	--[[
@@ -36,10 +39,12 @@ function Caravans:InitGameMode()
 
 
     ListenToGameEvent("game_rules_state_change",Dynamic_Wrap(Caravans, "OnStateChange"),self)
+
     ListenToGameEvent("player_connect_full",Dynamic_Wrap(Caravans, "OnFullConnected"),self)
     ListenToGameEvent('player_chat', Dynamic_Wrap(Caravans, 'OnPlayerChat'), self)
     --ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(Caravans, 'OnPlayerPickHero'), self)
 
+    ListenToGameEvent("npc_spawned",Dynamic_Wrap(Caravans, "OnNpcSpawned"),self)
 
 
 	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
@@ -51,48 +56,47 @@ function Caravans:InitGameMode()
 	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 
 
+
 	curwp = 2
-	wp1 = Entities:FindByName(nil,"wp1"):GetOrigin()
-	wp2 = Entities:FindByName(nil,"wp2"):GetOrigin()
-	wp3 = Entities:FindByName(nil,"wp3"):GetOrigin()
-	wp4 = Entities:FindByName(nil,"wp4"):GetOrigin()
-	wp5 = Entities:FindByName(nil,"wp5"):GetOrigin()
-	wp6 = Entities:FindByName(nil,"wp6"):GetOrigin()
-	wp7 = Entities:FindByName(nil,"wp7"):GetOrigin()
-	wp8 = Entities:FindByName(nil,"wp8"):GetOrigin()
-	wp9 = Entities:FindByName(nil,"wp9"):GetOrigin()
-	wp10 = Entities:FindByName(nil,"wp10"):GetOrigin()
-	wp11 = Entities:FindByName(nil,"wp11"):GetOrigin()
-	wp12 = Entities:FindByName(nil,"wp12"):GetOrigin()
-	wp13 = Entities:FindByName(nil,"wp13"):GetOrigin()
-	wp14 = Entities:FindByName(nil,"wp14"):GetOrigin()
-	wp15 = Entities:FindByName(nil,"wp15"):GetOrigin()
-	wp16 = Entities:FindByName(nil,"wp16"):GetOrigin()
-	wp17 = Entities:FindByName(nil,"wp17"):GetOrigin()
-	wp18 = Entities:FindByName(nil,"wp18"):GetOrigin()
-	wp19 = Entities:FindByName(nil,"wp19"):GetOrigin()
-	wp20 = Entities:FindByName(nil,"wp20"):GetOrigin()
-	wp21 = Entities:FindByName(nil,"wp21"):GetOrigin()
-	wp22 = Entities:FindByName(nil,"wp22"):GetOrigin()
-	wp23 = Entities:FindByName(nil,"wp23"):GetOrigin()
-	wp24 = Entities:FindByName(nil,"wp24"):GetOrigin()
-	wp25 = Entities:FindByName(nil,"wp25"):GetOrigin()
-	waypoints = {wp1,wp2,wp3,wp3,wp4,wp5,wp6,wp7,wp8,wp9,wp10,wp11,wp12,wp13,wp13,wp14,wp15,wp16,wp17,wp18,wp19,wp20,wp21,wp22,wp23,wp24,wp25}
+	for i=1,25 do
+		waypoints[i] = Entities:FindByName(nil,"wp"..i):GetOrigin()
+	end
 
 
-	local distance = 0
+	--[[local distance = 0
 	local prev = wp1
 	for i=2,25 do
 		distance = distance + (waypoints[i]-prev):Length2D()
 		prev = waypoints[i]
 	end
-	print(distance)
+	print(distance)]]
+
 	--local startwp = Entities:FindByName(nil,"wp2")
     --local test = CreateUnitByName("npc_dota_creep_goodguys_melee",startwp:GetAbsOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
     
     --test:SetInitialGoalEntity(startwp)
-
 end
+
+
+function Caravans:OnNpcSpawned(t)
+	local spawnedentity = EntIndexToHScript(t.entindex)
+	if spawnedentity:IsRealHero() then
+		Caravans:OnHeroSpawned(spawnedentity)
+	end
+end
+
+firstherospawned = false
+function Caravans:OnHeroSpawned(hero)
+	if not hero.spawned then
+		hero:AddNewModifier(hero,nil,"modifier_frostivus_aura",{})
+		hero.spawned = true
+	end
+	if not firstherospawned then
+		Caravans:OnFirstHeroSpawn()
+		firstherospawned = true
+	end
+end
+
 
 function Caravans:OnFullConnected(event)
 	
@@ -151,6 +155,75 @@ end
 
 
 
+function Caravans:OnFirstHeroSpawn()
+	Caravans:InitSpawnPoints()
+end
+
+function Caravans:InitSpawnPoints()
+	SetTeamCustomHealthbarColor(5,63,18,110)
+	for i=1,4 do
+		spawnpointabs = Entities:FindByName(nil,"spawn_" .. i):GetOrigin()
+		local spawnpoint = CreateUnitByName("spawnpoint",spawnpointabs,false,nil,nil,5)
+		spawnpoint:AddNewModifier(spawnpoint,nil,"modifier_spawnpoint",{})
+		spawnpoint.number = i
+		Caravans:CreateTotemsParticles(spawnpoint,false)
+	end
+end
+
+partorigins = {
+	part_1 = Vector(-220,220,70),
+	part_2 = Vector(-4,268,70),
+	part_3 = Vector(212,140,70),
+	part_4 = Vector(228,-76,70),
+	part_5 = Vector(92,-252,70),
+	part_6 = Vector(-148,-228,70),
+	part_7 = Vector(-276,-20,70),
+}
+
+function Caravans:CreateTotemsParticles(spawnpoint,fast)
+	local number = 1
+	Timers:CreateTimer(10,function()
+			local part = ParticleManager:CreateParticle("particles/respawntotem.vpcf",PATTACH_ABSORIGIN,spawnpoint)
+			local abs = spawnpoint:GetAbsOrigin()
+			ParticleManager:SetParticleControl(part,0,abs + partorigins[tostring("part_" .. number)])
+			ParticleManager:SetParticleControlForward(part,0,Vector(0,0,1))
+			spawnpoint[tostring("part_" .. number)] = part
+			number = number + 1
+			if number <= 7 then
+				if not fast then
+		      		return 1
+		      	else
+		      		return 0.05
+		      	end
+		    else
+		    	Caravans:DestroyTotemParticle(spawnpoint,false)
+		    	return nil
+		    end
+   	end)
+end
+
+function Caravans:DestroyTotemParticle(spawnpoint,fast)
+	local number = 1
+	Timers:CreateTimer(5,function()
+			if spawnpoint[tostring("part_" .. number)] then
+				ParticleManager:DestroyParticle(spawnpoint[tostring("part_" .. number)],false)
+				spawnpoint[tostring("part_" .. number)] = nil
+			end
+			number = number + 1
+			if number <= 7 then
+				if not fast then
+		      		return 1
+		      	else
+		      		return 0.05
+		      	end
+		    else
+		    	return nil
+		    end
+   	end)
+end
+
+
+
 --[[ Evaluate the state of the game
 function Caravans:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -161,7 +234,7 @@ function Caravans:OnThink()
 	return 1
 end]]
 
-LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
+
 
 function Caravans:OnStateChange(keys)
 	if GameRules:State_Get() == 8 then

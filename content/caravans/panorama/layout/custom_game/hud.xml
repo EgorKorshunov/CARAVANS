@@ -7,11 +7,5 @@
 		<include src="file://{resources}/scripts/hud.js" /> 
 	</scripts>
 	<Panel class="HUDRoot" hittest="false">
-		<Panel id="HPBARCaravan" >
-			<Label id="hpbarlabel" text="#hpbarlabel" />
-			<Panel id="hpbg" >
-				<Panel id="HP" />
-			</Panel>
-		</Panel>
 	</Panel>
 </root>
