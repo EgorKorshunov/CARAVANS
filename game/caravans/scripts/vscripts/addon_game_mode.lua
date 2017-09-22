@@ -2,11 +2,12 @@ require('timers')
 
 if Caravans == nil then
 	Caravans = class({})
+	_G.Caravans = Caravans
 end
 
 _G.CaravanUnitTable = {}
 
-
+LinkLuaModifier("modifier_presents","modifier_presents.lua",LUA_MODIFIER_MOTION_NONE)
 
 function Precache( context )
 	--[[
@@ -20,13 +21,26 @@ end
 
 -- Create the game mode when we activate
 function Activate()
-	Caravans = Caravans()
+	GameRules.Caravans = Caravans()
 	Caravans:InitGameMode()
-	GameRules.Caravans = Caravans
 end
 
 function Caravans:InitGameMode()
+
+	self.presents = 30 
+	self.presentsMin = 10
+	self.presentDissappearTime = 10
+
+
+
+
+
     ListenToGameEvent("game_rules_state_change",Dynamic_Wrap(Caravans, "OnStateChange"),self)
+    ListenToGameEvent("player_connect_full",Dynamic_Wrap(Caravans, "OnFullConnected"),self)
+    ListenToGameEvent('player_chat', Dynamic_Wrap(Caravans, 'OnPlayerChat'), self)
+    --ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(Caravans, 'OnPlayerPickHero'), self)
+
+
 
 	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 
@@ -66,12 +80,76 @@ function Caravans:InitGameMode()
 	waypoints = {wp1,wp2,wp3,wp3,wp4,wp5,wp6,wp7,wp8,wp9,wp10,wp11,wp12,wp13,wp13,wp14,wp15,wp16,wp17,wp18,wp19,wp20,wp21,wp22,wp23,wp24,wp25}
 
 
+	local distance = 0
+	local prev = wp1
+	for i=2,25 do
+		distance = distance + (waypoints[i]-prev):Length2D()
+		prev = waypoints[i]
+	end
+	print(distance)
 	--local startwp = Entities:FindByName(nil,"wp2")
     --local test = CreateUnitByName("npc_dota_creep_goodguys_melee",startwp:GetAbsOrigin(),false,nil,nil,DOTA_TEAM_GOODGUYS)
     
     --test:SetInitialGoalEntity(startwp)
 
 end
+
+function Caravans:OnFullConnected(event)
+	
+end
+
+function Caravans:OnPlayerPickHero(event)
+	local hero = EntIndexToHScript(event.heroindex)
+
+    local heroSelected = PlayerResource:GetSelectedHeroEntity(playerID)
+    
+    if heroSelected then --отсеиваем иллюзии
+        return
+    end
+
+end
+
+function Caravans:OnPlayerChat(event)
+	if event.text == "dire" then
+		PlayerResource:GetPlayer(event.playerid):SetTeam(DOTA_TEAM_BADGUYS)
+		PlayerResource:GetSelectedHeroEntity(event.playerid):SetTeam(DOTA_TEAM_BADGUYS)
+	elseif event.text == "radiant" then
+		PlayerResource:GetPlayer(event.playerid):SetTeam(DOTA_TEAM_GOODGUYS)
+		PlayerResource:GetSelectedHeroEntity(event.playerid):SetTeam(DOTA_TEAM_GOODGUYS)
+	end
+	
+end
+	
+
+function Caravans:DropPresent(attacker,target)
+	--if self.presents > 0 then
+		--self.presents = self.presents - 1
+
+
+		local item = CreateItem("item_present",nil,nil)
+		CreateItemOnPositionForLaunch(target:GetAbsOrigin(),item)
+		if attacker:GetRangeToUnit(target) > 300 then
+			pos = target:GetAbsOrigin() 
+				+ 300*(attacker:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
+				+ RandomVector(RandomInt(-100,100))
+		else
+			pos = attacker:GetAbsOrigin() + RandomVector(RandomInt(-100,100))
+		end
+		item:LaunchLoot(false,250,0.5,pos)
+	--end
+end 
+
+function PickupPresent(event)
+	local hero = event.caster
+	--hero:RemoveItem(event.ability)
+	hero.presents = (hero.presents or 0) + 1
+	print(hero.presents)
+
+	hero:RemoveModifierByName("modifier_presents")
+	hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
+end
+
+
 
 --[[ Evaluate the state of the game
 function Caravans:OnThink()
@@ -87,9 +165,11 @@ LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
 
 function Caravans:OnStateChange(keys)
 	if GameRules:State_Get() == 8 then
+
 		runmapai()
 		local caravanunits = 1
 		local firstcreep = CreateUnitByName("npc_dota_caravan_unit",waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
+		firstcreep:SetInitialGoalEntity(Entities:FindByName(nil,"wp1"))
 		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
 		_G.CaravanUnitTable[caravanunits] = firstcreep
 		Timers:CreateTimer(0.05, function()

@@ -1,0 +1,14 @@
+"item_present"
+   {
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"item_datadriven"
+	"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"Model"							"models/props_winter/present.vmd" 
+	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	"AbilityTextureName"			"custom/lia_claws"
+	
+	"ItemKillable" "0" 
+	"ItemDroppable" "1"
+
+}
