@@ -5,7 +5,8 @@ if Caravans == nil then
 	_G.Caravans = Caravans
 end
 
-_G.CaravanUnitTable = {}
+CaravanUnitTable = {}
+_G.CaravanUnitTable = CaravanUnitTable
 
 LinkLuaModifier("modifier_presents","modifier_presents.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
@@ -244,7 +245,7 @@ function Caravans:OnStateChange(keys)
 		local caravanunits = 1
 		local firstcreep = CreateUnitByName("npc_dota_caravan_unit",waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
 		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
-		_G.CaravanUnitTable[caravanunits] = firstcreep
+		CaravanUnitTable[caravanunits] = firstcreep
 		
 		firstcreep:SetContextThink("AI",CaravanAI,0.5)
 		firstcreep.caravanID = caravanunits
@@ -255,7 +256,7 @@ function Caravans:OnStateChange(keys)
 				
 				local caravanunit = CreateUnitByName("npc_dota_caravan_unit",waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
 				caravanunit:AddNewModifier(caravanunit,nil,"modifier_caravan",{})
-				_G.CaravanUnitTable[caravanunits] = caravanunit
+				CaravanUnitTable[caravanunits] = caravanunit
 				
 				caravanunit.caravanID = caravanunits
 
@@ -316,6 +317,7 @@ function CaravanAI(unit)
 		end
 	else
 		if CanMove then
+			--print(CaravanUnitTable,CaravanUnitTable[unit.caravanID-1],unit.caravanID)
 			unit:MoveToPosition(CaravanUnitTable[unit.caravanID-1]:GetAbsOrigin())
 		else
 			unit:Stop()
