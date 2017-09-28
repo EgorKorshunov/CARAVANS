@@ -8,7 +8,6 @@
 		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"Model"							"models/props_winter/present.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityTextureName"			"custom/lia_claws"
 		
 		"ItemKillable" "0" 
 		"ItemDroppable" "1"
@@ -16,6 +15,7 @@
 		"ItemInitialCharges"            "1"
 		"ItemCastOnPickup" 				"1"	
 		"ItemPurchasable"				"0"
+		"ItemStackable"					"0"
 
 		"OnSpellStart"
 		{
@@ -23,7 +23,7 @@
 			{}
 			"RunScript"
 			{
-				"ScriptFile"	"addon_game_mode.lua"
+				"ScriptFile"	"Present.lua"
 				"Function"		"PickupPresent"
 			}
 		}
