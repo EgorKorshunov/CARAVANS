@@ -36,5 +36,14 @@
 			<Panel id="PresentImage"/>
 			<Label id="Time" text="6:00"/>
 		</Panel>
+				<Panel class="spawnpoint" id="spawnpoint_4" onmouseactivate="SelectSpawnPoint(4)"/>
+			</Panel>
+			<Label id="closedeathscreen" text="#Close" onmouseactivate="CloseDeathScreen()"/>
+			<Label id="choisespawnpoint" text="#choisespawnpoint"/>
+			<Panel id="BuyBack" onmouseactivate="BuyBack()">
+				<Label id="buybacklabel" text="#buyback"/>
+				<Label id="byubackcost" text="999"/>
+			</Panel>
+		</Panel>
 	</Panel>
 </root>

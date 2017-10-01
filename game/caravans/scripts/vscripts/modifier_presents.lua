@@ -19,5 +19,3 @@ end
 function modifier_presents:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetStackCount() * -10
 end
-
-
