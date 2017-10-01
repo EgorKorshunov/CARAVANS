@@ -252,34 +252,7 @@ function Caravans:OnPlayerChat(event)
 end
 	
 
-function Caravans:DropPresent(attacker,target)
-	--if self.presents > 0 then
-		--self.presents = self.presents - 1
 
-
-		local item = CreateItem("item_present",nil,nil)
-		local container = CreateItemOnPositionForLaunch(target:GetAbsOrigin(),item)
-		if attacker:GetRangeToUnit(target) > 300 then
-			pos = target:GetAbsOrigin() 
-				+ 300*(attacker:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
-				+ RandomVector(RandomInt(-100,100))
-		else
-			pos = attacker:GetAbsOrigin() + RandomVector(RandomInt(-100,100))
-		end
-		item:LaunchLoot(false,250,0.5,pos)
-
-
-		vision = function(container) 
-			AddFOWViewer(DOTA_TEAM_BADGUYS,container:GetAbsOrigin(), 16, 1, false)
-			AddFOWViewer(DOTA_TEAM_GOODGUYS,container:GetAbsOrigin(), 16, 1, false)
-			return 0.5
-		end
-
-		container:SetContextThink("Vision",vision,0.5)
-
-
-	--end
-end 
 
 function Caravans:PickupPresent(hero)
 	hero.presents = (hero.presents or 0) + 1
