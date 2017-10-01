@@ -31,9 +31,17 @@ end
 
 function Caravans:InitGameMode()
 
-	self.presents = 30 
-	self.presentsMin = 10
-	self.presentDissappearTime = 10
+	self.round = 1
+
+	self.presentsInCaravan = 25 
+
+	self.direPresents = 0
+	--self.radiantPresents = 0
+
+	self.direPresentsTotal = 0
+	self.radiantPresentsTotal = 0
+
+	self:ClientUpdatePresents()
 
 	CaravanUnitTable = {}
 	_G.CaravanUnitTable = CaravanUnitTable
@@ -68,12 +76,30 @@ function Caravans:InitGameMode()
 	Neutrals:Init()
 end
 
+function Caravans:OnHeroDeath(keys)
+	local hero = EntIndexToHScript(keys.entindex_killed)
+
+	for i=1,hero.presents do
+		Caravans:DropPresent(hero,hero:GetAbsOrigin()+RandomVector(RandomInt(0,200)),RandomFloat(0.4,0.7))
+	end
+
+    if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    	Caravans:SetDirePresents(self.direPresents + hero.presents)
+    end
+
+    hero.presents = 0
+end
+
 
 function Caravans:OnEntityKilled(keys)
 	local killed = EntIndexToHScript(keys.entindex_killed)
 
 	if killed.spawnPoint then
 		Neutrals:OnDeath(killed)
+	end
+
+	if killed:IsRealHero() then
+		Caravans:OnHeroDeath(keys)
 	end
 
 end
@@ -127,42 +153,58 @@ function Caravans:OnPlayerChat(event)
 	end
 	
 end
+
+
+function Caravans:DropPresent(unitFrom,posTo,dropTime,visible) 
+	local item = CreateItem("item_present",nil,nil)
+	local container = CreateItemOnPositionForLaunch(unitFrom:GetAbsOrigin(),item)
+	item:LaunchLoot(false,RandomInt(150,300),dropTime,posTo)
+
+	if visible == nil then
+		visible = true
+	end
+
+	if visible then
+		vision = function(container) 
+				AddFOWViewer(DOTA_TEAM_BADGUYS,container:GetAbsOrigin(), 16, 1, false)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS,container:GetAbsOrigin(), 16, 1, false)
+				return 0.5
+			end
+
+		container:SetContextThink("Vision",vision,0.5)
+	end
+
+	return container
+end
 	
 
-function Caravans:DropPresent(attacker,target)
-	--if self.presents > 0 then
-		--self.presents = self.presents - 1
-
-
-		local item = CreateItem("item_present",nil,nil)
-		local container = CreateItemOnPositionForLaunch(target:GetAbsOrigin(),item)
+function Caravans:CaravanAttacked(attacker,target)
+	if self.presentsInCaravan > 0 then
+		Caravans:DecrementCaravanPresents()
+		Caravans:IncrementDirePresents()
+		
 		if attacker:GetRangeToUnit(target) > 300 then
 			pos = target:GetAbsOrigin() 
 				+ 300*(attacker:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
-				+ RandomVector(RandomInt(-100,100))
+				+ RandomVector(RandomInt(0,100))
 		else
-			pos = attacker:GetAbsOrigin() + RandomVector(RandomInt(-100,100))
-		end
-		item:LaunchLoot(false,250,0.5,pos)
-
-
-		vision = function(container) 
-			AddFOWViewer(DOTA_TEAM_BADGUYS,container:GetAbsOrigin(), 16, 1, false)
-			AddFOWViewer(DOTA_TEAM_GOODGUYS,container:GetAbsOrigin(), 16, 1, false)
-			return 0.5
+			pos = attacker:GetAbsOrigin() + RandomVector(RandomInt(0,100))
 		end
 
-		container:SetContextThink("Vision",vision,0.5)
-
-
-	--end
+		Caravans:DropPresent(target,pos,0.5)
+	
+	end
 end 
 
 function Caravans:PickupPresent(hero)
 	hero.presents = (hero.presents or 0) + 1
 	print(hero.presents)
 
-	hero:RemoveModifierByName("modifier_presents")
+	--[[if hero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+		Caravans:IncrementDirePresents()
+	end]]
+
+	--hero:RemoveModifierByName("modifier_presents")
 	hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
 end
 
@@ -257,7 +299,7 @@ function Caravans:OnStateChange(keys)
 		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
 		CaravanUnitTable[caravanunits] = firstcreep
 		
-		firstcreep:SetContextThink("AI",CaravanAI,0.5)
+		firstcreep:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
 		firstcreep.caravanID = caravanunits
 
 		Timers:CreateTimer(2,function()
@@ -269,7 +311,7 @@ function Caravans:OnStateChange(keys)
 				
 				caravanunit.caravanID = caravanunits
 
-				caravanunit:SetContextThink("AI",CaravanAI,0.5)
+				caravanunit:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
     		
     		if caravanunits < 5 then
       			return 1.5
@@ -282,7 +324,7 @@ function Caravans:OnStateChange(keys)
 end
 
 findrange = 700
-function CaravanAI(unit)
+function Caravans:CaravanAI(unit)
 	local CanMove = true
 
 	local IsEnemyInRange = #FindUnitsInRadius(DOTA_TEAM_BADGUYS,
@@ -291,7 +333,7 @@ function CaravanAI(unit)
 								findrange,
 								DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 								DOTA_UNIT_TARGET_HERO,
-								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
 								FIND_ANY_ORDER,
 								false) ~= 0
 
@@ -318,7 +360,7 @@ function CaravanAI(unit)
 			curwp = curwp + 1
 		end
 
-		if curw == 26 then return end
+		if curw == 26 then Caravans:OnRoundEnd() return end
 
 		if CanMove then
 			--print(curwp,waypoints[curwp])
@@ -336,9 +378,82 @@ function CaravanAI(unit)
 	end
 
 
+	local radiantHeroes = FindUnitsInRadius(DOTA_TEAM_GOODGUYS,
+								unit:GetAbsOrigin(),
+								nil,
+								300,
+								DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+								DOTA_UNIT_TARGET_HERO,
+								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+								FIND_ANY_ORDER,
+								false)
+
+	for _,hero in pairs(radiantHeroes) do
+		if hero.presents and hero.presents > 0 then
+
+			local dropTime = RandomFloat(0.4,0.7)
+			local container = Caravans:DropPresent(hero,unit:GetAbsOrigin() + unit:GetForwardVector()*RandomInt(-30,30), dropTime,false)
+			Timers:CreateTimer(dropTime,function() 
+				container:GetContainedItem():RemoveSelf() 
+				container:RemoveSelf() 
+				Caravans:IncrementCaravanPresents()
+				--print(Caravans.presentsInCaravan)
+			end)
+
+			hero.presents = hero.presents - 1
+			hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
+		end
+	end
+
+
 	return 0.1
 end
 
+function Caravans:ClientUpdatePresents()
+		CustomNetTables:SetTableValue("caravan","Presents",
+		{ 
+			direPresents = self.direPresents,
+			presentsInCaravan = self.presentsInCaravan,
+			direPresentsTotal = self.direPresentsTotal,
+			radiantPresentsTotal = self.radiantPresentsTotal
+		}
+	)
+end
 
+function Caravans:IncrementCaravanPresents()
+	self.presentsInCaravan = self.presentsInCaravan + 1
+	self:ClientUpdatePresents()
+end
+
+function Caravans:DecrementCaravanPresents()
+	self.presentsInCaravan = self.presentsInCaravan - 1
+
+    if self.direPresents < 0 then
+    	print("[CARAVANS] Caravan have "..self.presentsInCaravan.." presents")
+    end
+
+	self:ClientUpdatePresents()
+end
+
+function Caravans:IncrementDirePresents()
+	self.direPresents = self.direPresents + 1
+	self:ClientUpdatePresents()
+end
+
+function Caravans:DecrementDirePresents()
+    self.direPresents = self.direPresents - 1
+    
+    if self.direPresents < 0 then
+    	print("[CARAVANS] Dire have "..self.direPresents.." presents")
+    end
+
+	self:ClientUpdatePresents()
+end
+
+
+function Caravans:SetDirePresents(n)
+	self.direPresents = n
+	self:ClientUpdatePresents()
+end
 
 

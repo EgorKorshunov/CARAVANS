@@ -81,7 +81,7 @@ end
 
 function modifier_caravan:OnAttackLanded(event)
 	if self:GetParent() == event.target then
-		Caravans:DropPresent(event.attacker,event.target)
+		Caravans:CaravanAttacked(event.attacker,event.target)
 	end
 end
 

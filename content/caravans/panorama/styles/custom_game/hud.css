@@ -1,0 +1,136 @@
+.HUDRoot
+{
+	width: 100%;
+	height: 100%;
+
+}
+
+#PresentBarRoot
+{
+	horizontal-align:center;
+	transform: translateY(50px);
+
+	transition-property: transform;
+	transition-duration: 0.06s;
+	transition-timing-function: linear;
+	
+	
+}
+
+.AltPressed #PresentBarRoot 
+{
+	transform: translateY(90px);
+}
+
+#PresentBar
+{
+	flow-children:none;
+	horizontal-align: center;
+}
+
+#PresentsGradient
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #31903c00 ), color-stop( 0.49, #31903cff ),color-stop( 0.51, #9c4036ff ), to(#9c403600 ) );
+	width: 312px;
+	height: 26px;
+	margin-top: 32px;
+}
+
+
+#Presents
+{
+	margin-top: 16px;
+	flow-children: right;
+	width: 175px;
+
+}
+
+#RadiantPresents
+{
+	width: 50px;
+
+	horizontal-align: left;
+	
+	font-size: 48px;
+	font-weight: bold;
+	font-family: RadianceM;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 3px 1.7 #000000FF;
+}
+
+#DirePresents
+{
+	width: 50px;
+
+	horizontal-align: right;
+	
+	font-size: 48px;
+	font-weight: bold;
+	font-family: RadianceM;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 3px 1.7 #000000FF;
+}
+
+#PresentImage
+{
+	//margin-top: -32px;
+
+	horizontal-align: center;
+	width: 60px;
+	height: 78px;
+	background-image: url('file://{images}/custom_game/present.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+
+#PresentsTotal
+{
+	flow-children: right;
+	margin-top: 64px;
+	width: 175px;
+}
+
+#RadiantPresentsTotal
+{
+	width: 50px;
+
+	horizontal-align: left;
+	
+	//font-size: 48px;
+	font-weight: bold;
+	font-family: RadianceM;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 3px 1.7 #000000FF;
+}
+
+#DirePresentsTotal
+{
+	width: 50px;
+
+	horizontal-align: right;
+	
+	//font-size: 48px;
+	font-weight: bold;
+	font-family: RadianceM;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 3px 1.7 #000000FF;
+}
+
+#Time
+{
+	horizontal-align: center;
+
+	margin-top: 72px;
+
+	font-size: 22px;
+	font-weight: bold;
+	font-family: RadianceM;
+	color: white;
+	text-align: center;
+	text-shadow: 0px 0px 3px 1.7 #000000FF;
+}
