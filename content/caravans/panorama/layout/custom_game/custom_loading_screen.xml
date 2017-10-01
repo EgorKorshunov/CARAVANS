@@ -4,6 +4,6 @@
 	</styles> 
 
 	<Panel>
-		<Image id="image_bg" class="ImageBg" src="file://{images}/custom_game/loading_screen/caravans_loadscreen.psd" scaling="stretch-to-fit-y-preserve-aspect"/>
+		<Image id="image_bg" class="ImageBg" src="file://{images}/custom_game/loading_screen/caravans_loadscreen.png" scaling="stretch-to-fit-y-preserve-aspect"/>
 	</Panel>
 </root>
