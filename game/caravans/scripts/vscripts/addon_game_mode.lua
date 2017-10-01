@@ -114,6 +114,7 @@ function Caravans:OnHeroSpawned(hero)
 		hero:AddNewModifier(hero,nil,"modifier_frostivus_aura",{})
 		hero.runes = 0
 		hero.spawned = true
+		hero.presents = 0
 	end
 	if not firstherospawned then
 		Caravans:OnFirstHeroSpawn()
