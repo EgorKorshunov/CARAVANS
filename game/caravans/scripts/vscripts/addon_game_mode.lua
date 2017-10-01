@@ -148,7 +148,7 @@ function Caravans:SelectSpawnPoint(t)
 end
 function Caravans:RunesBuyBack(t)
 	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-	if hero:CheckRunes(CARAVANS_RUNES_BUYBACK_COST) then
+	if hero:CheckRunes(CARAVANS_RUNES_BUYBACK_COST + CARAVANS_RUNES_SPAWN_COST) then
 		hero:ModifyRunes(-CARAVANS_RUNES_BUYBACK_COST)
 		hero:RespawnHero(true,false,true)
 	end

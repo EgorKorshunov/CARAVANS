@@ -36,6 +36,11 @@
 			<Panel id="PresentImage"/>
 			<Label id="Time" text="6:00"/>
 		</Panel>
+		<Panel id="deathscreen" >
+			<Panel id="Map" >
+				<Panel class="spawnpoint" id="spawnpoint_1" onmouseactivate="SelectSpawnPoint(1)"/>
+				<Panel class="spawnpoint" id="spawnpoint_2" onmouseactivate="SelectSpawnPoint(2)"/>
+				<Panel class="spawnpoint" id="spawnpoint_3" onmouseactivate="SelectSpawnPoint(3)"/>
 				<Panel class="spawnpoint" id="spawnpoint_4" onmouseactivate="SelectSpawnPoint(4)"/>
 			</Panel>
 			<Label id="closedeathscreen" text="#Close" onmouseactivate="CloseDeathScreen()"/>
