@@ -92,7 +92,7 @@ function Caravans:OnEntityKilled(keys)
 	local killed = EntIndexToHScript(keys.entindex_killed)
 
 	if killed:IsRealHero() then
-		Caravans:OnHeroDied(killed)
+		Caravans:OnHeroDied(keys)
 	end
 
 	if killed.spawnPoint then
@@ -127,16 +127,18 @@ function Caravans:OnHeroSpawned(hero)
 	hero.selectedspawnpoint = 0
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hero:GetPlayerOwnerID()),"HideDeathScreen",{})
 end
-function Caravans:OnHeroDied(hero)
+function Caravans:OnHeroDied(t)
+	local hero = EntIndexToHScript(t.entindex_killed)
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hero:GetPlayerOwnerID()),"ShowDeathScreen",{})
+    if hero.presents >= 1 then
+		for i=1,hero.presents do
+			Caravans:DropPresent(hero,hero:GetAbsOrigin()+RandomVector(RandomInt(0,200)),RandomFloat(0.4,0.7))
+		end
 
-	for i=1,hero.presents do
-		Caravans:DropPresent(hero,hero:GetAbsOrigin()+RandomVector(RandomInt(0,200)),RandomFloat(0.4,0.7))
+	    if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+	    	Caravans:SetDirePresents(self.direPresents + hero.presents)
+	    end
 	end
-
-    if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-    	Caravans:SetDirePresents(self.direPresents + hero.presents)
-    end
 
     hero.presents = 0
 end
