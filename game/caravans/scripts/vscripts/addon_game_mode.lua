@@ -402,7 +402,7 @@ function Caravans:OnStateChange(keys)
 		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
 		CaravanUnitTable[caravanunits] = firstcreep
 		
-		firstcreep:SetContextThink("AI",CaravanAI,0.5)
+		firstcreep:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
 		firstcreep.caravanID = caravanunits
 
 		Timers:CreateTimer(2,function()
@@ -414,7 +414,7 @@ function Caravans:OnStateChange(keys)
 				
 				caravanunit.caravanID = caravanunits
 
-				caravanunit:SetContextThink("AI",CaravanAI,0.5)
+				caravanunit:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
     		
     		if caravanunits < 5 then
       			return 1.5
