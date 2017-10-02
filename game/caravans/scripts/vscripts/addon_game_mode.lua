@@ -8,6 +8,9 @@ if Caravans == nil then
 end
 
 require('neutrals')
+require('events')
+require('presents')
+
 
 CARAVANS_RUNES_SPAWN_COST = 4
 CARAVANS_RUNES_BUYBACK_COST = 10
@@ -66,8 +69,6 @@ function Caravans:InitGameMode()
   	CustomGameEventManager:RegisterListener("SelectSpawnPoint", Dynamic_Wrap(Caravans, 'SelectSpawnPoint'))
   	CustomGameEventManager:RegisterListener("BuyBack", Dynamic_Wrap(Caravans, 'RunesBuyBack'))
 
-
-
 	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 
 	--GameRules:SetPreGameTime(180)
@@ -76,107 +77,13 @@ function Caravans:InitGameMode()
     GameRules:SetCustomGameSetupRemainingTime(0)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 
-
-
-	curwp = 2
-	waypoints = {}
+	self.curwp = 2
+	self.waypoints = {}
 	for i=1,25 do
-		waypoints[i] = Entities:FindByName(nil,"wp"..i):GetOrigin()
+		self.waypoints[i] = Entities:FindByName(nil,"wp"..i):GetOrigin()
 	end
 
 	Neutrals:Init()
-end
-
-
-function Caravans:OnEntityKilled(keys)
-	local killed = EntIndexToHScript(keys.entindex_killed)
-
-	if killed:IsRealHero() then
-		Caravans:OnHeroDied(keys)
-	end
-
-	if killed.spawnPoint then
-		Neutrals:OnDeath(killed)
-	end
-
-end
-
-function Caravans:OnNpcSpawned(t)
-	local spawnedentity = EntIndexToHScript(t.entindex)
-	if spawnedentity:IsRealHero() then
-		Caravans:OnHeroSpawned(spawnedentity)
-	end
-end
-
-firstherospawned = false
-function Caravans:OnHeroSpawned(hero)
-	if not hero.spawned then
-		hero:AddNewModifier(hero,nil,"modifier_frostivus_aura",{})
-		hero.runes = 0
-		hero.spawned = true
-		hero.presents = 0
-	end
-	if not firstherospawned then
-		Caravans:OnFirstHeroSpawn()
-		firstherospawned = true
-	end
-	if not hero.selectedspawnpoint or hero.selectedspawnpoint == 0 then
-		SpawnOnRandomTotem(hero)
-	else
-		SpawnOnSpawnPoint(hero)
-	end
-	hero.selectedspawnpoint = 0
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hero:GetPlayerOwnerID()),"HideDeathScreen",{})
-end
-function Caravans:OnHeroDied(t)
-	local hero = EntIndexToHScript(t.entindex_killed)
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hero:GetPlayerOwnerID()),"ShowDeathScreen",{})
-    if hero.presents >= 1 then
-		for i=1,hero.presents do
-			Caravans:DropPresent(hero,hero:GetAbsOrigin()+RandomVector(RandomInt(0,200)),RandomFloat(0.4,0.7))
-		end
-
-	    if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	    	Caravans:SetDirePresents(self.direPresents + hero.presents)
-	    end
-	end
-
-    hero.presents = 0
-end
-function Caravans:SelectSpawnPoint(t)
-	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-	if hero:CheckRunes(CARAVANS_RUNES_SPAWN_COST) then
-		hero.selectedspawnpoint = t.number
-	end
-end
-function Caravans:RunesBuyBack(t)
-	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-	if hero:CheckRunes(CARAVANS_RUNES_BUYBACK_COST + CARAVANS_RUNES_SPAWN_COST) then
-		hero:ModifyRunes(-CARAVANS_RUNES_BUYBACK_COST)
-		hero:RespawnHero(true,false,true)
-	end
-end
-
-function Caravans:DropPresent(unitFrom,posTo,dropTime,visible) 
-	local item = CreateItem("item_present",nil,nil)
-	local container = CreateItemOnPositionForLaunch(unitFrom:GetAbsOrigin(),item)
-	item:LaunchLoot(false,RandomInt(150,300),dropTime,posTo)
-
-	if visible == nil then
-		visible = true
-	end
-
-	if visible then
-		vision = function(container) 
-				AddFOWViewer(DOTA_TEAM_BADGUYS,container:GetAbsOrigin(), 16, 1, false)
-				AddFOWViewer(DOTA_TEAM_GOODGUYS,container:GetAbsOrigin(), 16, 1, false)
-				return 0.5
-			end
-
-		container:SetContextThink("Vision",vision,0.5)
-	end
-
-	return container
 end
 
 function Caravans:CaravanAttacked(attacker,target)
@@ -198,6 +105,20 @@ function Caravans:CaravanAttacked(attacker,target)
 end 
 
 
+function Caravans:SelectSpawnPoint(t)
+	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
+	if hero:CheckRunes(CARAVANS_RUNES_SPAWN_COST) then
+		hero.selectedspawnpoint = t.number
+	end
+end
+function Caravans:RunesBuyBack(t)
+	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
+	if hero:CheckRunes(CARAVANS_RUNES_BUYBACK_COST + CARAVANS_RUNES_SPAWN_COST) then
+		hero:ModifyRunes(-CARAVANS_RUNES_BUYBACK_COST)
+		hero:RespawnHero(true,false,true)
+	end
+end
+
 
 function CDOTA_BaseNPC_Hero:ModifyRunes(amount)
 	self.runes = self.runes + amount
@@ -211,66 +132,6 @@ function CDOTA_BaseNPC_Hero:CheckRunes(amount)
 end
 
 
-function Caravans:OnFullConnected(event)
-	
-end
-
-function Caravans:OnPlayerPickHero(event)
-	local hero = EntIndexToHScript(event.heroindex)
-
-    local heroSelected = PlayerResource:GetSelectedHeroEntity(playerID)
-    
-    if heroSelected then --отсеиваем иллюзии
-        return
-    end
-
-end
-
-function Caravans:OnPlayerChat(event)
-	if event.text == "dire" then
-		PlayerResource:GetPlayer(event.playerid):SetTeam(DOTA_TEAM_BADGUYS)
-		PlayerResource:GetSelectedHeroEntity(event.playerid):SetTeam(DOTA_TEAM_BADGUYS)
-	elseif event.text == "radiant" then
-		PlayerResource:GetPlayer(event.playerid):SetTeam(DOTA_TEAM_GOODGUYS)
-		PlayerResource:GetSelectedHeroEntity(event.playerid):SetTeam(DOTA_TEAM_GOODGUYS)
-	end
-
-	if event.text == "-kill" then
-		PlayerResource:GetSelectedHeroEntity(event.playerid):ForceKill(false)
-	end
-	if StringStartsWith(event.text, "-") then
-        local input = split(string.sub(event.text, 2, string.len(event.text)))
-        local command = input[1]
-		if command == "addrunes" then
-			if input[2] then
-				PlayerResource:GetSelectedHeroEntity(event.playerid):ModifyRunes(tonumber(input[2]))
-			else
-				PlayerResource:GetSelectedHeroEntity(event.playerid):ModifyRunes(1)
-			end
-		end
-  	end
-end
-	
-
-
-
-function Caravans:PickupPresent(hero)
-	hero.presents = (hero.presents or 0) + 1
-	print(hero.presents)
-
-	--[[if hero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-		Caravans:IncrementDirePresents()
-	end]]
-
-	--hero:RemoveModifierByName("modifier_presents")
-	hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
-end
-
-
-
-function Caravans:OnFirstHeroSpawn()
-	Caravans:InitSpawnPoints()
-end
 function Caravans:StartSalvesSpawn()
 	Timers:CreateTimer(1,function()
 			for i=1,12 do
@@ -286,20 +147,7 @@ function Caravans:StartSalvesSpawn()
 		return 30
    	end)
 end
-function Caravans:OnItemPickedUp(keys)
-  	local unitEntity = nil
-  	if keys.UnitEntitIndex then
-    	unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
-  	elseif keys.HeroEntityIndex then
-    	unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
-  	end
-	local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
-	local player = PlayerResource:GetPlayer(keys.PlayerID)
-	local itemname = keys.itemname
-	if itemEntity.spawn then
-		itemEntity.spawn.heal = nil
-	end
-end
+
 
 function Caravans:InitSpawnPoints()
 	for i=1,4 do
@@ -366,39 +214,6 @@ function Caravans:OnThink()
 end]]
 
 
-
-function Caravans:OnStateChange(keys)
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		Caravans:StartSalvesSpawn()
-		local caravanunits = 1
-		local firstcreep = CreateUnitByName("npc_dota_caravan_unit",waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
-		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
-		CaravanUnitTable[caravanunits] = firstcreep
-		
-		firstcreep:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
-		firstcreep.caravanID = caravanunits
-
-		Timers:CreateTimer(2,function()
-				caravanunits = caravanunits + 1
-				
-				local caravanunit = CreateUnitByName("npc_dota_caravan_unit",waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
-				caravanunit:AddNewModifier(caravanunit,nil,"modifier_caravan",{})
-				CaravanUnitTable[caravanunits] = caravanunit
-				
-				caravanunit.caravanID = caravanunits
-
-				caravanunit:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
-    		
-    		if caravanunits < 5 then
-      			return 1.5
-      		else
-      			return nil
-      		end
-    	end
-  		)
-	end
-end
-
 findrange = 700
 function Caravans:CaravanAI(unit)
 	local CanMove = true
@@ -430,17 +245,17 @@ function Caravans:CaravanAI(unit)
 	
 
 	if unit.caravanID == 1 then
-		local distanceToWayPoint = (unit:GetAbsOrigin() - waypoints[curwp]):Length2D()
+		local distanceToWayPoint = (unit:GetAbsOrigin() - self.waypoints[self.curwp]):Length2D()
 
 		if distanceToWayPoint < 25 then
-			curwp = curwp + 1
+			self.curwp = self.curwp + 1
 		end
 
-		if curw == 26 then Caravans:OnRoundEnd() return end
+		if self.curw == 26 then Caravans:OnRoundEnd() return end
 
 		if CanMove then
 			--print(curwp,waypoints[curwp])
-			unit:MoveToPosition(waypoints[curwp])
+			unit:MoveToPosition(self.waypoints[self.curwp])
 		else
 			unit:Stop()
 		end
@@ -484,63 +299,9 @@ function Caravans:CaravanAI(unit)
 
 	return 0.1
 end
-function Caravans:ClientUpdatePresents()
-		CustomNetTables:SetTableValue("caravan","Presents",
-		{ 
-			direPresents = self.direPresents,
-			presentsInCaravan = self.presentsInCaravan,
-			direPresentsTotal = self.direPresentsTotal,
-			radiantPresentsTotal = self.radiantPresentsTotal
-		}
-	)
-end
-
-function Caravans:IncrementCaravanPresents()
-	self.presentsInCaravan = self.presentsInCaravan + 1
-	self:ClientUpdatePresents()
-end
-
-function Caravans:DecrementCaravanPresents()
-	self.presentsInCaravan = self.presentsInCaravan - 1
-
-    if self.direPresents < 0 then
-    	print("[CARAVANS] Caravan have "..self.presentsInCaravan.." presents")
-    end
-
-	self:ClientUpdatePresents()
-end
-
-function Caravans:IncrementDirePresents()
-	self.direPresents = self.direPresents + 1
-	self:ClientUpdatePresents()
-end
-
-function Caravans:DecrementDirePresents()
-    self.direPresents = self.direPresents - 1
-    
-    if self.direPresents < 0 then
-    	print("[CARAVANS] Dire have "..self.direPresents.." presents")
-    end
-
-	self:ClientUpdatePresents()
-end
 
 
-function Caravans:SetDirePresents(n)
-	self.direPresents = n
-	self:ClientUpdatePresents()
-end
 
-function SpawnOnRandomTotem(hero)
-	local random = RandomInt(1,4)
-	local spawnpointabs = Entities:FindByName(nil,"spawn_" .. random):GetOrigin()
-	FindClearSpaceForUnit(hero,spawnpointabs,true)
-end
-function SpawnOnSpawnPoint(hero)
-	local spawnpointabs = Entities:FindByName(nil,"spawn_" .. hero.selectedspawnpoint):GetOrigin()
-	FindClearSpaceForUnit(hero,spawnpointabs,true)
-	hero:ModifyRunes(-CARAVANS_RUNES_SPAWN_COST)
-end
 
 
 function Caravans:FilterExecuteOrder( filterTable )
