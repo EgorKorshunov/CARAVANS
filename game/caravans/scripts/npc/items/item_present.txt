@@ -1,14 +1,29 @@
 "item_present"
-   {
+{
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"						"item_datadriven"
-	"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"Model"							"models/props_winter/present.vmd" 
+	"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"Model"							"models/props_winter/present.vmdl" 
 	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-	"AbilityTextureName"			"custom/lia_claws"
 	
 	"ItemKillable" "0" 
 	"ItemDroppable" "1"
+	"ItemPermanent"					"0"
+	"ItemInitialCharges"            "1"
+	"ItemCastOnPickup" 				"1"	
+	"ItemPurchasable"				"0"
+
+	"OnSpellStart"
+	{
+		"SpendCharge" 
+		{}
+		"RunScript"
+		{
+			"ScriptFile"	"Present.lua"
+			"Function"		"PickupPresent"
+		}
+	}
 
 }
+

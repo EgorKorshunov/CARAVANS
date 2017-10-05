@@ -6,6 +6,49 @@
 	<scripts>
 		<include src="file://{resources}/scripts/hud.js" /> 
 	</scripts>
+	<script>
+		$.Schedule(0.01,AltCheck)
+
+		function AltCheck()
+		{
+			$.GetContextPanel().SetHasClass("AltPressed", GameUI.IsAltDown())
+			$.Schedule(0.01,AltCheck)
+		}
+
+	</script>
 	<Panel class="HUDRoot" hittest="false">
+		<Panel id="PresentBarRoot" >
+			<Panel id="PresentsGradient" />
+
+			<Panel id="PresentBar" >
+				<Panel id="Presents" >
+					<Label id="RadiantPresents" text="25"/>
+					<Label id="DirePresents" text="0"/>
+				</Panel>
+
+				<Panel id="PresentsTotal" >
+					<Label id="RadiantPresentsTotal" text="0"/>
+					<Label id="DirePresentsTotal" text="0"/>
+				</Panel>
+			</Panel>
+
+			
+			<Panel id="PresentImage"/>
+			<Label id="Time" text="6:00"/>
+		</Panel>
+		<Panel id="deathscreen" >
+			<Panel id="Map" >
+				<Panel class="spawnpoint" id="spawnpoint_1" onmouseactivate="SelectSpawnPoint(1)"/>
+				<Panel class="spawnpoint" id="spawnpoint_2" onmouseactivate="SelectSpawnPoint(2)"/>
+				<Panel class="spawnpoint" id="spawnpoint_3" onmouseactivate="SelectSpawnPoint(3)"/>
+				<Panel class="spawnpoint" id="spawnpoint_4" onmouseactivate="SelectSpawnPoint(4)"/>
+			</Panel>
+			<Label id="closedeathscreen" text="#Close" onmouseactivate="CloseDeathScreen()"/>
+			<Label id="choisespawnpoint" text="#choisespawnpoint"/>
+			<Panel id="BuyBack" onmouseactivate="BuyBack()">
+				<Label id="buybacklabel" text="#buyback"/>
+				<Label id="byubackcost" text="999"/>
+			</Panel>
+		</Panel>
 	</Panel>
 </root>
