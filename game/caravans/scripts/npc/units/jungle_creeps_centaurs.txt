@@ -1,0 +1,224 @@
+"jungle_creep_centaur_joe" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/centaurs/centaur_002.vmdl"
+
+  "precache"
+  {
+    "model" "models/creeps/centaurs/centaur_002.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+  }
+
+
+  "SoundSet" "Hero_Centaur" 
+  "ModelScale" "1" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
+  "Ability2" "" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "10" 
+  "MagicalResistance" "25" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "70" 
+  "AttackDamageMax" "93" 
+  "AttackRate" "1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+  "BountyXP" "120" 
+  "BountyGoldMin" "80" 
+  "BountyGoldMax" "120" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "320" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "850" 
+  "StatusHealthRegen" "3" 
+  "StatusMana" "400" 
+  "StatusManaRegen" "0.5" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+
+
+  "HasInventory" "0" 
+}
+
+"jungle_creep_centaur_doc" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/centaurs/centaur_003_shaman.vmdl"
+
+  "precache"
+  {
+    "model" "models/creeps/centaurs/centaur_003_shaman.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+  }
+
+
+  "SoundSet" "Hero_Centaur" 
+  "ModelScale" "0.9" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
+  "Ability2" "" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "2" 
+  "MagicalResistance" "10" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "30" 
+  "AttackDamageMax" "60" 
+  "AttackRate" "1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+  "BountyXP" "90" 
+  "BountyGoldMin" "50" 
+  "BountyGoldMax" "90" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "300" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "600" 
+  "StatusHealthRegen" "5" 
+  "StatusMana" "800" 
+  "StatusManaRegen" "2" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+
+
+  "HasInventory" "0" 
+}
+
+"jungle_creep_centaur_bob" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/centaurs/centaur_001.vmdl"
+
+  "precache"
+  {
+    "model" "models/creeps/centaurs/centaur_001.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+  }
+
+
+  "SoundSet" "Hero_Centaur" 
+  "ModelScale" "0.9" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
+  "Ability2" "" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "6" 
+  "MagicalResistance" "15" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "80" 
+  "AttackDamageMax" "120" 
+  "AttackRate" "1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+  "BountyXP" "90" 
+  "BountyGoldMin" "50" 
+  "BountyGoldMax" "90" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "300" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "750" 
+  "StatusHealthRegen" "2" 
+  "StatusMana" "240" 
+  "StatusManaRegen" "0.5" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+
+
+  "HasInventory" "0" 
+}

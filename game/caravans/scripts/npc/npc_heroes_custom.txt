@@ -1,8 +1,5 @@
-"DOTAHeroes"
+//Generated using Dota Custom KVScript Files Merger by cris9696
+"DotaHeroes"
 {
-	"npc_dota_hero_axe_new"
-	{
-		"override_hero"				"npc_dota_hero_axe"
-		"Ability2"					"earthshaker_fissure"
-	}
+
 }

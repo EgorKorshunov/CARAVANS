@@ -1,33 +1,23 @@
+//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
+	
+
+
+	//Start of file item_present.txt
 	"item_present"
-   {
+	   {
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"Model"							"models/props_winter/present.vmdl" 
+		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_winter/present.vmd" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"AbilityTextureName"			"custom/lia_claws"
 		
 		"ItemKillable" "0" 
 		"ItemDroppable" "1"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"            "1"
-		"ItemCastOnPickup" 				"1"	
-		"ItemPurchasable"				"0"
-
-		"OnSpellStart"
-		{
-			"SpendCharge" 
-			{}
-			"RunScript"
-			{
-				"ScriptFile"	"addon_game_mode.lua"
-				"Function"		"PickupPresent"
-			}
-		}
-
+	
 	}
-
+	//End of file item_present.txt
 }

@@ -1,0 +1,148 @@
+"jungle_creep_spider" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/spiders/spider_kidnap.vmdl"
+
+  "precache"
+  {
+    "model" "models/creeps/spiders/spider_kidnap.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+  }
+
+
+  "SoundSet" "Hero_Broodmother" 
+  "ModelScale" "1" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
+  "Ability2" "" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "8" 
+  "MagicalResistance" "20" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "70" 
+  "AttackDamageMax" "93" 
+  "AttackRate" "1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+  "BountyXP" "110" 
+  "BountyGoldMin" "70" 
+  "BountyGoldMax" "120" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "300" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "800" 
+  "StatusHealthRegen" "3" 
+  "StatusMana" "240" 
+  "StatusManaRegen" "0.5" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+
+
+  "HasInventory" "0" 
+}
+
+"jungle_creep_spiderling" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl"
+
+  "precache"
+  {
+    "model" "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+  }
+
+  "SoundSet" "Hero_Broodmother" 
+  "ModelScale" "0.8" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
+  "Ability2" "" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "1" 
+  "MagicalResistance" "5" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "22" 
+  "AttackDamageMax" "26" 
+  "AttackRate" "1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+  "BountyXP" "25" 
+  "BountyGoldMin" "20" 
+  "BountyGoldMax" "40" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "300" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "250" 
+  "StatusHealthRegen" "1" 
+  "StatusMana" "0" 
+  "StatusManaRegen" "0" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+
+
+  "HasInventory" "0" 
+}
