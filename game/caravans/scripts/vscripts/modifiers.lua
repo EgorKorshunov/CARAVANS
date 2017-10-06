@@ -15,6 +15,7 @@ function modifier_caravan:CheckState()
 	[MODIFIER_STATE_MAGIC_IMMUNE]		=		true,
 	--[MODIFIER_STATE_ATTACK_IMMUNE]		=		true,
 	--[MODIFIER_STATE_PROVIDES_VISION]		=		true,
+	[MODIFIER_STATE_NOT_ON_MINIMAP]		=		true,
 	}
 	return state
 end
@@ -125,7 +126,7 @@ function modifier_spawnpoint:CheckState()
   local state = {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    --[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_PROVIDES_VISION] = true,

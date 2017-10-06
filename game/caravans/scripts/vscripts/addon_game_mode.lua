@@ -38,7 +38,7 @@ end
 
 function Caravans:InitGameMode()
 
-	self.round = 1
+	self.round = 0
 
 	self.presentsInCaravan = 25 
 
@@ -49,12 +49,11 @@ function Caravans:InitGameMode()
 	self.radiantPresentsTotal = 0
 
 	self:ClientUpdatePresents()
-	self.presents = 30 
-	self.presentsMin = 10
-	self.presentDissappearTime = 10
+	--self.presents = 30 
+	--self.presentsMin = 10
+	--self.presentDissappearTime = 10
 
-	CaravanUnitTable = {}
-	_G.CaravanUnitTable = CaravanUnitTable
+	_G.CaravanUnitTable = {}
 
     ListenToGameEvent("game_rules_state_change",Dynamic_Wrap(Caravans, "OnStateChange"),self)
 
@@ -72,7 +71,7 @@ function Caravans:InitGameMode()
 	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 
 	--GameRules:SetPreGameTime(180)
-	GameRules:SetPreGameTime(10)
+	GameRules:SetPreGameTime(0)
 	GameRules:LockCustomGameSetupTeamAssignment(true)
     GameRules:SetCustomGameSetupRemainingTime(0)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
@@ -84,6 +83,85 @@ function Caravans:InitGameMode()
 	end
 
 	Neutrals:Init()
+end
+
+function Caravans:PrepareToRound()
+	self.round = self.round + 1
+
+	self.preRoundTime = true
+	
+	if self.round ~= 1 then
+		self.direPresentsTotal = self.direPresentsTotal + self.direPresents
+		self.direPresents = 0
+		self.radiantPresentsTotal = self.radiantPresentsTotal + self.presentsInCaravan
+		self.presentsInCaravan = 25
+		Caravans:ClientUpdatePresents()
+
+		self.curwp = 2
+		CaravanUnitTable[1]:MoveToPosition(self.waypoints[25]+Vector(700,-700,0))
+		Timers:CreateTimer(9,
+			function()
+				for _,unit in pairs(CaravanUnitTable) do
+					unit:RemoveSelf()
+				end
+			end
+		)
+	end
+
+	Timers:CreateTimer(10,function() Caravans:SpawnCaravan() end)
+
+	Timers:CreateTimer(60, function() Caravans:StartRound() end)
+end
+
+function Caravans:StartRound()
+	self.preRoundTime = false
+end
+
+function Caravans:OnRoundEnd()
+	if self.round == 3 then
+		if self.radiantPresentsTotal > self.direPresentsTotal then
+			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		else
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+		end
+	else
+		Caravans:PrepareToRound()
+	end
+end
+
+function Caravans:SpawnCaravan()
+	_G.CaravanUnitTable = {}
+
+	local caravanunits = 1
+	local firstcreep = CreateUnitByName("npc_dota_caravan_unit",self.waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
+	firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
+	CaravanUnitTable[caravanunits] = firstcreep
+	firstcreep:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
+	firstcreep.caravanID = caravanunits
+
+	Timers:CreateTimer(2,function()
+			caravanunits = caravanunits + 1
+			
+			local caravanunit = CreateUnitByName("npc_dota_caravan_unit",self.waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
+			caravanunit:AddNewModifier(caravanunit,nil,"modifier_caravan",{})
+			CaravanUnitTable[caravanunits] = caravanunit
+			caravanunit.caravanID = caravanunits
+
+			if caravanunit.caravanID == 3 then
+				local minimapIcon = CreateUnitByName("minimap_courier",Vector(0,0,0),false,nil,nil,5)
+				minimapIcon:AddNewModifier(minimapIcon,nil,"modifier_spawnpoint",{})
+				minimapIcon:FollowEntity(caravanunit,true)
+			end 
+
+			caravanunit:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
+			
+			if caravanunits < 5 then
+	  			return 1.5
+	  		else
+	  			return nil
+	  		end
+		end
+	)
 end
 
 function Caravans:CaravanAttacked(attacker,target)
@@ -242,20 +320,24 @@ function Caravans:CaravanAI(unit)
 		CanMove = false
 	end
 
-	
-
 	if unit.caravanID == 1 then
-		local distanceToWayPoint = (unit:GetAbsOrigin() - self.waypoints[self.curwp]):Length2D()
+		local currentWayPoint = self.waypoints[self.curwp]
+
+
+		local distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
 
 		if distanceToWayPoint < 25 then
 			self.curwp = self.curwp + 1
 		end
 
-		if self.curw == 26 then Caravans:OnRoundEnd() return end
+		if self.curwp == 26 then Caravans:OnRoundEnd() return end
 
 		if CanMove then
 			--print(curwp,waypoints[curwp])
-			unit:MoveToPosition(self.waypoints[self.curwp])
+			if self.preRoundTime then
+				currentWayPoint = (self.waypoints[2] + self.waypoints[1])/2
+			end
+			unit:MoveToPosition(currentWayPoint)
 		else
 			unit:Stop()
 		end

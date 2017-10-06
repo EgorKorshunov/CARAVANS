@@ -105,32 +105,7 @@ end
 function Caravans:OnStateChange(keys)
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		Caravans:StartSalvesSpawn()
-		local caravanunits = 1
-		local firstcreep = CreateUnitByName("npc_dota_caravan_unit",self.waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
-		firstcreep:AddNewModifier(firstcreep,nil,"modifier_caravan",{})
-		CaravanUnitTable[caravanunits] = firstcreep
-		
-		firstcreep:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
-		firstcreep.caravanID = caravanunits
-
-		Timers:CreateTimer(2,function()
-				caravanunits = caravanunits + 1
-				
-				local caravanunit = CreateUnitByName("npc_dota_caravan_unit",self.waypoints[1],true,nil,nil,DOTA_TEAM_GOODGUYS)
-				caravanunit:AddNewModifier(caravanunit,nil,"modifier_caravan",{})
-				CaravanUnitTable[caravanunits] = caravanunit
-				
-				caravanunit.caravanID = caravanunits
-
-				caravanunit:SetContextThink("AI",function(unit) return Caravans:CaravanAI(unit) end,0.5)
-    		
-    		if caravanunits < 5 then
-      			return 1.5
-      		else
-      			return nil
-      		end
-    	end
-  		)
+		Caravans:PrepareToRound()
 	end
 end
 
@@ -146,6 +121,33 @@ function Caravans:OnPlayerChat(event)
 	if event.text == "-kill" then
 		PlayerResource:GetSelectedHeroEntity(event.playerid):ForceKill(false)
 	end
+
+	if event.text == "+wp" then
+		local DrawWaypoints = function()
+			for k,point in pairs(self.waypoints) do
+				if k < self.curwp then
+					DebugDrawSphere(point,Vector(0,255,0),0,25,false,1)
+				elseif k == self.curwp then
+					DebugDrawSphere(point,Vector(255,255,0),0,25,false,1)
+				else
+					DebugDrawSphere(point,Vector(255,0,0),0,25,false,1)
+				end
+				DebugDrawText(point,tostring(k),false,1)
+			end
+			return 0.9
+		end
+
+		Timers:CreateTimer("WaypointsDebug",
+		{
+            endTime = 0, 
+            callback = DrawWaypoints
+        })	
+	end
+
+	if event.text == "-wp" then
+		Timers:RemoveTimer("WaypointsDebug")
+	end
+
 	if StringStartsWith(event.text, "-") then
         local input = split(string.sub(event.text, 2, string.len(event.text)))
         local command = input[1]
