@@ -1,0 +1,65 @@
+"npc_dota_hero_witch_doctor"
+{
+	"override_hero"				"npc_dota_hero_witch_doctor"
+			
+	"Ability1" ""	
+	"Ability2" "" 		
+	"Ability3" "" 
+	"Ability4" "" 		
+	"Ability5" "" 						
+	"Ability6"         ""
+    "Ability7"         ""
+    "Ability8"         ""
+    "Ability9"         ""				
+	"Ability10"         ""
+    "Ability11"         ""
+    "Ability12"         ""
+    "Ability13"         ""
+    "Ability14"         ""
+    "Ability15"         ""
+    "Ability16"         ""
+    "Ability17"         ""
+
+	"ArmorPhysical" "0" 		
+	"MagicalResistance" "25"	
+
+	"AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin" "10" 
+	"AttackDamageMax" "15" 
+	"AttackRate" "1.9" 
+	"AttackAnimationPoint" "0.4" 
+	"AttackAcquisitionRange" "900" 
+	"AttackRange" "600" 
+	"ProjectileSpeed"   "900"
+
+	"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributeBaseStrength"		"10"										
+	"AttributeStrengthGain"		"1"										
+	"AttributeBaseIntelligence"	"20"										
+	"AttributeIntelligenceGain"	"2"										
+	"AttributeBaseAgility"		"10"										
+	"AttributeAgilityGain"		"1"	
+
+	"BountyXP" "0"
+	"BountyGoldMin" "0" 
+	"BountyGoldMax" "0" 
+
+	"MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	"MovementSpeed" "300" 
+	"MovementTurnRate" "0.5" 
+
+	"StatusHealth" "400"
+	"StatusHealthRegen" "1" 
+	"StatusMana" "125" 
+	"StatusManaRegen" "0.5" 
+
+	"TeamName" "DOTA_TEAM_GOODGUYS" 
+	"CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_HERO"
+	"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_HERO"
+	"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+
+	"VisionDaytimeRange" "900"
+	"VisionNighttimeRange" "800" 
+
+	"HasInventory" "1" 
+}	

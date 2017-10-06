@@ -32,27 +32,60 @@
 	border-radius: 2px;
 	border: 2px solid #1c1c1c;
 }
-#choisespawnpoint
+#choisespawnpoint 
 {
-	align: center center;
-	margin: 0% 0% 50% -4.5%;
+	align: left center;
+	margin: 0% 0% 10% 0%;
 	font-family: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: bold;
     text-shadow: 1px 1px 2px 2 #000000;
 	color: white;
 	text-align: left;
 }
-#closedeathscreen
+.HUDFlipped #choisespawnpoint 
 {
-	align: center center;
-	margin: 0% 0% 50% 22%;
+	align: right center;
+	margin: 0% 0% 10% 0%;
+}
+.HUDFlipped #closedeathscreen
+{
+	align: right center;
+	margin: 0% 13% 10% 0%;
+}
+#opendeathscreen
+{
+	align: left bottom;
+	margin: 0% 0% 23% 5.5%;
 	font-family: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
     text-shadow: 1px 1px 2px 2 #000000;
 	color: gray;
-	text-align: right;
+	text-align: left;
+	transition-property: brightness;
+	transition-delay: 0.0s;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+#opendeathscreen:hover
+{
+	brightness: 3.0;
+}
+#opendeathscreen:active
+{
+	sound: "ui_friends_slide_in";
+}
+#closedeathscreen
+{
+	align: left center;
+	margin: 0% 0% 10% 13%;
+	font-family: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	font-size: 20px;
+	font-weight: bold;
+    text-shadow: 1px 1px 2px 2 #000000;
+	color: gray;
+	text-align: left;
 	transition-property: brightness;
 	transition-delay: 0.0s;
 	transition-duration: 0.2s;
@@ -85,19 +118,19 @@
 {
 	background-size: 35px 35px;
 }
-#spawnpoint_1
+.spawnpoint_1
 {
 	position: 1% -41% 0px;
 }
-#spawnpoint_2
+.spawnpoint_2
 {
 	position: 19.5% 1.4% 0px;
 }
-#spawnpoint_3
+.spawnpoint_3
 {
 	position: -6% 42% 0px;
 }
-#spawnpoint_4
+.spawnpoint_4
 {
 	position: -19.5% 6% 0px;
 }

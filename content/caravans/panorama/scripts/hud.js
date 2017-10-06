@@ -1,7 +1,6 @@
-var runes = 0;
 var selectedspawnpoint = null;
-var buybackcost = 10;
-var runeslabel = null;
+var hud;
+var spawnpointsstyle = {"1" : "1% -41% 0px;","2" : "19.5% 1.4% 0px;","3" : "-6% 42% 0px;","4" : "-19.5% 6% 0px;"}
 function UpdatePresents(table, key, data) {
 	if (key == "Presents") {
 		$("#RadiantPresents").text = data.presentsInCaravan
@@ -10,98 +9,112 @@ function UpdatePresents(table, key, data) {
 		$("#DirePresentsTotal").text = data.direPresentsTotal
 	}
 }
-function SelectSpawnPoint(number)
+var SetSpawnPoint = (function(number)
 {
-	if(runes >= buybackcost)
+	return function()
 	{
 		if(selectedspawnpoint != number)
 		{
-			$("#spawnpoint_" + number).style["wash-color"] = 'white';
+			var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+			minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + number).style["wash-color"] = 'white';
 			for (var i = 1; i <= 4; i++) 
 			{
 				if(i != number)
 				{
-					$("#spawnpoint_" + i).style["wash-color"] = 'gray';
+					if(minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i) != null)
+					{
+						minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i).style["wash-color"] = 'gray';
+					}
 				}
 			}
 			selectedspawnpoint = number;
-			$("#BuyBack").style.opacity = "1.0";
-			$("#byubackcost").text = buybackcost;
 			GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : selectedspawnpoint});
 		}
 		else
 		{
-			$("#spawnpoint_" + number).style["wash-color"] = 'gray';
+			minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + number).style["wash-color"] = 'gray';
 			selectedspawnpoint = null;
-			$("#BuyBack").style.opacity = "0.0";
 			GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : 0});
 		}
 	}
-	else
-	{
-		selectedspawnpoint = null;
-		GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : 0});
-	}
-}
-function runesupdate(t) 
-{
-	runes = t.runes
-	runeslabel.text = runes;
-}
-function BuyBack() 
-{
-	GameEvents.SendCustomGameEventToServer("BuyBack",{});
-}
+});
 function CloseDeathScreen()
 {
-	$("#deathscreen").style.opacity = "0.0";
+	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	minimap.style['position'] = "0% 0% 0%";
+	for (var i = 1; i <= 4; i++) 
+	{
+		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
+		panel.style.visibility = "collapse";
+	}
+	$("#choisespawnpoint").style.visibility = "collapse;";
+	$("#closedeathscreen").style.visibility = "collapse;";
+	$("#opendeathscreen").style.visibility = "collapse;";
+}
+var SpawnPointOver = (function(panel)
+{
+	return function()
+	{
+		panel.style["background-size"] = "25px 25px;";
+	}
+});
+var SpawnPointOut = (function(panel)
+{
+	return function()
+	{
+		panel.style["background-size"] = "20px 20px;";
+	}
+});
+function CloseDS() 
+{
+	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	minimap.style['position'] = "0% 0% 0%";
+	for (var i = 1; i <= 4; i++) 
+	{
+		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
+		panel.style.visibility = "collapse";
+	}
+	$("#choisespawnpoint").style.visibility = "collapse;";
+	$("#closedeathscreen").style.visibility = "collapse;";
+	$("#opendeathscreen").style.visibility = "visible;";
 }
 function ShowDeathScreen()
 {
-	$("#deathscreen").style.opacity = "1.0";
+	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	minimap.style['position'] = "0% -30% 0%";
 	for (var i = 1; i <= 4; i++) 
 	{
-		$("#spawnpoint_" + i).style["wash-color"] = 'gray';
+		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
+		if(panel == null)
+		{
+			panel = $.CreatePanel("Panel",minimap.FindChildTraverse("minimap_block"),"spawnpoint_" + i);
+			panel.style.align = "center center;";
+			panel.style.height = "25px;";
+			panel.style.width = "25px;";
+			panel.style["background-size"] = "20px 20px;";
+			panel.style["background-repeat"] = "no-repeat;"
+			panel.style["background-position"] = "center;"
+			panel.style["background-image"] = 'url("file://{images}/custom_game/spawnpoint.png");'
+			panel.style.position = spawnpointsstyle[i]
+			panel.SetPanelEvent("onmouseover",SpawnPointOver(panel));
+			panel.SetPanelEvent("onmouseout",SpawnPointOut(panel));
+			panel.SetPanelEvent("onmouseactivate",SetSpawnPoint(i));
+		}
+		panel.style["wash-color"] = "gray";
+		panel.style.visibility = "visible";
 	}
-	$("#BuyBack").style.opacity = "0.0";
-}
-function SetRunesPanelStyle(runespanel)
-{
-	runespanel.style["height"] = "40%;"
-	runespanel.style["margin-bottom"] = "9%;"
-	runespanel.style["width"] = "45%;"
-	runespanel.style["align"] = "right bottom;"
-	runeslabel = $.CreatePanel( "Label", runespanel, "runeslabel" );
-	runeslabel.text = runes;
-	runeslabel.style["align"] = "right center;"
-	runeslabel.style["color"] = "#8554ad;"
-	runeslabel.style["font-size"] = "22px;"
-	runeslabel.style["margin-right"] = "35%;"
-	runeslabel.style["text-shadow"] = "0px 1px 0px 3.0 #00000077;"
-	runeslabel.style["font-weight"] = "bold;"
-	runeslabel.style["text-align"] = "right;"
-	var panel = $.CreatePanel( "Panel", runespanel, "runesicon" );
-	panel.style["align"] = "right center;"
-	panel.style["background-image"] = 'url("file://{images}/custom_game/spawnpoint.png");'
-	panel.style["height"] = "25px;"
-	panel.style["width"] = "25px;"
-	panel.style["background-size"] = "100% 100%;"
-	panel.style["background-repeat"] = "no-repeat;"
-	panel.style["background-position"] = "center;"
-	panel.style["margin-right"] = "15%;"
+	$("#choisespawnpoint").style.visibility = "visible;";
+	$("#closedeathscreen").style.visibility = "visible;";
+	$("#opendeathscreen").style.visibility = "collapse;";
 }
 (function()
 {
-	var hud = $.GetContextPanel().GetParent().GetParent().GetParent();
-	var quickbuy = hud.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("shop_launcher_block").FindChildTraverse("quickbuy");
-	var runespanel = quickbuy.FindChildTraverse("runespanel")
-	GameEvents.Subscribe("RunesUpdate",runesupdate);
+	hud = $.GetContextPanel().GetParent().GetParent().GetParent();
+	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	minimap.style["transition-property"] = "position;"
+	minimap.style["transition-duration"] = "0.2s;"
+	minimap.style["transition-timing-function"] = "ease-in;"
 	GameEvents.Subscribe("ShowDeathScreen",ShowDeathScreen);
 	GameEvents.Subscribe("HideDeathScreen",CloseDeathScreen);
 	CustomNetTables.SubscribeNetTableListener("caravan",UpdatePresents)
-	if(runespanel == null)
-	{
-		runespanel = $.CreatePanel( "Panel", quickbuy, "runespanel" );
-		SetRunesPanelStyle(runespanel);
-	}
 })();
