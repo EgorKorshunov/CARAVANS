@@ -12,9 +12,6 @@ require('events')
 require('presents')
 
 
-CARAVANS_RUNES_SPAWN_COST = 4
-CARAVANS_RUNES_BUYBACK_COST = 10
-
 LinkLuaModifier("modifier_presents","modifier_presents.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spawnpoint","modifiers",LUA_MODIFIER_MOTION_NONE)
@@ -66,7 +63,6 @@ function Caravans:InitGameMode()
     ListenToGameEvent("dota_item_picked_up",Dynamic_Wrap(Caravans, "OnItemPickedUp"),self)
   	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( Caravans, "FilterExecuteOrder" ), self )
   	CustomGameEventManager:RegisterListener("SelectSpawnPoint", Dynamic_Wrap(Caravans, 'SelectSpawnPoint'))
-  	CustomGameEventManager:RegisterListener("BuyBack", Dynamic_Wrap(Caravans, 'RunesBuyBack'))
 
 	--GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 
@@ -185,28 +181,7 @@ end
 
 function Caravans:SelectSpawnPoint(t)
 	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-	if hero:CheckRunes(CARAVANS_RUNES_SPAWN_COST) then
-		hero.selectedspawnpoint = t.number
-	end
-end
-function Caravans:RunesBuyBack(t)
-	local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-	if hero:CheckRunes(CARAVANS_RUNES_BUYBACK_COST + CARAVANS_RUNES_SPAWN_COST) then
-		hero:ModifyRunes(-CARAVANS_RUNES_BUYBACK_COST)
-		hero:RespawnHero(true,false,true)
-	end
-end
-
-
-function CDOTA_BaseNPC_Hero:ModifyRunes(amount)
-	self.runes = self.runes + amount
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetPlayerOwnerID()),"RunesUpdate",{runes = self.runes})
-end
-function CDOTA_BaseNPC_Hero:CheckRunes(amount)
-	if self.runes > amount then
-		return true
-	end
-	return false
+	hero.selectedspawnpoint = t.number
 end
 
 
@@ -216,8 +191,8 @@ function Caravans:StartSalvesSpawn()
 				local spawnpoint = Entities:FindByName(nil,"heal_" .. i)
 				if spawnpoint.heal == nil then
 	              	local item = CreateItem("item_healing_salve_use", nil, nil)
-	            	CreateItemOnPositionSync(spawnpoint:GetOrigin(),item)
 	                item:SetPurchaseTime(0)
+	            	CreateItemOnPositionSync(spawnpoint:GetOrigin(),item)
 					spawnpoint.heal = item
 					item.spawn = spawnpoint
 				end

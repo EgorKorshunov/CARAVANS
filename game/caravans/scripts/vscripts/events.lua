@@ -41,14 +41,12 @@ end
 function SpawnOnSpawnPoint(hero)
 	local spawnpointabs = Entities:FindByName(nil,"spawn_" .. hero.selectedspawnpoint):GetOrigin()
 	FindClearSpaceForUnit(hero,spawnpointabs,true)
-	hero:ModifyRunes(-CARAVANS_RUNES_SPAWN_COST)
 end
 
 firstherospawned = false
 function Caravans:OnHeroSpawned(hero)
 	if not hero.spawned then
 		hero:AddNewModifier(hero,nil,"modifier_frostivus_aura",{})
-		hero.runes = 0
 		hero.spawned = true
 		hero.presents = 0
 	end
@@ -151,12 +149,5 @@ function Caravans:OnPlayerChat(event)
 	if StringStartsWith(event.text, "-") then
         local input = split(string.sub(event.text, 2, string.len(event.text)))
         local command = input[1]
-		if command == "addrunes" then
-			if input[2] then
-				PlayerResource:GetSelectedHeroEntity(event.playerid):ModifyRunes(tonumber(input[2]))
-			else
-				PlayerResource:GetSelectedHeroEntity(event.playerid):ModifyRunes(1)
-			end
-		end
   	end
 end
