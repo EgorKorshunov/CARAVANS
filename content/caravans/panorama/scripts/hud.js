@@ -1,6 +1,8 @@
 var selectedspawnpoint = null;
 var hud;
-var spawnpointsstyle = {"1" : "1% -41% 0px;","2" : "19.5% 1.4% 0px;","3" : "-6% 42% 0px;","4" : "-19.5% 6% 0px;"}
+var minimap;
+var death = false;
+var timergo = false;
 function UpdatePresents(table, key, data) {
 	if (key == "Presents") {
 		$("#RadiantPresents").text = data.presentsInCaravan
@@ -9,108 +11,159 @@ function UpdatePresents(table, key, data) {
 		$("#DirePresentsTotal").text = data.direPresentsTotal
 	}
 }
-var SetSpawnPoint = (function(number)
+function SetSpawnPoint(number) 
 {
-	return function()
+	if(selectedspawnpoint != number)
 	{
-		if(selectedspawnpoint != number)
+		$("#spawnpoint_" + number).style["wash-color"] = 'white';
+		for (var i = 1; i <= 4; i++) 
 		{
-			var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
-			minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + number).style["wash-color"] = 'white';
-			for (var i = 1; i <= 4; i++) 
+			if(i != number)
 			{
-				if(i != number)
-				{
-					if(minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i) != null)
-					{
-						minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i).style["wash-color"] = 'gray';
-					}
-				}
+				$("#spawnpoint_" + i).style["wash-color"] = 'gray';
 			}
-			selectedspawnpoint = number;
-			GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : selectedspawnpoint});
 		}
-		else
-		{
-			minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + number).style["wash-color"] = 'gray';
-			selectedspawnpoint = null;
-			GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : 0});
-		}
+		selectedspawnpoint = number;
+		GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : selectedspawnpoint});
 	}
-});
+	else
+	{
+		$("#spawnpoint_" + number).style["wash-color"] = 'gray';
+		selectedspawnpoint = null;
+		GameEvents.SendCustomGameEventToServer("SelectSpawnPoint",{number : 0});
+	}
+}
+function FormatTime(seconds)
+{
+	var remainder = seconds % 3600;
+	var minutes = Math.floor(remainder / 60);
+	var seconds = Math.floor(remainder % 60);
+	var s = "";
+	if (seconds < 10)
+		s = "0";
+	return minutes + ":" + s + seconds;
+}
+function StartRespawnTimer()
+{
+	var time = Players.GetRespawnSeconds(Players.GetLocalPlayer())
+	if(time <= 5 && selectedspawnpoint == null)
+	{
+		$("#UntilTime").style.position = "0% -15% 0%";
+		$("#OnRandomlabel").style.visibility = "visible";
+		$("#DeathTimer").style.position = "0% 2% 0%";
+	}
+	else
+	{
+		$("#OnRandomlabel").style.visibility = "collapse";
+		$("#UntilTime").style.position = "0% 0% 0%";
+		$("#DeathTimer").style.position = "0% 0% 0%";
+	}
+	if(time <= 3)
+	{
+		$("#UntilTime").style.color = "red";
+		$("#DeathTimer").style.color = "red";
+	}
+	if(time > 0)
+	{
+		$("#DeathTimer").text = FormatTime(time)
+		$.Schedule(1, function(){StartRespawnTimer();});
+	}
+	else
+	{
+		$("#DeathTimer").text = "0:00"
+		timergo = false;
+		$("#OnRandomlabel").style.visibility = "collapse";
+		$("#UntilTime").style.position = "0% 0% 0%";
+		$("#DeathTimer").style.position = "0% 0% 0%";
+		$("#UntilTime").style.color = "white";
+		$("#DeathTimer").style.color = "white";
+	}
+}
+function CloseButton() 
+{
+	if(death == false)
+	{
+		ShowDeathScreen()
+	}
+	else
+	{
+		CloseDS()
+	}
+}
 function CloseDeathScreen()
 {
-	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
-	minimap.style['position'] = "0% 0% 0%";
+	if(Game.IsHUDFlipped())
+	{
+		$("#DeathPanel").style.position = "100% 0% 0%";
+		$("#CloseLabel").style.position = "3% 0% 0%";
+		$("#CloseLabel").style.transform = "rotateZ(90deg)";
+	}
+	else
+	{
+		$("#DeathPanel").style.position = "-100% 0% 0%";
+		$("#CloseLabel").style.position = "-3% 0% 0%";
+		$("#CloseLabel").style.transform = "rotateZ(-90deg)";
+	}
+	$("#CloseLabel").text = $.Localize("#Open");
+	$("#CloseLabel").style.visibility = "collapse";
+	minimap.style.position = "0% 0% 0%";
 	for (var i = 1; i <= 4; i++) 
 	{
-		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
-		panel.style.visibility = "collapse";
+		$("#spawnpoint_" + i).style["wash-color"] = 'gray';
 	}
-	$("#choisespawnpoint").style.visibility = "collapse;";
-	$("#closedeathscreen").style.visibility = "collapse;";
-	$("#opendeathscreen").style.visibility = "collapse;";
+	selectedspawnpoint = null;
+	death = false;
 }
-var SpawnPointOver = (function(panel)
-{
-	return function()
-	{
-		panel.style["background-size"] = "25px 25px;";
-	}
-});
-var SpawnPointOut = (function(panel)
-{
-	return function()
-	{
-		panel.style["background-size"] = "20px 20px;";
-	}
-});
 function CloseDS() 
 {
-	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
-	minimap.style['position'] = "0% 0% 0%";
-	for (var i = 1; i <= 4; i++) 
+	if(Game.IsHUDFlipped())
 	{
-		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
-		panel.style.visibility = "collapse";
+		$("#DeathPanel").style.position = "100% 0% 0%";
+		$("#CloseLabel").style.position = "3% 0% 0%";
+		$("#CloseLabel").style.transform = "rotateZ(90deg)";
 	}
-	$("#choisespawnpoint").style.visibility = "collapse;";
-	$("#closedeathscreen").style.visibility = "collapse;";
-	$("#opendeathscreen").style.visibility = "visible;";
+	else
+	{
+		$("#DeathPanel").style.position = "-100% 0% 0%";
+		$("#CloseLabel").style.position = "-3% 0% 0%";
+		$("#CloseLabel").style.transform = "rotateZ(-90deg)";
+	}
+	$("#CloseLabel").style.visibility = "visible";
+	$("#CloseLabel").text = $.Localize("#Open");
+	minimap.style.position = "0% 0% 0%";
+	death = false;
 }
 function ShowDeathScreen()
 {
-	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
-	minimap.style['position'] = "0% -30% 0%";
-	for (var i = 1; i <= 4; i++) 
+	death = true;
+	$("#DeathPanel").style.position = "0% 0% 0%";
+	$("#CloseLabel").style.visibility = "visible";
+	if(Game.IsHUDFlipped())
 	{
-		var panel = minimap.FindChildTraverse("minimap_block").FindChildTraverse("spawnpoint_" + i);
-		if(panel == null)
-		{
-			panel = $.CreatePanel("Panel",minimap.FindChildTraverse("minimap_block"),"spawnpoint_" + i);
-			panel.style.align = "center center;";
-			panel.style.height = "25px;";
-			panel.style.width = "25px;";
-			panel.style["background-size"] = "20px 20px;";
-			panel.style["background-repeat"] = "no-repeat;"
-			panel.style["background-position"] = "center;"
-			panel.style["background-image"] = 'url("file://{images}/custom_game/spawnpoint.png");'
-			panel.style.position = spawnpointsstyle[i]
-			panel.SetPanelEvent("onmouseover",SpawnPointOver(panel));
-			panel.SetPanelEvent("onmouseout",SpawnPointOut(panel));
-			panel.SetPanelEvent("onmouseactivate",SetSpawnPoint(i));
-		}
-		panel.style["wash-color"] = "gray";
-		panel.style.visibility = "visible";
+		$("#CloseLabel").style.position = "-7.8% 24% 0%";
 	}
-	$("#choisespawnpoint").style.visibility = "visible;";
-	$("#closedeathscreen").style.visibility = "visible;";
-	$("#opendeathscreen").style.visibility = "collapse;";
+	else
+	{
+		$("#CloseLabel").style.position = "7.8% 24% 0%";
+	}
+	$("#CloseLabel").text = $.Localize("#Close");
+	$("#CloseLabel").style.transform = "rotateZ(0deg)";
+	var pos = -(minimap.FindChildTraverse("minimap").actualuiscale_x * minimap.FindChildTraverse("minimap").desiredlayoutwidth);
+	if(Game.IsHUDFlipped())
+	{
+		pos = -pos
+	}
+	minimap.style.position = pos + "px 0% 0%";
+	if(timergo == false)
+	{
+		timergo = true
+		$.Schedule(0.2, function(){StartRespawnTimer();});
+	}
 }
 (function()
 {
 	hud = $.GetContextPanel().GetParent().GetParent().GetParent();
-	var minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
+	minimap = hud.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container");
 	minimap.style["transition-property"] = "position;"
 	minimap.style["transition-duration"] = "0.2s;"
 	minimap.style["transition-timing-function"] = "ease-in;"

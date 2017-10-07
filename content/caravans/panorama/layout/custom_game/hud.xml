@@ -35,8 +35,25 @@
 			<Panel id="PresentImage"/>
 			<Label id="Time" text="6:00"/>
 		</Panel>
-		<Label id="choisespawnpoint" text="#choisespawnpoint" />
-		<Label id="closedeathscreen" text="#Close" onmouseactivate="CloseDS()"/>
-		<Label id="opendeathscreen" text="#Open" onmouseactivate="ShowDeathScreen()"/>
+		<Panel id="DeathPanel">
+			<Panel id="DeathHead">
+				<Label id="TotemLabel" text="#choisespawnpoint"/>
+			</Panel>
+			<Panel id="DeathBody">
+				<Panel id="MapPanel">
+					<DOTAMinimap id="map"/>
+					<Panel class="spawnpoint" id="spawnpoint_1" onmouseactivate="SetSpawnPoint(1)"/>
+					<Panel class="spawnpoint" id="spawnpoint_2" onmouseactivate="SetSpawnPoint(2)"/>
+					<Panel class="spawnpoint" id="spawnpoint_3" onmouseactivate="SetSpawnPoint(3)"/>
+					<Panel class="spawnpoint" id="spawnpoint_4" onmouseactivate="SetSpawnPoint(4)"/>
+				</Panel>
+			</Panel>
+			<Panel id="DeathTimePanel">
+				<Label id="UntilTime" text="#UntilRespawn"/>
+				<Label id="OnRandomlabel" text="#OnRandomResp"/>
+				<Label id="DeathTimer" text="10:00"/>
+			</Panel>
+		</Panel>
+		<Label id="CloseLabel" text="#Close" onmouseactivate="CloseButton()"/>
 	</Panel>
 </root>
