@@ -2,9 +2,8 @@
 {
 	"BaseClass" "npc_dota_creature" 
 	"Model" "models/props_structures/tent_dk_med.vmdl" 
-	"ModelScale" "1.1" 
+	"ModelScale" "1" 
 	"Level" "1" 
-	"AttackAcquisitionRange" "0"
 	"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
 
 	"Ability1" "" 
@@ -42,15 +41,19 @@
 
 	"HasInventory" "0" 
 	"vscripts"                    "bandit_camp.lua"
+
+	"Creature"
+	{
+		"DisableResistance"            "50.0"
+	}
 }
 
 "bandit_camp_big" 
 {
 	"BaseClass" "npc_dota_creature" 
 	"Model" "models/props_structures/tent_dk_large.vmdl" 
-	"ModelScale" "1.1" 
+	"ModelScale" "1" 
 	"Level" "1" 
-	"AttackAcquisitionRange" "0"
 	"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
 
 	"Ability1" "" 
@@ -88,4 +91,9 @@
 
 	"HasInventory" "0" 
 	"vscripts"                    "bandit_camp.lua"
+
+	"Creature"
+	{
+		"DisableResistance"            "50.0"
+	}
 }
