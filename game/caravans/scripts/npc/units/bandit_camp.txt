@@ -1,7 +1,7 @@
 "bandit_camp" 
 {
 	"BaseClass" "npc_dota_creature" 
-	"Model" "models/props_structures/tent_dk_med.vmdl" 
+	"Model" "models/tent/bandit_camp.vmdl" 
 	"ModelScale" "1" 
 	"Level" "1" 
 	"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
@@ -51,10 +51,15 @@
 "bandit_camp_big" 
 {
 	"BaseClass" "npc_dota_creature" 
-	"Model" "models/props_structures/tent_dk_large.vmdl" 
+	"Model" "models/tent/bandit_camp_large.vmdl" 
 	"ModelScale" "1" 
 	"Level" "1" 
 	"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
+
+	"precache"
+	{
+		"model"	"models/tent/bandit_camp_large.vmdl"
+	}
 
 	"Ability1" "" 
 	"Ability2" "" 
