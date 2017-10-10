@@ -4,6 +4,7 @@ var minimap;
 var killcam;
 var death = false;
 var timergo = false;
+
 function UpdatePresents(table, key, data) {
 	if (key == "Presents") {
 		$("#RadiantPresents").text = data.presentsInCaravan
@@ -11,7 +12,46 @@ function UpdatePresents(table, key, data) {
 		$("#RadiantPresentsTotal").text = data.radiantPresentsTotal
 		$("#DirePresentsTotal").text = data.direPresentsTotal
 	}
+	else if (key == "Timer") {
+		SetupTimer(data)
+	}
 }
+ 
+var timerEndTime = 0;
+var sched;
+function SetupTimer(data)
+{
+	if (data.preRoundTime) {
+		timerEndTime = data.roundStartTime
+	}
+	else if (data.IsCaravanCamping) {
+		timerEndTime = data.campEndTime
+	}
+	else {
+		timerEndTime = data.nextCheckPointTime
+	}
+
+	if (sched == undefined)
+		sched = $.Schedule(0.01,UpdateTimer)
+}
+
+
+function UpdateTimer()
+{
+	sched = $.Schedule(0.01,UpdateTimer)
+
+	var currTime = Game.GetDOTATime( false, false )
+
+	var time = timerEndTime - currTime
+	if (time < 0)
+		time = 0;
+	var minuts = Math.floor( time/60 )
+	var seconds = Math.floor( time - minuts*60 )	
+	var sTime = ( (minuts < 10) && "0" + minuts || minuts ) + ":" + ( (seconds < 10) && "0" + seconds || seconds )
+	$("#Timer").text = sTime
+
+}
+
 function SetSpawnPoint(number) 
 {
 	if(selectedspawnpoint != number)
@@ -195,4 +235,10 @@ function HideMiniMapAndKillCam()
 	GameEvents.Subscribe("ShowDeathScreen",ShowDeathScreen);
 	GameEvents.Subscribe("HideDeathScreen",CloseDeathScreen);
 	CustomNetTables.SubscribeNetTableListener("caravan",UpdatePresents)
+	
+	var timerData = CustomNetTables.GetTableValue("caravan", "Timer")
+
+	if (timerData !== undefined)
+		SetupTimer(timerData)
+
 })();

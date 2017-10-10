@@ -14,7 +14,7 @@ function Caravans:DropPresent(unitFrom,posTo,dropTime,visible)
 				return 0.5
 			end
 
-		container:SetContextThink("Vision",vision,0.5)
+		container:SetContextThink("Vision",vision,1)
 	end
 
 	return container

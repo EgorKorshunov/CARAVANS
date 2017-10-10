@@ -33,7 +33,7 @@
 
 			
 			<Panel id="PresentImage"/>
-			<Label id="Time" text="6:00"/>
+			<Label id="Timer" text="6:00"/>
 		</Panel>
 		<Panel id="DeathPanel">
 			<Panel id="DeathHead">

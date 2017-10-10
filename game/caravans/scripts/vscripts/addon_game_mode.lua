@@ -16,7 +16,7 @@ LinkLuaModifier("modifier_presents","modifier_presents.lua",LUA_MODIFIER_MOTION_
 LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spawnpoint","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_frostivus_aura","modifiers",LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_bandit_camp","modifiers",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bandit_camp","modifier_bandit_camp.lua",LUA_MODIFIER_MOTION_NONE)
 
 function Precache( context )
 	--[[
@@ -51,6 +51,10 @@ function Caravans:InitGameMode()
 	--self.presentsMin = 10
 	--self.presentDissappearTime = 10
 
+	self.checkPoints = {8,20}
+	self.checkPointsTime = 180
+	self.checkPointCampTime = 60
+
 	_G.CaravanUnitTable = {}
 
     ListenToGameEvent("game_rules_state_change",Dynamic_Wrap(Caravans, "OnStateChange"),self)
@@ -70,8 +74,8 @@ function Caravans:InitGameMode()
 	--GameRules:SetPreGameTime(180)
 	GameRules:SetPreGameTime(0)
 	GameRules:LockCustomGameSetupTeamAssignment(true)
-    GameRules:SetCustomGameSetupRemainingTime(0)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
+    GameRules:SetCustomGameSetupRemainingTime(10)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(3)
 
 	self.curwp = 2
 	self.waypoints = {}
@@ -108,10 +112,41 @@ function Caravans:PrepareToRound()
 	Timers:CreateTimer(10,function() Caravans:SpawnCaravan() end)
 
 	Timers:CreateTimer(60, function() Caravans:StartRound() end)
+	self.roundStartTime = GameRules:GetDOTATime(false,false) + 60
+	Caravans:ClientsUpdateInfo()
+end
+
+function StartDropPresents()
+
+	func = function() 
+		local donkey = CaravanUnitTable[5]
+		local dropPos = donkey:GetAbsOrigin() - donkey:GetForwardVector()*300
+		
+		if Caravans.presentsInCaravan > 0 then
+			Caravans:DecrementCaravanPresents()
+			Caravans:IncrementDirePresents()
+			Caravans:DropPresent(donkey,dropPos,0.5,true) 
+		end
+
+		return 2
+	end
+
+	Timers:CreateTimer("CaravanDropPresents", {
+		endTime = 2,
+		callback = func
+	})
 end
 
 function Caravans:StartRound()
 	self.preRoundTime = false
+
+	Timers:CreateTimer("CaravanCheckPoint", {
+			endTime = self.checkPointsTime,
+			callback = StartDropPresents
+		})
+	self.nextCheckPointTime = GameRules:GetDOTATime(false,false) + self.checkPointsTime
+
+	self:ClientsUpdateInfo()
 end
 
 function Caravans:OnRoundEnd()
@@ -159,6 +194,22 @@ function Caravans:SpawnCaravan()
 	  		end
 		end
 	)
+end
+
+function Caravans:BanditCampAttacked(attacker,target)
+	if target.presents and target.presents > 0 then
+		target.presents = target.presents - 1
+
+		if attacker:GetRangeToUnit(target) > 300 then
+			pos = target:GetAbsOrigin() 
+				+ 300*(attacker:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
+				+ RandomVector(RandomInt(0,100))
+		else
+			pos = attacker:GetAbsOrigin() + RandomVector(RandomInt(0,100))
+		end
+
+		Caravans:DropPresent(target,pos,0.5)
+	end
 end
 
 function Caravans:CaravanAttacked(attacker,target)
@@ -267,10 +318,33 @@ function Caravans:OnThink()
 	return 1
 end]]
 
+function Caravans:CaravanCamp()
+	self.IsCaravanCamping = true
+	Timers:RemoveTimer("CaravanDropPresents")
+	Timers:RemoveTimer("CaravanCheckPoint")
+	Timers:CreateTimer(self.checkPointCampTime, 
+		function() 
+			self.IsCaravanCamping = false 
+
+			Timers:CreateTimer("CaravanCheckPoint", {
+				endTime = self.checkPointsTime,
+				callback = StartDropPresents
+			})
+
+			self.nextCheckPointTime = GameRules:GetDOTATime(false,false) + self.checkPointsTime
+			Caravans:ClientsUpdateInfo()
+		end)
+
+	self.campEndTime = GameRules:GetDOTATime(false,false) + self.checkPointCampTime
+	Caravans:ClientsUpdateInfo()
+end
+
 
 findrange = 700
 function Caravans:CaravanAI(unit)
-	local CanMove = true
+	local CanMove = not self.IsCaravanCamping
+
+
 
 	local IsEnemyInRange = #FindUnitsInRadius(DOTA_TEAM_BADGUYS,
 								unit:GetAbsOrigin(),
@@ -296,6 +370,8 @@ function Caravans:CaravanAI(unit)
 		CanMove = false
 	end
 
+	
+
 	if unit.caravanID == 1 then
 		local currentWayPoint = self.waypoints[self.curwp]
 
@@ -303,6 +379,10 @@ function Caravans:CaravanAI(unit)
 		local distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
 
 		if distanceToWayPoint < 25 then
+			if self.curwp == self.checkPoints[1] or self.curwp == self.checkPoints[2] then
+				Caravans:CaravanCamp()
+			end
+
 			self.curwp = self.curwp + 1
 		end
 
@@ -346,6 +426,7 @@ function Caravans:CaravanAI(unit)
 				container:GetContainedItem():RemoveSelf() 
 				container:RemoveSelf() 
 				Caravans:IncrementCaravanPresents()
+				Caravans:DecrementDirePresents()
 				--print(Caravans.presentsInCaravan)
 			end)
 
@@ -385,5 +466,26 @@ function Caravans:FilterExecuteOrder( filterTable )
 	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return false
 	end
+
+	local unit = EntIndexToHScript(units["0"])
+	if order_type == DOTA_UNIT_ORDER_PICKUP_ITEM and not unit:IsRealHero() then
+		local itemName = EntIndexToHScript(targetIndex):GetContainedItem():GetAbilityName()
+		return itemName ~= "item_present" 
+	end
+
+
+
+
   	return true
+end
+
+function Caravans:ClientsUpdateInfo()
+	CustomNetTables:SetTableValue("caravan","Timer",
+		{ 
+			preRoundTime = self.preRoundTime,
+			roundStartTime = self.roundStartTime,
+			IsCaravanCamping = self.IsCaravanCamping,
+			campEndTime = self.campEndTime,
+			nextCheckPointTime = self.nextCheckPointTime,
+		})
 end
