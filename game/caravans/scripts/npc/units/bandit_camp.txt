@@ -44,7 +44,7 @@
 
 	"Creature"
 	{
-		"DisableResistance"            "50.0"
+		"DisableResistance"            "100.0"
 	}
 }
 
@@ -99,6 +99,6 @@
 
 	"Creature"
 	{
-		"DisableResistance"            "50.0"
+		"DisableResistance"            "100.0"
 	}
 }

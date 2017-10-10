@@ -51,7 +51,7 @@
 	
 		"Creature"
 		{
-			"DisableResistance"            "50.0"
+			"DisableResistance"            "100.0"
 		}
 	}
 	
@@ -106,7 +106,7 @@
 	
 		"Creature"
 		{
-			"DisableResistance"            "50.0"
+			"DisableResistance"            "100.0"
 		}
 	}
 	//End of file bandit_camp.txt
@@ -701,7 +701,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -770,7 +770,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -838,7 +838,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -908,7 +908,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
