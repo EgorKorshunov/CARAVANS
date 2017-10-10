@@ -8,10 +8,9 @@
 	"bandit_camp" 
 	{
 		"BaseClass" "npc_dota_creature" 
-		"Model" "models/props_structures/tent_dk_med.vmdl" 
-		"ModelScale" "1.1" 
+		"Model" "models/tent/bandit_camp.vmdl" 
+		"ModelScale" "1" 
 		"Level" "1" 
-		"AttackAcquisitionRange" "0"
 		"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
 	
 		"Ability1" "" 
@@ -49,16 +48,25 @@
 	
 		"HasInventory" "0" 
 		"vscripts"                    "bandit_camp.lua"
+	
+		"Creature"
+		{
+			"DisableResistance"            "100.0"
+		}
 	}
 	
 	"bandit_camp_big" 
 	{
 		"BaseClass" "npc_dota_creature" 
-		"Model" "models/props_structures/tent_dk_large.vmdl" 
-		"ModelScale" "1.1" 
+		"Model" "models/tent/bandit_camp_large.vmdl" 
+		"ModelScale" "1" 
 		"Level" "1" 
-		"AttackAcquisitionRange" "0"
 		"BoundsHullName" "DOTA_HULL_SIZE_HUGE"
+	
+		"precache"
+		{
+			"model"	"models/tent/bandit_camp_large.vmdl"
+		}
 	
 		"Ability1" "" 
 		"Ability2" "" 
@@ -95,6 +103,11 @@
 	
 		"HasInventory" "0" 
 		"vscripts"                    "bandit_camp.lua"
+	
+		"Creature"
+		{
+			"DisableResistance"            "100.0"
+		}
 	}
 	//End of file bandit_camp.txt
 
@@ -688,7 +701,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -757,7 +770,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -825,7 +838,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -895,7 +908,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -1128,7 +1141,7 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"
 	} 
-
+	
 	"minimap_courier"
 	{
 	    "Model"						"models/development/invisiblebox.vmdl"
