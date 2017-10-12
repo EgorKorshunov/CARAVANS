@@ -26,6 +26,7 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+  	PrecacheItemByNameSync("item_healing_salve_use", context)
 end
 
 -- Create the game mode when we activate
@@ -238,7 +239,7 @@ end
 
 
 function Caravans:StartSalvesSpawn()
-	Timers:CreateTimer(1,function()
+	Timers:CreateTimer(60,function()
 			for i=1,12 do
 				local spawnpoint = Entities:FindByName(nil,"heal_" .. i)
 				if spawnpoint.heal == nil then
@@ -249,7 +250,7 @@ function Caravans:StartSalvesSpawn()
 					item.spawn = spawnpoint
 				end
 			end
-		return 30
+		return 60
    	end)
 end
 
