@@ -1,44 +1,4 @@
 //Generated using Dota Custom KVScript Files Merger by cris9696
 "DotaAbilities"
 {
-
-
-	//Start of file guards_support_third_slot.txt
-	"guards_support_third_slot_damage_aura"
-	{
-	
-		"BaseClass"             		"ability_lua"
-		"ScriptFile"					"heroes\Guards\Support\guards_support_third_slot_damage_aura.lua"
-		"AbilityTextureName"			"ancient_priestess_mana_shield"
-	
-	  	"MaxLevel"               "3"
-		"RequiredLevel"          "1"
-		"LevelsBetweenUpgrades"  "2"
-	
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA"
-	
-		"AbilityCooldown"				"12"
-	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_percentage"		"15 20 25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"	"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"		"900"
-			}
-		}
-	
-	}
-	
-	//End of file guards_support_third_slot.txt
 }

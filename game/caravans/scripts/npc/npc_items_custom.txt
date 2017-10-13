@@ -4,41 +4,7 @@
 	
 
 
-	//Start of file item_present.txt
-	"item_present"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"Model"							"models/props_winter/present.vmdl" 
-		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		
-		"ItemKillable" "0" 
-		"ItemDroppable" "1"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"            "1"
-		"ItemCastOnPickup" 				"1"	
-		"ItemPurchasable"				"0"
-	
-		"OnSpellStart"
-		{
-			"SpendCharge" 
-			{}
-			"RunScript"
-			{
-				"ScriptFile"	"Present.lua"
-				"Function"		"PickupPresent"
-			}
-		}
-	
-	}
-	
-	//End of file item_present.txt
-
-
-
-
+	//Start of file item_healing_salve_use.txt
 	"item_healing_salve_use"
 	{
 		"BaseClass"						"item_datadriven"
@@ -103,4 +69,38 @@
 			}
 		}
 	}
+	//End of file item_healing_salve_use.txt
+
+
+	//Start of file item_present.txt
+	"item_present"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"Model"							"models/props_winter/present.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		
+		"ItemKillable" "0" 
+		"ItemDroppable" "1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"            "1"
+		"ItemCastOnPickup" 				"1"	
+		"ItemPurchasable"				"0"
+	
+		"OnSpellStart"
+		{
+			"SpendCharge" 
+			{}
+			"RunScript"
+			{
+				"ScriptFile"	"Present.lua"
+				"Function"		"PickupPresent"
+			}
+		}
+	
+	}
+	
+	//End of file item_present.txt
 }

@@ -71,6 +71,37 @@
   "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
+
+  "Creature"
+  {
+    "AttachWearables"
+    {
+      "Wearable1"
+      {
+        "ItemDef"     "6569" // weapon: Double Edge of the Unbroken Stallion (6311, Axe of the Warstomp Clan) (4535 Horned Mother)
+      }
+      "Wearable2"
+      {
+        "ItemDef"     "8479" // shoulders: Armor of the Warstomp Clan
+      }
+      "Wearable3"
+      {
+        "ItemDef"     "6211" // belt: Belt of the Warstomp Clan
+      }
+      "Wearable4"
+      {
+        "ItemDef"     "6209" // back: Shields of the Warstomp Clan
+      }
+      "Wearable5"
+      {
+        "ItemDef"     "6207" // bracers: Bracers of the Warstomp Clan
+      }
+      "Wearable6"
+      {
+        "ItemDef"     "6208" // tail: Tail of the Warstomp Clan
+      }       
+    }
+  }
 }
 
 "jungle_creep_centaur_doc" 

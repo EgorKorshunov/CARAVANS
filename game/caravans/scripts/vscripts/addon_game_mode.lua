@@ -27,6 +27,9 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
   	PrecacheItemByNameSync("item_healing_salve_use", context)
+  	PrecacheUnitByNameAsync("jungle_creep_centaur_doc" , function(...) end)
+  	PrecacheUnitByNameAsync("jungle_creep_centaur_bob" , function(...) end)
+  	PrecacheUnitByNameAsync("jungle_creep_centaur_joe" , function(...) end)
 end
 
 -- Create the game mode when we activate
