@@ -189,7 +189,7 @@ function ShowDeathScreen()
 }
 function HideMiniMapAndKillCam()
 {
-	var pos = -250;
+	var pos = -260;
 	if(Game.IsHUDFlipped())
 	{
 		pos = -pos
