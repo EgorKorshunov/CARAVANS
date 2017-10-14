@@ -5,7 +5,7 @@
   "Model" "models/items/lone_druid/true_form/form_of_the_atniw/form_of_the_atniw.vmdl"
 
   "SoundSet" "Hero_LoneDruid" 
-  "ModelScale" "1" 
+  "ModelScale" "0.9" 
   "Level" "1" 
   "IsNeutralUnitType"     "1"
 
@@ -80,7 +80,7 @@
   "Model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
 
   "SoundSet" "Hero_LoneDruid" 
-  "ModelScale" "0.8" 
+  "ModelScale" "0.7" 
   "Level" "1" 
   "IsNeutralUnitType"     "1"
 

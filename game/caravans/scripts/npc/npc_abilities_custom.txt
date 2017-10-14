@@ -1,4 +1,191 @@
 //Generated using Dota Custom KVScript Files Merger by cris9696
 "DotaAbilities"
 {
+
+
+	//Start of file jungle_creeps_kobolds_abilities.txt
+	"kobold_piercing_strike"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/neutrals/kobold_piercing_strike.lua"
+		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chance"				"15"		
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				"30"		
+			}
+		}
+	}
+	
+	"kobold_lash"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"kobold_taskmaster_speed_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"ScriptFile"					"abilities/neutrals/kobold_lash.lua"
+		
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+	
+		"AbilityCooldown"				"2"
+	
+		"AbilityManaCost"				"0"
+	
+		"OverrideAnimation"     "ACT_DOTA_ATTACK"
+	
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health_reduction"		"30"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_attack_speed"	"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_movespeed_percentage"		"15"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"	"8"
+			}
+		}
+	}
+	//End of file jungle_creeps_kobolds_abilities.txt
+
+
+	//Start of file jungle_creeps_werewolves_abilities.txt
+	"werewolf_impenetraple_skin"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/neutrals/werewolf_impenetraple_skin.lua"
+		"AbilityTextureName"			"alpha_wolf_critical_strike"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_damage_reduction"				"-50"		
+			}	
+		}
+	}
+	
+	"werewolf_laceration"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/neutrals/werewolf_laceration.lua"
+		"AbilityTextureName"			"lycan_feral_impulse"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	
+		"precache"
+		{
+			"particle"  "particles/items2_fx/sange_maim_d.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chance"				"25"		
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				"20"		
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"extra_damage_income_percentage"		"20"		
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"				"5"		
+			}
+		}
+	}
+	
+	"werewolf_howl"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"lycan_howl"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"ScriptFile"					"abilities/neutrals/werewolf_howl.lua"
+		
+		"AbilityCastPoint"				"0.3"
+	
+		"AbilityCooldown"				"25"
+	
+		"AbilityManaCost"				"100"
+	
+		"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate"  "1.5"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_max_health"		"100"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_attack_speed"	"25"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"		"900"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"	"8"
+			}
+		}
+	}
+	//End of file jungle_creeps_werewolves_abilities.txt
 }

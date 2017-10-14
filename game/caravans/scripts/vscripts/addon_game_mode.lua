@@ -1,6 +1,6 @@
 require('timers')
 require('util')
-
+require('PseudoRandom')
 
 if Caravans == nil then
 	Caravans = class({})
@@ -30,6 +30,8 @@ function Precache( context )
   	PrecacheUnitByNameAsync("jungle_creep_centaur_doc" , function(...) end)
   	PrecacheUnitByNameAsync("jungle_creep_centaur_bob" , function(...) end)
   	PrecacheUnitByNameAsync("jungle_creep_centaur_joe" , function(...) end)
+  	PrecacheUnitByNameAsync("jungle_creep_werewolf_chieftain" , function(...) end)
+  	PrecacheUnitByNameAsync("jungle_creep_werewolf" , function(...) end)
 end
 
 -- Create the game mode when we activate

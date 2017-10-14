@@ -1,0 +1,74 @@
+"kobold_piercing_strike"
+{
+	"BaseClass"             		"ability_lua"
+	"ScriptFile"					"abilities/neutrals/kobold_piercing_strike.lua"
+	"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+	"precache"
+	{
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+	}
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"chance"				"15"		
+		}	
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage"				"30"		
+		}
+	}
+}
+
+"kobold_lash"
+{
+	"BaseClass"						"ability_lua"
+	"AbilityTextureName"			"kobold_taskmaster_speed_aura"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"ScriptFile"					"abilities/neutrals/kobold_lash.lua"
+	
+	"AbilityCastRange"				"250"
+	"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+	"AbilityCooldown"				"2"
+
+	"AbilityManaCost"				"0"
+
+	"OverrideAnimation"     "ACT_DOTA_ATTACK"
+
+	"precache"
+	{
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"health_reduction"		"30"		
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"bonus_attack_speed"	"15"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"bonus_movespeed_percentage"		"15"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration"	"8"
+		}
+	}
+}

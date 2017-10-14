@@ -18,8 +18,8 @@
 
 
 
-  "Ability1" "" 
-  "Ability2" "" 
+  "Ability1" "werewolf_impenetraple_skin" 
+  "Ability2" "werewolf_howl" 
   "Ability3" "" 
   "Ability4" "" 
 
@@ -71,6 +71,32 @@
   "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
+
+  "Creature"
+  {
+    "DefaultState"      "Invade"
+
+    "Invade"
+    {
+        "Name"          "Invade"
+        "Aggression"    "100.0"
+        "Avoidance"     "0.0"
+        "Support"       "0.0"
+    }
+
+    "OffensiveAbilities"
+    {
+      "Ability1"
+      {
+        "Name"                 "werewolf_howl"
+        "AOE"                  "1"
+        "Radius"               "900"
+        "MinimumTargets"       "1"
+        "Buff"                "1"
+        "UseAtHealthPercent"  "100"
+      }
+    }
+  }
 }
 
 "jungle_creep_werewolf" 
@@ -93,8 +119,8 @@
 
 
 
-  "Ability1" "" 
-  "Ability2" "" 
+  "Ability1" "werewolf_impenetraple_skin" 
+  "Ability2" "werewolf_laceration" 
   "Ability3" "" 
   "Ability4" "" 
 
