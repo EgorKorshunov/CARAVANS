@@ -29,7 +29,7 @@ end
 
 function modifier_kobold_piercing_strike:DeclareFunctions()
 	local funcs = {
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
 	}
  
 	return funcs
@@ -48,26 +48,10 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_kobold_piercing_strike:OnAttackLanded(params) 
+function modifier_kobold_piercing_strike:GetModifierProcAttack_BonusDamage_Pure( params )
 	if IsServer() then
-		if params.attacker:PassivesDisabled() then
-			return 
-		end
-
-		if self:GetParent() == params.attacker then
-			local hTarget = params.target
-			if hTarget ~= nil and self.pseudo:Trigger() then
-				local damageTable = {
-						 	victim = params.target, 
-						 	attacker = params.attacker, 
-						 	damage = self.damage, 
-						 	damage_type = DAMAGE_TYPE_PHYSICAL,
-						 	ability = self:GetAbility()
-						}
-
-				ApplyDamage(damageTable)
-				EmitSoundOn( "DOTA_Item.MKB.Minibash", params.attacker )
-			end
+		if self.pseudo:Trigger() then
+			return self.damage 
 		end
 	end
 end

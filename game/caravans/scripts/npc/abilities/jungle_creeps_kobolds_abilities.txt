@@ -46,6 +46,7 @@
 	"precache"
 	{
 		"soundfile" "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+		"particle"  "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok_ovr_energy.vpcf"
 	}
 
 	"AbilitySpecial"

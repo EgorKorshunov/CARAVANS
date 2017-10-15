@@ -52,7 +52,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_kobold_lash:GetEffectName()
-	return "particles/neutral_fx/thunder_lizard_frenzy.vpcf"
+	return "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok_ovr_energy.vpcf"
 end
 
 --------------------------------------------------------------------------------

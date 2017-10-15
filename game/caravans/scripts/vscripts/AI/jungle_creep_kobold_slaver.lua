@@ -28,9 +28,20 @@ function Think()
 						  DOTA_UNIT_TARGET_FLAG_NONE, 
 						  FIND_ANY_ORDER, 
 						  false)
-		if #targets ~= 0 then
+
+		local enemies = FindUnitsInRadius(thisEntity:GetTeam(), 
+						  thisEntity:GetOrigin(), 
+						  nil, 
+						  450, 
+						  DOTA_UNIT_TARGET_TEAM_ENEMY, 
+						  DOTA_UNIT_TARGET_HERO, 
+						  DOTA_UNIT_TARGET_FLAG_NONE, 
+						  FIND_ANY_ORDER, 
+						  false)
+
+		if #targets ~= 0 and #enemies ~= 0 then
 			randomTarget = targets[RandomInt(1,#targets)]
-			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20 then
+			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20	 then
 				thisEntity:CastAbilityOnTarget(randomTarget, ABILITY_kobold_lash, -1)
 			end
 		end
