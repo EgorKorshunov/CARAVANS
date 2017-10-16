@@ -183,9 +183,40 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
+	
+	  "Creature"
+	  {
+	    "AttachWearables"
+	    {
+	      "Wearable1"
+	      {
+	        "ItemDef"     "6569" // weapon: Double Edge of the Unbroken Stallion (6311, Axe of the Warstomp Clan) (4535 Horned Mother)
+	      }
+	      "Wearable2"
+	      {
+	        "ItemDef"     "8479" // shoulders: Armor of the Warstomp Clan
+	      }
+	      "Wearable3"
+	      {
+	        "ItemDef"     "6211" // belt: Belt of the Warstomp Clan
+	      }
+	      "Wearable4"
+	      {
+	        "ItemDef"     "6209" // back: Shields of the Warstomp Clan
+	      }
+	      "Wearable5"
+	      {
+	        "ItemDef"     "6207" // bracers: Bracers of the Warstomp Clan
+	      }
+	      "Wearable6"
+	      {
+	        "ItemDef"     "6208" // tail: Tail of the Warstomp Clan
+	      }       
+	    }
+	  }
 	}
 	
 	"jungle_creep_centaur_doc" 
@@ -258,7 +289,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -333,11 +364,162 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
 	//End of file jungle_creeps_centaurs.txt
+
+
+	//Start of file jungle_creeps_furbolgs.txt
+	"jungle_creep_furbolg_disruptor" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	
+	  "SoundSet" "n_creep_Melee"
+	  "ModelScale" "1" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	  }
+	
+	
+	
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "6" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "80" 
+	  "AttackDamageMax" "70" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "80" 
+	  "BountyGoldMin" "80" 
+	  "BountyGoldMax" "90" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "320" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "850" 
+	  "StatusHealthRegen" "2" 
+	  "StatusMana" "300" 
+	  "StatusManaRegen" "1" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	}
+	
+	"jungle_creep_furbolg" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	
+	  "SoundSet" "n_creep_Melee"
+	  "ModelScale" "0.9" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	  }
+	
+	
+	
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "4" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "55" 
+	  "AttackDamageMax" "65" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "65" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "320" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "600" 
+	  "StatusHealthRegen" "2" 
+	  "StatusMana" "200" 
+	  "StatusManaRegen" "1" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	}
+	//End of file jungle_creeps_furbolgs.txt
 
 
 	//Start of file jungle_creeps_harpies.txt
@@ -406,7 +588,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -476,7 +658,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -491,7 +673,7 @@
 	  "Model" "models/items/lone_druid/true_form/form_of_the_atniw/form_of_the_atniw.vmdl"
 	
 	  "SoundSet" "Hero_LoneDruid" 
-	  "ModelScale" "1" 
+	  "ModelScale" "0.9" 
 	  "Level" "1" 
 	  "IsNeutralUnitType"     "1"
 	
@@ -554,7 +736,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -566,7 +748,7 @@
 	  "Model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
 	
 	  "SoundSet" "Hero_LoneDruid" 
-	  "ModelScale" "0.8" 
+	  "ModelScale" "0.7" 
 	  "Level" "1" 
 	  "IsNeutralUnitType"     "1"
 	
@@ -629,15 +811,166 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
 	//End of file jungle_creeps_human_bears.txt
 
 
+	//Start of file jungle_creeps_hunchbacks.txt
+	"jungle_creep_furbolg_disruptor" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	
+	  "SoundSet" "n_creep_Melee"
+	  "ModelScale" "1" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	  }
+	
+	
+	
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "6" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "80" 
+	  "AttackDamageMax" "70" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "80" 
+	  "BountyGoldMin" "80" 
+	  "BountyGoldMax" "90" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "320" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "850" 
+	  "StatusHealthRegen" "2" 
+	  "StatusMana" "300" 
+	  "StatusManaRegen" "1" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	}
+	
+	"jungle_creep_furbolg" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	
+	  "SoundSet" "n_creep_Melee"
+	  "ModelScale" "0.9" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	  }
+	
+	
+	
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "4" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "55" 
+	  "AttackDamageMax" "65" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "65" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "320" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "600" 
+	  "StatusHealthRegen" "2" 
+	  "StatusMana" "200" 
+	  "StatusManaRegen" "1" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	}
+	//End of file jungle_creeps_hunchbacks.txt
+
+
 	//Start of file jungle_creeps_kobolds.txt
-	"jungle_creep_kobold_slave" 
+	"jungle_creep_kobold_slave_basic" 
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
@@ -720,7 +1053,7 @@
 	
 	
 	
-	  "Ability1" "" 
+	  "Ability1" "kobold_piercing_strike" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
@@ -789,7 +1122,7 @@
 	
 	
 	
-	  "Ability1" "" 
+	  "Ability1" "kobold_lash" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
@@ -841,76 +1174,8 @@
 	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
-	}
 	
-	"jungle_creep_enlightened_kobold" 
-	{
-	
-	  "BaseClass" "npc_dota_creature" 
-	  "Model" "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"
-	
-	  "SoundSet" "n_creep_Melee" 
-	  "ModelScale" "1" 
-	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	
-	
-	
-	  "Ability1" "" 
-	  "Ability2" "" 
-	  "Ability3" "" 
-	  "Ability4" "" 
-	
-	
-	
-	
-	  "ArmorPhysical" "0" 
-	  "MagicalResistance" "15" 
-	
-	
-	
-	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "15" 
-	  "AttackDamageMax" "19" 
-	  "AttackRate" "1.0" 
-	  "AttackAnimationPoint" "0.33" 
-	  "AttackAcquisitionRange" "500" 
-	  "AttackRange" "150" 
-	
-	
-	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "25" 
-	  "BountyGoldMax" "30" 
-	
-	
-	
-	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-	  "MovementSpeed" "280" 
-	  "MovementTurnRate" "0.6" 
-	
-	
-	
-	  "StatusHealth" "400" 
-	  "StatusHealthRegen" "0.5" 
-	  "StatusMana" "400" 
-	  "StatusManaRegen" "0" 
-	
-	
-	
-	  "TeamName" "DOTA_TEAM_NEUTRALS" 
-	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	
-	  "VisionDaytimeRange" "1400" 
-	  "VisionNighttimeRange" "800" 
-	
-	  "UseNeutralCreepBehavior"   "1"
-	
-	  "HasInventory" "0" 
+	  "vscripts"  "AI\jungle_creep_kobold_slaver.lua" 
 	}
 	//End of file jungle_creeps_kobolds.txt
 
@@ -986,7 +1251,7 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -1004,7 +1269,7 @@
 	  }
 	
 	  "SoundSet" "Hero_Broodmother" 
-	  "ModelScale" "0.8" 
+	  "ModelScale" "0.5" 
 	  "Level" "1" 
 	  "IsNeutralUnitType"     "1"
 	
@@ -1024,8 +1289,8 @@
 	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "22" 
-	  "AttackDamageMax" "26" 
+	  "AttackDamageMin" "25" 
+	  "AttackDamageMax" "30" 
 	  "AttackRate" "1" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
@@ -1044,7 +1309,7 @@
 	
 	
 	
-	  "StatusHealth" "250" 
+	  "StatusHealth" "350" 
 	  "StatusHealthRegen" "1" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
@@ -1060,11 +1325,190 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	
+	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
 	//End of file jungle_creeps_spiders.txt
+
+
+	//Start of file jungle_creeps_werewolfs.txt
+	"jungle_creep_werewolf_chieftain" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+	
+	  "SoundSet" "Hero_Lycan"
+	  "ModelScale" "1" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+	  }
+	
+	
+	
+	
+	  "Ability1" "werewolf_impenetraple_skin" 
+	  "Ability2" "werewolf_howl" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "0" 
+	  "MagicalResistance" "10" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "35" 
+	  "AttackDamageMax" "45" 
+	  "AttackRate" "1.1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "45" 
+	  "BountyGoldMin" "40" 
+	  "BountyGoldMax" "50" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "350" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "500" 
+	  "StatusHealthRegen" "1" 
+	  "StatusMana" "200" 
+	  "StatusManaRegen" "0.25" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	
+	  "Creature"
+	  {
+	    "DefaultState"      "Invade"
+	
+	    "Invade"
+	    {
+	        "Name"          "Invade"
+	        "Aggression"    "100.0"
+	        "Avoidance"     "0.0"
+	        "Support"       "0.0"
+	    }
+	
+	    "OffensiveAbilities"
+	    {
+	      "Ability1"
+	      {
+	        "Name"                 "werewolf_howl"
+	        "AOE"                  "1"
+	        "Radius"               "900"
+	        "MinimumTargets"       "1"
+	        "Buff"                "1"
+	        "UseAtHealthPercent"  "100"
+	      }
+	    }
+	  }
+	}
+	
+	"jungle_creep_werewolf" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/knoll_1/knoll_1.vmdl"
+	
+	  "SoundSet" "Hero_Lycan"
+	  "ModelScale" "0.9" 
+	  "Level" "1" 
+	  "IsNeutralUnitType"     "1"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/knoll_1/knoll_1.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+	  }
+	
+	
+	
+	
+	  "Ability1" "werewolf_impenetraple_skin" 
+	  "Ability2" "werewolf_laceration" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "0" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "25" 
+	  "AttackDamageMax" "30" 
+	  "AttackRate" "1.1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	
+	  "BountyXP" "35" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "350" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "300" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "UseNeutralCreepBehavior"   "1"
+	
+	  "HasInventory" "0" 
+	}
+	//End of file jungle_creeps_werewolfs.txt
 
 
 	//Start of file npc_dota_caravan_unit.txt
