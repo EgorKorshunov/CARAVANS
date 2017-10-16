@@ -1,4 +1,4 @@
-"jungle_creep_kobold_slave" 
+"jungle_creep_kobold_slave_basic" 
 {
 
   "BaseClass" "npc_dota_creature" 
@@ -81,7 +81,7 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "kobold_piercing_strike" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -150,7 +150,7 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "kobold_lash" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -202,74 +202,6 @@
   "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
-}
 
-"jungle_creep_enlightened_kobold" 
-{
-
-  "BaseClass" "npc_dota_creature" 
-  "Model" "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"
-
-  "SoundSet" "n_creep_Melee" 
-  "ModelScale" "1" 
-  "Level" "1" 
-  "IsNeutralUnitType"     "1"
-
-
-
-
-  "Ability1" "" 
-  "Ability2" "" 
-  "Ability3" "" 
-  "Ability4" "" 
-
-
-
-
-  "ArmorPhysical" "0" 
-  "MagicalResistance" "15" 
-
-
-
-  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "15" 
-  "AttackDamageMax" "19" 
-  "AttackRate" "1.0" 
-  "AttackAnimationPoint" "0.33" 
-  "AttackAcquisitionRange" "500" 
-  "AttackRange" "150" 
-
-
-
-  "BountyXP" "40" 
-  "BountyGoldMin" "25" 
-  "BountyGoldMax" "30" 
-
-
-
-  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "280" 
-  "MovementTurnRate" "0.6" 
-
-
-
-  "StatusHealth" "400" 
-  "StatusHealthRegen" "0.5" 
-  "StatusMana" "400" 
-  "StatusManaRegen" "0" 
-
-
-
-  "TeamName" "DOTA_TEAM_NEUTRALS" 
-  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-
-  "VisionDaytimeRange" "1400" 
-  "VisionNighttimeRange" "800" 
-
-  "UseNeutralCreepBehavior"   "1"
-
-  "HasInventory" "0" 
+  "vscripts"  "AI\jungle_creep_kobold_slaver.lua" 
 }

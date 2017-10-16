@@ -1,0 +1,175 @@
+"jungle_creep_werewolf_chieftain" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+
+  "SoundSet" "Hero_Lycan"
+  "ModelScale" "1" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+  "precache"
+  {
+    "model" "models/creeps/knoll_1/werewolf_boss.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+  }
+
+
+
+
+  "Ability1" "werewolf_impenetraple_skin" 
+  "Ability2" "werewolf_howl" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "0" 
+  "MagicalResistance" "10" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "35" 
+  "AttackDamageMax" "45" 
+  "AttackRate" "1.1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+
+  "BountyXP" "45" 
+  "BountyGoldMin" "40" 
+  "BountyGoldMax" "50" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "350" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "500" 
+  "StatusHealthRegen" "1" 
+  "StatusMana" "200" 
+  "StatusManaRegen" "0.25" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+  "UseNeutralCreepBehavior"   "1"
+
+  "HasInventory" "0" 
+
+  "Creature"
+  {
+    "DefaultState"      "Invade"
+
+    "Invade"
+    {
+        "Name"          "Invade"
+        "Aggression"    "100.0"
+        "Avoidance"     "0.0"
+        "Support"       "0.0"
+    }
+
+    "OffensiveAbilities"
+    {
+      "Ability1"
+      {
+        "Name"                 "werewolf_howl"
+        "AOE"                  "1"
+        "Radius"               "900"
+        "MinimumTargets"       "1"
+        "Buff"                "1"
+        "UseAtHealthPercent"  "100"
+      }
+    }
+  }
+}
+
+"jungle_creep_werewolf" 
+{
+
+  "BaseClass" "npc_dota_creature" 
+  "Model" "models/creeps/knoll_1/knoll_1.vmdl"
+
+  "SoundSet" "Hero_Lycan"
+  "ModelScale" "0.9" 
+  "Level" "1" 
+  "IsNeutralUnitType"     "1"
+
+  "precache"
+  {
+    "model" "models/creeps/knoll_1/knoll_1.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+  }
+
+
+
+
+  "Ability1" "werewolf_impenetraple_skin" 
+  "Ability2" "werewolf_laceration" 
+  "Ability3" "" 
+  "Ability4" "" 
+
+
+
+  "ArmorPhysical" "0" 
+  "MagicalResistance" "0" 
+
+
+
+  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+  "AttackDamageMin" "25" 
+  "AttackDamageMax" "30" 
+  "AttackRate" "1.1" 
+  "AttackAnimationPoint" "0.33" 
+  "AttackAcquisitionRange" "500" 
+  "AttackRange" "150" 
+
+
+
+  "BountyXP" "35" 
+  "BountyGoldMin" "30" 
+  "BountyGoldMax" "40" 
+
+
+
+  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+  "MovementSpeed" "350" 
+  "MovementTurnRate" "0.6" 
+
+
+
+  "StatusHealth" "300" 
+  "StatusHealthRegen" "3" 
+  "StatusMana" "0" 
+  "StatusManaRegen" "0" 
+
+
+
+  "TeamName" "DOTA_TEAM_NEUTRALS" 
+  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+  "VisionDaytimeRange" "1400" 
+  "VisionNighttimeRange" "800"  
+
+  "UseNeutralCreepBehavior"   "1"
+
+  "HasInventory" "0" 
+}

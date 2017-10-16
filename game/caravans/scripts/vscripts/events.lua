@@ -95,9 +95,6 @@ function Caravans:OnItemPickedUp(keys)
 	local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local itemname = keys.itemname
-	if itemEntity.spawn then
-		itemEntity.spawn.heal = nil
-	end
 end
 
 function Caravans:OnStateChange(keys)

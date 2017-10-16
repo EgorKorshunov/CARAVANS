@@ -86,7 +86,7 @@
   }
 
   "SoundSet" "Hero_Broodmother" 
-  "ModelScale" "0.8" 
+  "ModelScale" "0.5" 
   "Level" "1" 
   "IsNeutralUnitType"     "1"
 
@@ -106,8 +106,8 @@
 
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "22" 
-  "AttackDamageMax" "26" 
+  "AttackDamageMin" "25" 
+  "AttackDamageMax" "30" 
   "AttackRate" "1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
@@ -126,7 +126,7 @@
 
 
 
-  "StatusHealth" "250" 
+  "StatusHealth" "350" 
   "StatusHealthRegen" "1" 
   "StatusMana" "0" 
   "StatusManaRegen" "0" 
