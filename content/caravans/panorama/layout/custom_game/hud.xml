@@ -14,6 +14,14 @@
 			$.GetContextPanel().SetHasClass("AltPressed", GameUI.IsAltDown())
 			$.Schedule(0.01,AltCheck)
 		}
+
+		function ErrorMessage(data) {
+			var reason = data.reason || 80
+			GameEvents.SendEventClientSide( "dota_hud_error_message",{reason: reason, message: data.message} )
+		}
+
+		GameEvents.Subscribe("custom_error_message", ErrorMessage);
+		
 	</script>
 	<Panel class="HUDRoot" hittest="false">
 		<Panel id="PresentBarRoot" >

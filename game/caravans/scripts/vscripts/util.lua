@@ -14,3 +14,11 @@ function StringStartsWith(fullstring, substring)
     local first_characters = string.sub(fullstring, 1 , strlen)
     return (first_characters == substring)
 end
+
+function SendErrorMessage(playerID, message)
+   CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_error_message", {message=message}) 
+end
+
+function DistanceBetweenPoints(v1,v2)
+    return math.sqrt(math.pow(v2.x - v1.x,2) + math.pow(v2.y - v1.y,2) )
+end

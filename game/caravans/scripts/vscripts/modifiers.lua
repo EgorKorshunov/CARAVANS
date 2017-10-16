@@ -50,11 +50,11 @@ function modifier_caravan:GetModifierProvidesFOWVision()
 end
 
 function modifier_caravan:GetModifierMoveSpeed_AbsoluteMin()
-	return 100
+	return 50
 end
 
 function modifier_caravan:GetModifierMoveSpeed_Limit()
-	return 100
+	return 50
 end
 
 if IsServer() then
@@ -73,7 +73,7 @@ if IsServer() then
 		else
 			--print("moving")
 			self:GetParent():RemoveGesture(ACT_DOTA_IDLE)
-			self:GetParent():StartGestureWithPlaybackRate(ACT_DOTA_RUN,0.3)
+			self:GetParent():StartGestureWithPlaybackRate(ACT_DOTA_RUN,0.2)
 		end
 		return 0.03
 	end

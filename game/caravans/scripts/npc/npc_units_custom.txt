@@ -43,8 +43,8 @@
 		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	
-		"VisionDaytimeRange" "0" 
-		"VisionNighttimeRange" "0" 
+		"VisionDaytimeRange" "500" 
+		"VisionNighttimeRange" "500" 
 	
 		"HasInventory" "0" 
 		"vscripts"                    "bandit_camp.lua"
@@ -98,8 +98,8 @@
 		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	
-		"VisionDaytimeRange" "0" 
-		"VisionNighttimeRange" "0" 
+		"VisionDaytimeRange" "500" 
+		"VisionNighttimeRange" "500" 
 	
 		"HasInventory" "0" 
 		"vscripts"                    "bandit_camp.lua"

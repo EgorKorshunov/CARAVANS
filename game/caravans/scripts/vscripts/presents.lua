@@ -22,7 +22,7 @@ end
 
 function Caravans:PickupPresent(hero)
 	hero.presents = (hero.presents or 0) + 1
-	print(hero.presents)
+	print(hero:GetUnitName().." have "..tostring(hero.presents).." presents")
 
 	--[[if hero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 		Caravans:IncrementDirePresents()

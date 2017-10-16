@@ -1,6 +1,7 @@
 require('timers')
 require('util')
 
+print(GameRules)
 
 if Caravans == nil then
 	Caravans = class({})
@@ -35,6 +36,7 @@ function Activate()
 end
 
 function Caravans:InitGameMode()
+
 
 	self.round = 0
 
@@ -73,8 +75,8 @@ function Caravans:InitGameMode()
 
 	--GameRules:SetPreGameTime(180)
 	GameRules:SetPreGameTime(0)
-	GameRules:LockCustomGameSetupTeamAssignment(true)
-    GameRules:SetCustomGameSetupRemainingTime(10)
+	--GameRules:LockCustomGameSetupTeamAssignment(true)
+    GameRules:SetCustomGameSetupRemainingTime(15)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(3)
 
 	self.curwp = 2
@@ -82,6 +84,21 @@ function Caravans:InitGameMode()
 	for i=1,25 do
 		self.waypoints[i] = Entities:FindByName(nil,"wp"..i):GetOrigin()
 	end
+
+	self.banditCamps = {}
+	local camp = Entities:FindByModel(nil,"models/tent/bandit_camp_large.vmdl")
+	if camp then table.insert(self.banditCamps,camp) end
+	
+	camp = nil
+	while true do
+		camp = Entities:FindByModel(camp,"models/tent/bandit_camp.vmdl")
+		if camp then 
+			table.insert(self.banditCamps,camp) 
+		else 
+			break 
+		end
+	end
+
 
 	Neutrals:Init()
 end
@@ -92,12 +109,6 @@ function Caravans:PrepareToRound()
 	self.preRoundTime = true
 	
 	if self.round ~= 1 then
-		self.direPresentsTotal = self.direPresentsTotal + self.direPresents
-		self.direPresents = 0
-		self.radiantPresentsTotal = self.radiantPresentsTotal + self.presentsInCaravan
-		self.presentsInCaravan = 25
-		Caravans:ClientUpdatePresents()
-
 		self.curwp = 2
 		CaravanUnitTable[1]:MoveToPosition(self.waypoints[25]+Vector(700,-700,0))
 		Timers:CreateTimer(9,
@@ -150,6 +161,34 @@ function Caravans:StartRound()
 end
 
 function Caravans:OnRoundEnd()
+	Timers:RemoveTimer("CaravanDropPresents")
+	Timers:RemoveTimer("CaravanCheckPoint")
+
+	self.direPresentsTotal = self.direPresentsTotal + self.direPresents
+	self.direPresents = 0
+	self.radiantPresentsTotal = self.radiantPresentsTotal + self.presentsInCaravan
+	self.presentsInCaravan = 25
+	Caravans:ClientUpdatePresents()
+
+	local containers = Entities:FindAllByClassname("dota_item_drop")
+    for _,container in pairs(containers) do
+        item = container:GetContainedItem()
+        if item and item:GetAbilityName() == "item_present" then
+            container:RemoveSelf()
+            item:RemoveSelf()
+        end
+    end
+
+    local heroes = HeroList:GetAllHeroes()
+    for _,hero in pairs(heroes) do
+    	hero.presents = 0
+    	hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
+    end
+
+    for _,camp in pairs(self.banditCamps) do
+    	camp.presents = 0
+    end
+
 	if self.round == 3 then
 		if self.radiantPresentsTotal > self.direPresentsTotal then
 			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
@@ -342,6 +381,18 @@ end
 
 findrange = 700
 function Caravans:CaravanAI(unit)
+
+
+	table.sort(CaravanUnitTable,function(a,b) 
+		return DistanceBetweenPoints(a:GetAbsOrigin(),self.waypoints[self.curwp]) < DistanceBetweenPoints(b:GetAbsOrigin(),self.waypoints[self.curwp])
+	end)
+
+    for i=1,5 do
+    	if CaravanUnitTable[i] then
+    		CaravanUnitTable[i].caravanID = i
+    	end
+    end
+
 	local CanMove = not self.IsCaravanCamping
 
 
@@ -361,14 +412,23 @@ function Caravans:CaravanAI(unit)
 	end
 
 	local previousUnit = CaravanUnitTable[unit.caravanID+1]
-	if previousUnit and unit:GetRangeToUnit(previousUnit) > 200 then
+	if previousUnit and unit:GetRangeToUnit(previousUnit) > 200  then
 		CanMove = false
 	end
 
 	local nextUnit = CaravanUnitTable[unit.caravanID-1]
-	if nextUnit and unit:GetRangeToUnit(nextUnit) < 140 then
-		CanMove = false
+	if nextUnit then
+		if unit:GetRangeToUnit(nextUnit) < 140 then
+			CanMove = false
+		end
+
+		if unit:GetRangeToUnit(nextUnit) > 220 then
+			CanMove = true
+		end
+
 	end
+
+
 
 	
 
@@ -392,8 +452,14 @@ function Caravans:CaravanAI(unit)
 			--print(curwp,waypoints[curwp])
 			if self.preRoundTime then
 				currentWayPoint = (self.waypoints[2] + self.waypoints[1])/2
+				distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
+				if distanceToWayPoint > 10 then
+					unit:MoveToPosition(currentWayPoint)
+				end
+			else
+				unit:MoveToPosition(currentWayPoint)
 			end
-			unit:MoveToPosition(currentWayPoint)
+			
 		else
 			unit:Stop()
 		end
@@ -434,9 +500,10 @@ function Caravans:CaravanAI(unit)
 			hero:AddNewModifier(hero,nil,"modifier_presents",{duration = -1}):SetStackCount(hero.presents)
 		end
 	end
+ 
+ 	DebugDrawText(unit:GetAbsOrigin(),tostring(DistanceBetweenPoints(unit:GetAbsOrigin(),self.waypoints[self.curwp])),true,0.2)
 
-
-	return 0.1
+	return 0.2
 end
 
 
@@ -468,9 +535,19 @@ function Caravans:FilterExecuteOrder( filterTable )
 	end
 
 	local unit = EntIndexToHScript(units["0"])
-	if order_type == DOTA_UNIT_ORDER_PICKUP_ITEM and not unit:IsRealHero() then
+	if order_type == DOTA_UNIT_ORDER_PICKUP_ITEM  then
 		local itemName = EntIndexToHScript(targetIndex):GetContainedItem():GetAbilityName()
-		return itemName ~= "item_present" 
+		if itemName == "item_present" then
+			if unit:IsRealHero() then 
+				if unit.presents > 3 then
+					SendErrorMessage(unit:GetPlayerOwnerID(), "#error_max_presents")
+					return false
+				end
+			else
+				SendErrorMessage(unit:GetPlayerOwnerID(), "#unit_cant_pickup_presents")
+				return false
+			end
+		end
 	end
 
 
