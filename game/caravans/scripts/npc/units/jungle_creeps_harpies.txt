@@ -12,7 +12,7 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "harpy_thunder_strike" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -66,6 +66,28 @@
   "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
+
+  "Creature"
+  {
+    "DefaultState"      "Invade"
+
+    "Invade"
+    {
+        "Name"          "Invade"
+        "Aggression"    "100.0"
+        "Avoidance"     "0.0"
+        "Support"       "0.0"
+    }
+
+    "OffensiveAbilities"
+    {
+      "Ability1"
+      {
+        "Name"                 "harpy_thunder_strike"
+        "Stun"                "1"
+      }
+    }
+  }
 }
 
 "jungle_creep_harpy" 

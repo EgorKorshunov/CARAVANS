@@ -3,10 +3,6 @@ LinkLuaModifier( "modifier_kobold_lash", "abilities/neutrals/kobold_lash.lua", L
 
 --------------------------------------------------------------------------------
 
-function kobold_lash:OnAbilityPhaseStart()
-	self:GetCaster():StartGesture( ACT_DOTA_ATTACK );
-end
-
 function kobold_lash:OnSpellStart()
 	local health_reduction = self:GetSpecialValueFor( "health_reduction" ) 
 	local duration = self:GetSpecialValueFor(  "duration" )

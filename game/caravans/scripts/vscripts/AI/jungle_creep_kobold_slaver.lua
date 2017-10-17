@@ -39,9 +39,9 @@ function Think()
 						  FIND_ANY_ORDER, 
 						  false)
 
-		if #targets ~= 0 and #enemies ~= 0 then
-			randomTarget = targets[RandomInt(1,#targets)]
-			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20	 then
+		if #targets > 0 and #enemies > 0 then
+			local randomTarget = targets[RandomInt(1,#targets)]
+			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20 then
 				thisEntity:CastAbilityOnTarget(randomTarget, ABILITY_kobold_lash, -1)
 			end
 		end

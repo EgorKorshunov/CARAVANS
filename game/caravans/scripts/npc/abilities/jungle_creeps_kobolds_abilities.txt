@@ -30,12 +30,16 @@
 {
 	"BaseClass"						"ability_lua"
 	"AbilityTextureName"			"kobold_taskmaster_speed_aura"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 	"ScriptFile"					"abilities/neutrals/kobold_lash.lua"
 	
+	
 	"AbilityCastRange"				"250"
-	"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+	"AbilityCastPoint"				"0.3"
 
 	"AbilityCooldown"				"2"
 

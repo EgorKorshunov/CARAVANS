@@ -3,6 +3,80 @@
 {
 
 
+	//Start of file jungle_creeps_harpies_abilities.txt
+	"harpy_thunder_strike"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"zuus_arc_lightning"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ScriptFile"					"abilities/neutrals/harpy_thunder_strike.lua"
+		
+		
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0.5"
+	
+		"AbilityCooldown"				"15"
+	
+		"AbilityManaCost"				"80"
+	
+		"OverrideAnimation"     "ACT_DOTA_ATTACK"
+	
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+			"particle"  "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lightning_damage"		"110"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stun_duration"	"2"
+			}
+		}
+	}
+	
+	"kobold_piercing_strike"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/neutrals/kobold_piercing_strike.lua"
+		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chance"				"15"		
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"				"30"		
+			}
+		}
+	}
+	
+	//End of file jungle_creeps_harpies_abilities.txt
+
+
 	//Start of file jungle_creeps_kobolds_abilities.txt
 	"kobold_piercing_strike"
 	{
@@ -36,12 +110,16 @@
 	{
 		"BaseClass"						"ability_lua"
 		"AbilityTextureName"			"kobold_taskmaster_speed_aura"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ScriptFile"					"abilities/neutrals/kobold_lash.lua"
 		
+		
 		"AbilityCastRange"				"250"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 	
 		"AbilityCooldown"				"2"
 	
