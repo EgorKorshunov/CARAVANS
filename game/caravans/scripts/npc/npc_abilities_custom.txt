@@ -16,7 +16,7 @@
 		"ScriptFile"					"abilities/neutrals/harpy_thunder_strike.lua"
 		
 		
-		"AbilityCastRange"				"550"
+		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.5"
 	
 		"AbilityCooldown"				"15"
@@ -46,34 +46,56 @@
 		}
 	}
 	
-	"kobold_piercing_strike"
+	"harpy_frozen_statue"
 	{
-		"BaseClass"             		"ability_lua"
-		"ScriptFile"					"abilities/neutrals/kobold_piercing_strike.lua"
-		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"crystal_maiden_frostbite"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ScriptFile"					"abilities/neutrals/harpy_frozen_statue.lua"
+		
+		
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.5"
 	
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"22"
+	
+		"AbilityManaCost"				"150"
+	
+		"OverrideAnimation"     "ACT_DOTA_ATTACK"
 	
 		"precache"
 		{
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+			"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_winters_curse.vpcf"
 		}
-		
+	
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"chance"				"15"		
-			}	
+				"var_type"			"FIELD_INTEGER"
+				"extra_damage_percentage"		"30"		
+			}
 			"02"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"				"30"		
+				"var_type"			"FIELD_FLOAT"
+				"duration_hero"	"4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration_creep"	"8"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"kill_threshold_percent"		"8"		
 			}
 		}
 	}
-	
 	//End of file jungle_creeps_harpies_abilities.txt
 
 

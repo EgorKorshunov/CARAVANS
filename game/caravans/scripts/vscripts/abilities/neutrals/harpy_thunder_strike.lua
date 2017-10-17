@@ -3,9 +3,14 @@ harpy_thunder_strike = class({})
 --------------------------------------------------------------------------------
 
 function harpy_thunder_strike:OnSpellStart()
+	local hTarget = self:GetCursorTarget()
+
+	if hTarget:TriggerSpellAbsorb(self) then
+		return 
+	end
+
 	local lightning_damage = self:GetSpecialValueFor( "lightning_damage" ) 
 	local stun_duration = self:GetSpecialValueFor(  "stun_duration" )
-	local hTarget = self:GetCursorTarget()
 
 	local damage = {
 			victim = hTarget,

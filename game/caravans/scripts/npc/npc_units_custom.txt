@@ -592,30 +592,10 @@
 	
 	  "HasInventory" "0" 
 	
-	  "Creature"
-	  {
-	    "DefaultState"      "Invade"
-	
-	    "Invade"
-	    {
-	        "Name"          "Invade"
-	        "Aggression"    "100.0"
-	        "Avoidance"     "0.0"
-	        "Support"       "0.0"
-	    }
-	
-	    "OffensiveAbilities"
-	    {
-	      "Ability1"
-	      {
-	        "Name"                 "harpy_thunder_strike"
-	        "Stun"                "1"
-	      }
-	    }
-	  }
+	  "vscripts"  "AI\jungle_creep_harpy_sorcerer.lua" 
 	}
 	
-	"jungle_creep_harpy" 
+	"jungle_creep_frost_harpy" 
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
@@ -629,7 +609,7 @@
 	
 	
 	
-	  "Ability1" "" 
+	  "Ability1" "harpy_frozen_statue" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
@@ -667,7 +647,7 @@
 	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "2" 
 	  "StatusMana" "200" 
-	  "StatusManaRegen" "1" 
+	  "StatusManaRegen" "3" 
 	
 	
 	
@@ -683,6 +663,28 @@
 	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
+	
+	  "Creature"
+	  {
+	    "DefaultState"      "Invade"
+	
+	    "Invade"
+	    {
+	        "Name"          "Invade"
+	        "Aggression"    "100.0"
+	        "Avoidance"     "0.0"
+	        "Support"       "0.0"
+	    }
+	
+	    "OffensiveAbilities"
+	    {
+	      "Ability1"
+	      {
+	        "Name"                 "harpy_frozen_statue"
+	        "Stun"                "1"
+	      }
+	    }
+	  }
 	}
 	//End of file jungle_creeps_harpies.txt
 

@@ -34,6 +34,7 @@ function Precache( context )
   	PrecacheUnitByNameAsync("jungle_creep_werewolf" , function(...) end)
   	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts", context)	
   	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts", context)	
+  	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts", context)
 end
 
 -- Create the game mode when we activate
