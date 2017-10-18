@@ -6,10 +6,10 @@ function Spawn(entityKeyValues)
 	end
 	
 	ABILITY_kobold_lash = thisEntity:FindAbilityByName("kobold_lash")
-	thisEntity:SetContextThink( "kobold_slaver_think", Think , 0.1)
+	thisEntity:SetContextThink( "kobold_slaver_think", ThinkKoboldSlaver , 0.1)
 end
 
-function Think()
+function ThinkKoboldSlaver()
 	if not thisEntity:IsAlive() or thisEntity:IsIllusion() then
 		return nil 
 	end
@@ -41,11 +41,23 @@ function Think()
 
 		if #targets > 0 and #enemies > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]
-			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20 then
-				thisEntity:CastAbilityOnTarget(randomTarget, ABILITY_kobold_lash, -1)
+			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20 and not thisEntity:HasModifier("modifier_kobold_lash") then
+				CastLash( randomTarget )
 			end
 		end
 	end	
 	
 	return 2
+end
+
+function CastLash( hTarget )
+
+	ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		TargetIndex = hTarget:entindex(),
+		AbilityIndex = ABILITY_kobold_lash:entindex(),
+		Queue = false,
+	})
+	return 1.0
 end

@@ -97,7 +97,7 @@
   "AttackRate" "1.1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
-  "AttackRange" "150" 
+  "AttackRange" "250" 
 
 
 
@@ -194,8 +194,6 @@
 
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800" 
-
-  "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
 

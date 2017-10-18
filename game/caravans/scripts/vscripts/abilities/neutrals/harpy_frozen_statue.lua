@@ -50,14 +50,14 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_harpy_frozen_statue:GetEffectName()
-	return "particles/units/heroes/hero_winter_wyvern/wyvern_winters_curse.vpcf"
+function modifier_harpy_frozen_statue:GetStatusEffectName()
+	return "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_harpy_frozen_statue:GetEffectAttachType()
-	return PATTACH_ABSORIGIN_FOLLOW
+function modifier_harpy_frozen_statue:StatusEffectPriority()
+	return 10
 end
 
 --------------------------------------------------------------------------------

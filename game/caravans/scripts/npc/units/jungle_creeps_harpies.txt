@@ -101,7 +101,7 @@
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "300" 
-  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
+  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf"
   "ProjectileSpeed"     "1200"  
 
 
