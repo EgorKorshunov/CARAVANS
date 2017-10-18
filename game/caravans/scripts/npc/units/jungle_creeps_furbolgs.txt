@@ -67,8 +67,6 @@
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800"  
 
-  "UseNeutralCreepBehavior"   "1"
-
   "HasInventory" "0" 
 }
 
@@ -140,8 +138,6 @@
 
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800"  
-
-  "UseNeutralCreepBehavior"   "1"
 
   "HasInventory" "0" 
 }

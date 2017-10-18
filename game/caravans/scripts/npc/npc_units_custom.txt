@@ -183,8 +183,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	
 	  "Creature"
@@ -289,8 +287,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	
@@ -363,8 +359,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -441,8 +435,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	
@@ -515,8 +507,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	//End of file jungle_creeps_furbolgs.txt
@@ -588,8 +578,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	
 	  "vscripts"  "AI\jungle_creep_harpy_sorcerer.lua" 
@@ -660,31 +648,9 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	
-	  "Creature"
-	  {
-	    "DefaultState"      "Invade"
-	
-	    "Invade"
-	    {
-	        "Name"          "Invade"
-	        "Aggression"    "100.0"
-	        "Avoidance"     "0.0"
-	        "Support"       "0.0"
-	    }
-	
-	    "OffensiveAbilities"
-	    {
-	      "Ability1"
-	      {
-	        "Name"                 "harpy_frozen_statue"
-	        "Stun"                "1"
-	      }
-	    }
-	  }
+	  "vscripts"  "AI\jungle_creep_frost_harpy.lua" 
 	}
 	//End of file jungle_creeps_harpies.txt
 
@@ -760,8 +726,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	
@@ -834,8 +798,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -1058,8 +1020,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	
@@ -1126,8 +1086,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -1275,8 +1233,6 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
-	
 	  "HasInventory" "0" 
 	}
 	
@@ -1348,8 +1304,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
@@ -1426,8 +1380,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	
@@ -1527,8 +1479,6 @@
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}

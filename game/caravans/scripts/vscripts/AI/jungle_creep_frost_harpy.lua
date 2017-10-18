@@ -5,11 +5,11 @@ function Spawn(entityKeyValues)
 		return
 	end
 	
-	ABILITY_harpy_thunder_strike = thisEntity:FindAbilityByName("harpy_thunder_strike")
-	thisEntity:SetContextThink( "harpy_sorcerer_think", ThinkHarpySorcerer, 0.1)
+	ABILITY_harpy_frozen_statue = thisEntity:FindAbilityByName("harpy_frozen_statue")
+	thisEntity:SetContextThink( "frost_harpy_think", ThinkFrostHarpy , 0.1)
 end
 
-function ThinkHarpySorcerer()
+function ThinkFrostHarpy()
 	if not thisEntity:IsAlive() or thisEntity:IsIllusion() then
 		return nil 
 	end
@@ -18,11 +18,11 @@ function ThinkHarpySorcerer()
 		return 1
 	end
 		
-	if ABILITY_harpy_thunder_strike:IsFullyCastable() and not thisEntity:IsStunned() then
+	if ABILITY_harpy_frozen_statue:IsFullyCastable() and not thisEntity:IsStunned() then
 		local targets = FindUnitsInRadius(thisEntity:GetTeam(), 
 						  thisEntity:GetOrigin(), 
 						  nil, 
-						  400, 
+						  500, 
 						  DOTA_UNIT_TARGET_TEAM_ENEMY, 
 						  DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 
 						  DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -31,8 +31,8 @@ function ThinkHarpySorcerer()
 
 		if #targets > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]	
-			if not randomTarget:IsStunned() then
-				CastThuhderStrike( randomTarget )
+			if (not randomTarget:IsStunned() and randomTarget:GetHealthPercent() < 50) or thisEntity:GetHealthPercent() < 25  then
+				CastFrozenStatue( randomTarget )
 			end
 		end
 	end	
@@ -41,13 +41,13 @@ function ThinkHarpySorcerer()
 	return 2
 end
 
-function CastThuhderStrike( hTarget )
+function CastFrozenStatue( hTarget )
 
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 		TargetIndex = hTarget:entindex(),
-		AbilityIndex = ABILITY_harpy_thunder_strike:entindex(),
+		AbilityIndex = ABILITY_harpy_frozen_statue:entindex(),
 		Queue = false,
 	})
 	return 1.0

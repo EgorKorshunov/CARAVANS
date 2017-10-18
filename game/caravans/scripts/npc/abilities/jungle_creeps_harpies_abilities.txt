@@ -30,12 +30,12 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"lightning_damage"		"110"		
+			"lightning_damage"		"100"		
 		}
 		"02"
 		{
-			"var_type"			"FIELD_INTEGER"
-			"stun_duration"	"2"
+			"var_type"			"FIELD_FLOAT"
+			"stun_duration"	"1.5"
 		}
 	}
 }
@@ -90,3 +90,4 @@
 		}
 	}
 }
+
