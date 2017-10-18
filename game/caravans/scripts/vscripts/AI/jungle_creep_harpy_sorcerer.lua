@@ -31,12 +31,27 @@ function ThinkHarpy()
 
 		if #targets > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]
-			if not randomTarget:IsStunned() then
-				thisEntity:CastAbilityOnTarget(randomTarget, ABILITY_harpy_thunder_strike, -1)
-				print('more char')
-			end
+			CastThuhderStrike( randomTarget )
+		--	if not randomTarget:IsStunned() then
+		--		thisEntity:CastAbilityOnTarget(randomTarget, ABILITY_harpy_thunder_strike, -1)
+		--	end
 		end
 	end	
 	
+
 	return 2
+end
+
+function CastThuhderStrike( hTarget )
+
+	 print(hTarget:entindex())
+	ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		TargetIndex = hTarget:entindex(),
+		AbilityIndex = ABILITY_harpy_thunder_strike:entindex(),
+		Queue = false,
+	})
+	 print("medium bear - cleaving")
+	return 1.0
 end
