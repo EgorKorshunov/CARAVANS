@@ -57,7 +57,7 @@
 
 	"AbilityCooldown"				"22"
 
-	"AbilityManaCost"				"150"
+	"AbilityManaCost"				"140"
 
 	"OverrideAnimation"     "ACT_DOTA_ATTACK"
 

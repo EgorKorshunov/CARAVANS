@@ -18,15 +18,15 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "white_human_bear_crush" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
 
 
 
-  "ArmorPhysical" "4" 
-  "MagicalResistance" "12" 
+  "ArmorPhysical" "8" 
+  "MagicalResistance" "25" 
 
 
 
@@ -47,12 +47,12 @@
 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "300" 
+  "MovementSpeed" "350" 
   "MovementTurnRate" "0.6" 
 
 
 
-  "StatusHealth" "500" 
+  "StatusHealth" "700" 
   "StatusHealthRegen" "0.5" 
   "StatusMana" "200" 
   "StatusManaRegen" "0" 
@@ -93,7 +93,7 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "black_human_bear_endurance_aura" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -101,7 +101,7 @@
 
 
   "ArmorPhysical" "2" 
-  "MagicalResistance" "5" 
+  "MagicalResistance" "15" 
 
 
 
@@ -122,14 +122,14 @@
 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "290" 
+  "MovementSpeed" "350" 
   "MovementTurnRate" "0.6" 
 
 
 
   "StatusHealth" "500" 
   "StatusHealthRegen" "0.5" 
-  "StatusMana" "200" 
+  "StatusMana" "0" 
   "StatusManaRegen" "0" 
 
 

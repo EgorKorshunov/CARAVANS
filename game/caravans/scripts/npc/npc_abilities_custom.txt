@@ -3,6 +3,57 @@
 {
 
 
+	//Start of file jungle_creeps_furbolgs_abilities.txt
+	"furbolg_disruptor_roots"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"lone_druid_spirit_bear_entangle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ScriptFile"					"abilities/neutrals/white_human_bear_crush.lua"
+		
+		
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.3"
+	
+		"AbilityCooldown"				"18"
+	
+		"AbilityManaCost"				"100"
+	
+	//	"OverrideAnimation"     "ACT_DOTA_ATTACK"
+	
+		"precache"
+		{
+			"particle"  "particles/neutral_fx/ursa_thunderclap.vpcf"
+			"particle"  "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf"
+	
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_second"			"60"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"root_duration_hero"	"4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"root_duration_creep"	"8"
+			}
+		}
+	}
+	//End of file jungle_creeps_furbolgs_abilities.txt
+
+
 	//Start of file jungle_creeps_harpies_abilities.txt
 	"harpy_thunder_strike"
 	{
@@ -63,7 +114,7 @@
 	
 		"AbilityCooldown"				"22"
 	
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"140"
 	
 		"OverrideAnimation"     "ACT_DOTA_ATTACK"
 	
@@ -97,6 +148,104 @@
 		}
 	}
 	//End of file jungle_creeps_harpies_abilities.txt
+
+
+	//Start of file jungle_creeps_human_bears_abilities.txt
+	"white_human_bear_crush"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"lone_druid_true_form"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ScriptFile"					"abilities/neutrals/white_human_bear_crush.lua"
+		
+		
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.5"
+	
+		"AbilityCooldown"				"12"
+	
+		"AbilityManaCost"				"100"
+	
+	//	"OverrideAnimation"     "ACT_DOTA_ATTACK"
+	
+		"precache"
+		{
+			"particle"  "particles/neutral_fx/ursa_thunderclap.vpcf"
+			"particle"  "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf"
+	
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"crush_damage"			"200"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"	"3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"	"6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_slow_percentage"			"-50"		
+			}
+		}
+	}
+	
+	"black_human_bear_endurance_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"lone_druid_rabid"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"ScriptFile"					"abilities/neutrals/black_human_bear_endurance_aura.lua"
+		
+		"AbilityCastRange"				"900"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"900"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_attack_speed"	"20"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage_pct"	"15"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"crit_chance"			"10"		
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"crit_multiplier"			"200"		
+			}
+		}
+	}
+	//End of file jungle_creeps_human_bears_abilities.txt
 
 
 	//Start of file jungle_creeps_kobolds_abilities.txt

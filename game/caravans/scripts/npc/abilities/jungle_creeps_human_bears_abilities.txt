@@ -10,8 +10,8 @@
 	"ScriptFile"					"abilities/neutrals/white_human_bear_crush.lua"
 	
 	
-	"AbilityCastRange"				"150"
-	"AbilityCastPoint"				"0.7"
+	"AbilityCastRange"				"250"
+	"AbilityCastPoint"				"0.5"
 
 	"AbilityCooldown"				"12"
 
@@ -31,7 +31,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"crush_damage"			"160"		
+			"crush_damage"			"200"		
 		}
 		"02"
 		{
@@ -47,6 +47,48 @@
 		{
 			"var_type"			"FIELD_INTEGER"
 			"movement_slow_percentage"			"-50"		
+		}
+	}
+}
+
+"black_human_bear_endurance_aura"
+{
+	"BaseClass"						"ability_lua"
+	"AbilityTextureName"			"lone_druid_rabid"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+	"ScriptFile"					"abilities/neutrals/black_human_bear_endurance_aura.lua"
+	
+	"AbilityCastRange"				"900"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"aura_radius"			"900"		
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"bonus_attack_speed"	"20"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"bonus_damage_pct"	"15"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"crit_chance"			"10"		
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"crit_multiplier"			"200"		
 		}
 	}
 }

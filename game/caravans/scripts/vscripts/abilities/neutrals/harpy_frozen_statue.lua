@@ -66,6 +66,7 @@ function modifier_harpy_frozen_statue:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+		MODIFIER_PROPERTY_DISABLE_HEALING,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
 
@@ -84,6 +85,12 @@ function modifier_harpy_frozen_statue:OnTakeDamage( params )
 	if self:GetParent():GetHealthPercent() <= self.kill_threshold_percent then
 		self:GetParent():Kill(self:GetAbility(),self:GetAbility():GetCaster())
 	end
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_harpy_frozen_statue:GetDisableHealing( params )
+	return 1
 end
 
 --------------------------------------------------------------------------------
