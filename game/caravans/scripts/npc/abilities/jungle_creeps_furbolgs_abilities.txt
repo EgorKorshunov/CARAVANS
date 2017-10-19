@@ -7,10 +7,10 @@
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-	"ScriptFile"					"abilities/neutrals/white_human_bear_crush.lua"
+	"ScriptFile"					"abilities/neutrals/furbolg_disruptor_roots.lua"
 	
 	
-	"AbilityCastRange"				"500"
+	"AbilityCastRange"				"400"
 	"AbilityCastPoint"				"0.3"
 
 	"AbilityCooldown"				"18"
