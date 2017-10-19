@@ -11,7 +11,7 @@
 	
 	
 	"AbilityCastRange"				"400"
-	"AbilityCastPoint"				"0.5"
+	"AbilityCastPoint"				"0.0"
 
 	"AbilityCooldown"				"15"
 

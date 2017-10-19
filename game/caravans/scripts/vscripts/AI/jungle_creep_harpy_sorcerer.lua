@@ -37,8 +37,7 @@ function ThinkHarpySorcerer()
 		end
 	end	
 	
-
-	return 2
+	return RandomFloat(1,5)
 end
 
 function CastThuhderStrike( hTarget )

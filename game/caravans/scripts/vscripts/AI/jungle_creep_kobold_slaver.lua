@@ -41,13 +41,13 @@ function ThinkKoboldSlaver()
 
 		if #targets > 0 and #enemies > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]
-			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and randomTarget:GetHealthPercent() > 20 and not thisEntity:HasModifier("modifier_kobold_lash") then
+			if string.find(randomTarget:GetUnitName(),"jungle_creep_kobold_slave_basic") and (not randomTarget:HasModifier("modifier_kobold_lash")) and randomTarget:GetHealthPercent() > 20  then
 				CastLash( randomTarget )
 			end
 		end
 	end	
 	
-	return 2
+	return 1
 end
 
 function CastLash( hTarget )

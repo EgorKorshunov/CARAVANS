@@ -31,7 +31,7 @@ function ThinkFrostHarpy()
 
 		if #targets > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]	
-			if (not randomTarget:IsStunned() and randomTarget:GetHealthPercent() < 50) or thisEntity:GetHealthPercent() < 25  then
+			if randomTarget:GetHealthPercent() < 50 or thisEntity:GetHealthPercent() < 25  then
 				CastFrozenStatue( randomTarget )
 			end
 		end
