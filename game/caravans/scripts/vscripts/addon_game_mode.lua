@@ -61,8 +61,8 @@ function Caravans:InitGameMode()
 	--self.presentsMin = 10
 	--self.presentDissappearTime = 10
 
-	self.checkPoints = {8,20}
-	self.checkPointsTime = 180
+	self.checkPoints = {12,21}
+	self.checkPointsTime = 240
 	self.checkPointCampTime = 60
 
 	_G.CaravanUnitTable = {}
@@ -89,8 +89,16 @@ function Caravans:InitGameMode()
 
 	self.curwp = 2
 	self.waypoints = {}
-	for i=1,25 do
-		self.waypoints[i] = Entities:FindByName(nil,"wp"..i):GetOrigin()
+	local i = 1
+	while true do
+		local wp = Entities:FindByName(nil,"wp"..i)
+		if wp then
+			self.waypoints[i] = wp:GetOrigin()
+		else
+			print("[CARAVANS] Found "..i.." waypoints")
+			break
+		end
+		i = i + 1
 	end
 
 	self.banditCamps = {}
@@ -118,8 +126,8 @@ function Caravans:PrepareToRound()
 	
 	if self.round ~= 1 then
 		self.curwp = 2
-		CaravanUnitTable[1]:MoveToPosition(self.waypoints[25]+Vector(700,-700,0))
-		Timers:CreateTimer(9,
+		CaravanUnitTable[1]:MoveToPosition(self.waypoints[#self.waypoints])
+		Timers:CreateTimer(14,
 			function()
 				for _,unit in pairs(CaravanUnitTable) do
 					unit:RemoveSelf()
@@ -128,7 +136,7 @@ function Caravans:PrepareToRound()
 		)
 	end
 
-	Timers:CreateTimer(10,function() Caravans:SpawnCaravan() end)
+	Timers:CreateTimer(15,function() Caravans:SpawnCaravan() end)
 
 	Timers:CreateTimer(60, function() Caravans:StartRound() end)
 	self.roundStartTime = GameRules:GetDOTATime(false,false) + 60
@@ -436,30 +444,28 @@ function Caravans:CaravanAI(unit)
 
 	end
 
-
-
-	
-
 	if unit.caravanID == 1 then
+		print(self.curwp,CanMove)
 		local currentWayPoint = self.waypoints[self.curwp]
 
 
 		local distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
-
+			print(distanceToWayPoint)
 		if distanceToWayPoint < 25 then
 			if self.curwp == self.checkPoints[1] or self.curwp == self.checkPoints[2] then
 				Caravans:CaravanCamp()
 			end
 
 			self.curwp = self.curwp + 1
-		end
+			if self.curwp == #self.waypoints then Caravans:OnRoundEnd() return end
 
-		if self.curwp == 26 then Caravans:OnRoundEnd() return end
+		end
+		
 
 		if CanMove then
 			--print(curwp,waypoints[curwp])
 			if self.preRoundTime then
-				currentWayPoint = (self.waypoints[2] + self.waypoints[1])/2
+				currentWayPoint = self.waypoints[2]
 				distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
 				if distanceToWayPoint > 10 then
 					unit:MoveToPosition(currentWayPoint)
@@ -510,8 +516,7 @@ function Caravans:CaravanAI(unit)
 	end
  
  	DebugDrawText(unit:GetAbsOrigin(),tostring(DistanceBetweenPoints(unit:GetAbsOrigin(),self.waypoints[self.curwp])),true,0.2)
-
-	return 0.2
+ 	return 0.2
 end
 
 

@@ -134,7 +134,8 @@ function Caravans:OnPlayerChat(event)
 
 		Timers:CreateTimer("WaypointsDebug",
 		{
-            endTime = 0, 
+            endTime = 0,
+            useGameTime = false,
             callback = DrawWaypoints
         })	
 	end
