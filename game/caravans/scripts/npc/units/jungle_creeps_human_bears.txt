@@ -69,6 +69,8 @@
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
+
+  "vscripts"  "AI\jungle_creep_white_human_bear.lua"
 }
 
 "jungle_creep_black_human_bear" 
