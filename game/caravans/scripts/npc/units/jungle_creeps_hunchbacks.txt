@@ -11,7 +11,7 @@
 
   "precache"
   {
-    "model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+    "model" "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"
   }
 
 
