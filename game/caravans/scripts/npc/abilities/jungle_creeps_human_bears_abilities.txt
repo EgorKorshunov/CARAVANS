@@ -31,12 +31,12 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"crush_damage"			"200"		
+			"crush_damage"			"150"		
 		}
 		"02"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"stun_duration"	"3"
+			"stun_duration"	"2"
 		}
 		"03"
 		{
@@ -88,7 +88,7 @@
 		"04"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"crit_multiplier"			"200"		
+			"crit_multiplier"			"150"		
 		}
 	}
 }

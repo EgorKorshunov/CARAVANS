@@ -40,6 +40,46 @@
 	}
 }
 
+"harpy_frost_attack"
+{
+	"BaseClass"             		"ability_lua"
+	"ScriptFile"					"abilities/neutrals/harpy_frost_attack.lua"
+	"AbilityTextureName"			"ghost_frost_attack"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"initial_damage"				"12"		
+		}	
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage_per_second"				"12"		
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movement_slow_percentage"				"-15"		
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"attack_speed_slow"				"-15"		
+		}
+		"05"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"duration"					"2"		
+		}
+	}
+}
+
 "harpy_frozen_statue"
 {
 	"BaseClass"						"ability_lua"

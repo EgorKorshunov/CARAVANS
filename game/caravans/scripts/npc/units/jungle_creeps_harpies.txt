@@ -7,22 +7,14 @@
   "SoundSet" "n_creep_Ranged" 
   "ModelScale" "0.85" 
   "Level" "1" 
-  "IsNeutralUnitType"     "1"
-
-
-
 
   "Ability1" "harpy_thunder_strike" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
 
-
-
   "ArmorPhysical" "2" 
   "MagicalResistance" "40" 
-
-
 
   "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
   "AttackDamageMin" "20" 
@@ -34,31 +26,23 @@
   "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
   "ProjectileSpeed"     "1200"  
 
-
   "BountyXP" "40" 
   "BountyGoldMin" "30" 
-  "BountyGoldMax" "50" 
-
-
+  "BountyGoldMax" "40" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "300" 
   "MovementTurnRate" "0.6" 
 
-
-
-  "StatusHealth" "200" 
+  "StatusHealth" "350" 
   "StatusHealthRegen" "0.5" 
   "StatusMana" "600" 
   "StatusManaRegen" "1" 
-
-
 
   "TeamName" "DOTA_TEAM_NEUTRALS" 
   "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
   "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
   "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
 
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800"  
@@ -77,22 +61,14 @@
   "SoundSet" "n_creep_Ranged" 
   "ModelScale" "1" 
   "Level" "1" 
-  "IsNeutralUnitType"     "1"
 
-
-
-
-  "Ability1" "harpy_frozen_statue" 
+  "Ability1" "harpy_frost_attack" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
 
-
-
   "ArmorPhysical" "4" 
   "MagicalResistance" "10" 
-
-
 
   "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
   "AttackDamageMin" "32" 
@@ -101,28 +77,21 @@
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "300" 
-  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf"
+  "ProjectileModel"     "particles/neutral_fx/ghost_frost_attack.vpcf"
   "ProjectileSpeed"     "1200"  
 
-
-  "BountyXP" "35" 
-  "BountyGoldMin" "20" 
-  "BountyGoldMax" "40" 
-
-
+  "BountyXP" "55" 
+  "BountyGoldMin" "40" 
+  "BountyGoldMax" "50" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "300" 
   "MovementTurnRate" "0.6" 
 
-
-
   "StatusHealth" "600" 
   "StatusHealthRegen" "2" 
   "StatusMana" "200" 
   "StatusManaRegen" "3" 
-
-
 
   "TeamName" "DOTA_TEAM_NEUTRALS" 
   "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -134,6 +103,4 @@
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
-
-  "vscripts"  "AI\jungle_creep_frost_harpy.lua" 
 }

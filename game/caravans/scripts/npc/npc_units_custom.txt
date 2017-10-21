@@ -522,22 +522,14 @@
 	  "SoundSet" "n_creep_Ranged" 
 	  "ModelScale" "0.85" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	
-	
 	
 	  "Ability1" "harpy_thunder_strike" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "2" 
 	  "MagicalResistance" "40" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
 	  "AttackDamageMin" "20" 
@@ -549,31 +541,23 @@
 	  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
 	  "ProjectileSpeed"     "1200"  
 	
-	
 	  "BountyXP" "40" 
 	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "50" 
-	
-	
+	  "BountyGoldMax" "40" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
-	  "StatusHealth" "200" 
+	  "StatusHealth" "350" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "600" 
 	  "StatusManaRegen" "1" 
-	
-	
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
@@ -592,22 +576,14 @@
 	  "SoundSet" "n_creep_Ranged" 
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
 	
-	
-	
-	
-	  "Ability1" "harpy_frozen_statue" 
+	  "Ability1" "harpy_frost_attack" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "4" 
 	  "MagicalResistance" "10" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
 	  "AttackDamageMin" "32" 
@@ -616,28 +592,21 @@
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "300" 
-	  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf"
+	  "ProjectileModel"     "particles/neutral_fx/ghost_frost_attack.vpcf"
 	  "ProjectileSpeed"     "1200"  
 	
-	
-	  "BountyXP" "35" 
-	  "BountyGoldMin" "20" 
-	  "BountyGoldMax" "40" 
-	
-	
+	  "BountyXP" "55" 
+	  "BountyGoldMin" "40" 
+	  "BountyGoldMax" "50" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
 	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "2" 
 	  "StatusMana" "200" 
 	  "StatusManaRegen" "3" 
-	
-	
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
@@ -649,8 +618,6 @@
 	  "VisionNighttimeRange" "800"  
 	
 	  "HasInventory" "0" 
-	
-	  "vscripts"  "AI\jungle_creep_frost_harpy.lua" 
 	}
 	//End of file jungle_creeps_harpies.txt
 
@@ -665,7 +632,6 @@
 	  "SoundSet" "Hero_LoneDruid" 
 	  "ModelScale" "0.9" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
 	
 	  "precache"
 	  {
@@ -673,55 +639,39 @@
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 	  }
 	
-	
-	
-	
 	  "Ability1" "white_human_bear_crush" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "8" 
 	  "MagicalResistance" "25" 
 	
-	
-	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "30" 
-	  "AttackDamageMax" "60" 
+	  "AttackDamageMax" "50" 
 	  "AttackRate" "1.2" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "20" 
+	  "BountyXP" "55" 
+	  "BountyGoldMin" "40" 
 	  "BountyGoldMax" "50" 
-	
-	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
 	  "MovementTurnRate" "0.6" 
-	
-	
 	
 	  "StatusHealth" "700" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "200" 
 	  "StatusManaRegen" "0" 
 	
-	
-	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
@@ -740,63 +690,46 @@
 	  "SoundSet" "Hero_LoneDruid" 
 	  "ModelScale" "0.7" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
+	  
 	  "precache"
 	  {
 	    "model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
 	  }
 	
-	
-	
-	
 	  "Ability1" "black_human_bear_endurance_aura" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "2" 
 	  "MagicalResistance" "15" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "24" 
 	  "AttackDamageMax" "32" 
-	  "AttackRate" "1" 
+	  "AttackRate" "1.2" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
 	  "BountyXP" "40" 
-	  "BountyGoldMin" "20" 
-	  "BountyGoldMax" "50" 
-	
-	
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "35" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
-	  "StatusHealth" "500" 
+	  "StatusHealth" "450" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
-	
-	
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
@@ -807,95 +740,70 @@
 
 
 	//Start of file jungle_creeps_hunchbacks.txt
-	"jungle_creep_furbolg_disruptor" 
+	"jungle_creep_hunchback_footman" 
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
-	  "Model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	  "Model" "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"
 	
 	  "SoundSet" "n_creep_Melee"
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
 	
 	  "precache"
 	  {
-	    "model" "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+	    "model" "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"
 	  }
-	
-	
-	
 	
 	  "Ability1" "" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
-	  "ArmorPhysical" "6" 
+	  "ArmorPhysical" "2" 
 	  "MagicalResistance" "0" 
 	
-	
-	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "80" 
-	  "AttackDamageMax" "70" 
-	  "AttackRate" "1" 
+	  "AttackDamageMin" "25" 
+	  "AttackDamageMax" "30" 
+	  "AttackRate" "1.2" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
-	  "BountyXP" "80" 
-	  "BountyGoldMin" "80" 
-	  "BountyGoldMax" "90" 
-	
-	
+	  "BountyXP" "40" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "320" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
-	  "StatusHealth" "850" 
+	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "2" 
-	  "StatusMana" "300" 
-	  "StatusManaRegen" "1" 
-	
-	
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
-	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
-	
-	  "UseNeutralCreepBehavior"   "1"
 	
 	  "HasInventory" "0" 
 	}
 	
-	"jungle_creep_furbolg" 
+	"jungle_creep_hunchback_mage" 
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
-	  "Model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+	  "Model" "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl"
 	
-	  "SoundSet" "n_creep_Melee"
-	  "ModelScale" "0.9" 
+	  "SoundSet" "n_creep_Ranged" 
+	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	  "precache"
-	  {
-	    "model" "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
-	  }
 	
 	
 	
@@ -907,36 +815,37 @@
 	
 	
 	
-	  "ArmorPhysical" "4" 
-	  "MagicalResistance" "0" 
+	  "ArmorPhysical" "1" 
+	  "MagicalResistance" "25" 
 	
 	
 	
-	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "55" 
-	  "AttackDamageMax" "65" 
+	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	  "AttackDamageMin" "30" 
+	  "AttackDamageMax" "35" 
 	  "AttackRate" "1" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
-	  "AttackRange" "150" 
+	  "AttackRange" "600" 
+	  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
+	  "ProjectileSpeed"     "1200"  
 	
 	
-	
-	  "BountyXP" "60" 
-	  "BountyGoldMin" "50" 
-	  "BountyGoldMax" "65" 
+	  "BountyXP" "40" 
+	  "BountyGoldMin" "35" 
+	  "BountyGoldMax" "45" 
 	
 	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-	  "MovementSpeed" "320" 
+	  "MovementSpeed" "300" 
 	  "MovementTurnRate" "0.6" 
 	
 	
 	
-	  "StatusHealth" "600" 
-	  "StatusHealthRegen" "2" 
-	  "StatusMana" "200" 
+	  "StatusHealth" "350" 
+	  "StatusHealthRegen" "1" 
+	  "StatusMana" "500" 
 	  "StatusManaRegen" "1" 
 	
 	
@@ -950,7 +859,57 @@
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
 	
-	  "UseNeutralCreepBehavior"   "1"
+	  "HasInventory" "0" 
+	
+	 // "vscripts"  "AI\jungle_creep_harpy_sorcerer.lua" 
+	}
+	
+	"jungle_creep_hunchback_golem" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega.vmdl"
+	
+	  "SoundSet" "n_creep_Melee"
+	  "ModelScale" "1" 
+	  "Level" "1" 
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "ArmorPhysical" "3" 
+	  "MagicalResistance" "0" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "70" 
+	  "AttackDamageMax" "75" 
+	  "AttackRate" "1.2" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	  "BountyXP" "100" 
+	  "BountyGoldMin" "80" 
+	  "BountyGoldMax" "100" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "320" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "1100" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
 	
 	  "HasInventory" "0" 
 	}
@@ -967,22 +926,14 @@
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	
-	
-	
+	 
 	  "Ability1" "" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "0" 
 	  "MagicalResistance" "0" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "12" 
@@ -992,32 +943,23 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
-	  "BountyXP" "22" 
-	  "BountyGoldMin" "12" 
+	  "BountyXP" "20" 
+	  "BountyGoldMin" "15" 
 	  "BountyGoldMax" "20" 
-	
-	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "280" 
 	  "MovementTurnRate" "0.6" 
-	
-	
 	
 	  "StatusHealth" "250" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
 	
-	
-	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
@@ -1034,22 +976,14 @@
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	
-	
 	
 	  "Ability1" "kobold_piercing_strike" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "2" 
 	  "MagicalResistance" "5" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "25" 
@@ -1059,32 +993,23 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "250" 
 	
-	
-	
-	  "BountyXP" "35" 
+	  "BountyXP" "45" 
 	  "BountyGoldMin" "20" 
-	  "BountyGoldMax" "25" 
-	
-	
+	  "BountyGoldMax" "30" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
 	  "MovementTurnRate" "0.6" 
-	
-	
 	
 	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
 	
-	
-	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
@@ -1101,21 +1026,14 @@
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
-	
-	
-	
 	
 	  "Ability1" "kobold_lash" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
 	  "ArmorPhysical" "0" 
 	  "MagicalResistance" "0" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "20" 
@@ -1125,32 +1043,23 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
 	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
+	  "BountyGoldMin" "25" 
 	  "BountyGoldMax" "40" 
-	
-	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "280" 
 	  "MovementTurnRate" "0.6" 
-	
-	
 	
 	  "StatusHealth" "400" 
 	  "StatusHealthRegen" "0.5" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
 	
-	
-	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800" 
@@ -1320,7 +1229,6 @@
 	  "SoundSet" "Hero_Lycan"
 	  "ModelScale" "1" 
 	  "Level" "1" 
-	  "IsNeutralUnitType"     "1"
 	
 	  "precache"
 	  {
@@ -1328,20 +1236,13 @@
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
 	  }
 	
-	
-	
-	
 	  "Ability1" "werewolf_impenetraple_skin" 
 	  "Ability2" "werewolf_howl" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "0" 
 	  "MagicalResistance" "10" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "35" 
@@ -1351,32 +1252,23 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
-	  "BountyXP" "45" 
+	  "BountyXP" "55" 
 	  "BountyGoldMin" "40" 
 	  "BountyGoldMax" "50" 
-	
-	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
-	  "StatusHealth" "500" 
+	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "1" 
 	  "StatusMana" "200" 
 	  "StatusManaRegen" "0.25" 
-	
-	
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
@@ -1427,20 +1319,13 @@
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
 	  }
 	
-	
-	
-	
 	  "Ability1" "werewolf_impenetraple_skin" 
 	  "Ability2" "werewolf_laceration" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
-	
-	
 	  "ArmorPhysical" "0" 
 	  "MagicalResistance" "0" 
-	
-	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
 	  "AttackDamageMin" "25" 
@@ -1450,32 +1335,23 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	
-	
-	  "BountyXP" "35" 
+	  "BountyXP" "40" 
 	  "BountyGoldMin" "30" 
 	  "BountyGoldMax" "40" 
-	
-	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
 	  "MovementTurnRate" "0.6" 
 	
-	
-	
-	  "StatusHealth" "300" 
+	  "StatusHealth" "350" 
 	  "StatusHealthRegen" "3" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
-	
-	
 	
 	  "TeamName" "DOTA_TEAM_NEUTRALS" 
 	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
 	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
 	
 	  "VisionDaytimeRange" "1400" 
 	  "VisionNighttimeRange" "800"  
