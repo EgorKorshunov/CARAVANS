@@ -445,12 +445,11 @@ function Caravans:CaravanAI(unit)
 	end
 
 	if unit.caravanID == 1 then
-		print(self.curwp,CanMove)
 		local currentWayPoint = self.waypoints[self.curwp]
 
 
 		local distanceToWayPoint = (unit:GetAbsOrigin() - currentWayPoint):Length2D()
-			print(distanceToWayPoint)
+		
 		if distanceToWayPoint < 25 then
 			if self.curwp == self.checkPoints[1] or self.curwp == self.checkPoints[2] then
 				Caravans:CaravanCamp()

@@ -18,6 +18,8 @@ function Neutrals:Init()
 				for i=1,count do
 					local unit = CreateUnitByName(unitName,spawnPoint,true,nil,nil,DOTA_TEAM_NEUTRALS)
 					unit.spawnPoint = spawnPoint
+					unit:SetContextThink("neutralAI",NeutralsAI,0.2)
+					unit.timerName = DoUniqueString("Neutrals")
 				end
 			end
 		else
@@ -37,4 +39,20 @@ function Neutrals:OnDeath(killed)
 			unit.spawnPoint = killed.spawnPoint
 		end
 	)
+end
+
+function NeutralsAI(unit)
+	if unit:IsPositionInRange(unit.spawnPoint,400) then
+		Timers:RemoveTimer(unit.timerName)
+		unit.timerStarted = nil
+	elseif not unit.timerStarted then
+		unit.timerStarted = true
+		Timers:CreateTimer(unit.timerName, {
+				endTime = 5,
+				callback = function() if not unit:IsNull() then unit:MoveToPosition(unit.spawnPoint) unit.timerStarted = nil end end
+			}
+		)
+	end
+
+	return 0.2
 end
