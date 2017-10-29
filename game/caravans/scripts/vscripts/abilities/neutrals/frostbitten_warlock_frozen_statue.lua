@@ -1,9 +1,9 @@
-harpy_frozen_statue = class({})
-LinkLuaModifier( "modifier_harpy_frozen_statue", "modifiers/neutrals/modifier_harpy_frozen_statue.lua", LUA_MODIFIER_MOTION_NONE )
+frostbitten_warlock_frozen_statue = class({})
+LinkLuaModifier( "modifier_frostbitten_warlock_frozen_statue", "modifiers/neutrals/modifier_frostbitten_warlock_frozen_statue.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function harpy_frozen_statue:OnSpellStart()
+function frostbitten_warlock_frozen_statue:OnSpellStart()
 	local hTarget = self:GetCursorTarget()
 	
 	if hTarget:TriggerSpellAbsorb(self) then
@@ -21,7 +21,7 @@ function harpy_frozen_statue:OnSpellStart()
 	end
 
 
-	hTarget:AddNewModifier( self:GetCaster(), self, "modifier_harpy_frozen_statue", { duration = duration } )
+	hTarget:AddNewModifier( self:GetCaster(), self, "modifier_frostbitten_warlock_frozen_statue", { duration = duration } )
 	EmitSoundOn( "Hero_Winter_Wyvern.WintersCurse.Cast", hTarget ) 
 end
 

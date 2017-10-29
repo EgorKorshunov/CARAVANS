@@ -1,0 +1,115 @@
+"centaur_joe_axe_power"
+{
+	"BaseClass"				"ability_lua"
+	"ScriptFile"			"abilities/neutrals/centaur_joe_axe_power.lua"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityTextureName"			"centaur_double_edge"
+
+	"precache"
+	{
+		"particle"  "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave_gods_strength_crit.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"cleave_radius"	"400"
+		}
+		
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"cleave_percent"	"75"
+		}
+	}
+}
+
+"centaur_joe_war_stomp"
+{
+	"BaseClass"             		"centaur_hoof_stomp"										
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+	"AbilitySound"					"Hero_Centaur.HoofStomp"
+
+	"AbilityCastPoint"				"1"
+	"AnimationPlaybackRate"  		"0.5"
+	"AbilityCooldown"				"13.0"
+	"AbilityManaCost"				"150"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"radius"						"425"
+		}
+		"02"
+		{
+			"var_type"						"FIELD_FLOAT"
+			"stun_duration"					"2.0"
+		}
+		"03"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"stomp_damage"					"400"
+		}
+	}
+}
+
+"centaur_doc_life_transfer"
+{
+	"BaseClass"             		"ability_lua"	
+	"ScriptFile"			"abilities/neutrals/centaur_doc_life_transfer.lua"	
+	"AbilityTextureName"             		"centaur_great_fortitude"								
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+
+
+	"AbilityCooldown"				"15.0"
+	"AbilityManaCost"				"50"
+	"AbilityChannelTime"			"10.1"
+	"AbilityCastAnimation"     "ACT_DOTA_CAST_FLAIL"
+	
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_pugna/pugna_life_give.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"health_transfer"				"15"
+		}
+		"02"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"start_radius"					"500"
+		}
+		"03"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"break_radius"					"800"
+		}
+		"04"
+		{
+			"var_type"						"FIELD_FLOAT"
+			"duration"						"10.0"
+		}
+		"05"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"health_percent_interrupt"		"10"
+		}
+	}
+}

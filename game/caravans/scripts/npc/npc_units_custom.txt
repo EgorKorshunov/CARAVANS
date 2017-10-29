@@ -127,15 +127,15 @@
 	
 	
 	  "SoundSet" "Hero_Centaur" 
-	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "ModelScale" "1.2" 
+	  "Level" "10" 
 	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1" 
 	
 	
 	
-	
-	  "Ability1" "" 
-	  "Ability2" "" 
+	  "Ability1" "centaur_joe_axe_power" 
+	  "Ability2" "centaur_joe_war_stomp" 
 	  "Ability3" "" 
 	  "Ability4" "" 
 	
@@ -147,30 +147,30 @@
 	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "70" 
-	  "AttackDamageMax" "93" 
-	  "AttackRate" "1" 
+	  "AttackDamageMin" "120" 
+	  "AttackDamageMax" "150" 
+	  "AttackRate" "1.2" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
-	  "AttackRange" "150" 
+	  "AttackRange" "200" 
 	
 	
-	  "BountyXP" "120" 
-	  "BountyGoldMin" "80" 
-	  "BountyGoldMax" "120" 
+	  "BountyXP" "180" 
+	  "BountyGoldMin" "140" 
+	  "BountyGoldMax" "160" 
 	
 	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-	  "MovementSpeed" "320" 
+	  "MovementSpeed" "350" 
 	  "MovementTurnRate" "0.6" 
 	
 	
 	
-	  "StatusHealth" "850" 
-	  "StatusHealthRegen" "3" 
-	  "StatusMana" "400" 
-	  "StatusManaRegen" "0.5" 
+	  "StatusHealth" "1300" 
+	  "StatusHealthRegen" "5" 
+	  "StatusMana" "450" 
+	  "StatusManaRegen" "1" 
 	
 	
 	
@@ -184,6 +184,8 @@
 	  "VisionNighttimeRange" "800"  
 	
 	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_centaur_joe.lua" 
 	
 	  "Creature"
 	  {
@@ -226,19 +228,19 @@
 	  "precache"
 	  {
 	    "model" "models/creeps/centaurs/centaur_003_shaman.vmdl"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
 	  }
 	
 	
 	  "SoundSet" "Hero_Centaur" 
-	  "ModelScale" "0.9" 
-	  "Level" "1" 
+	  "ModelScale" "1" 
+	  "Level" "7" 
 	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1" 
 	
 	
 	
 	
-	  "Ability1" "" 
+	  "Ability1" "centaur_doc_life_transfer" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
@@ -259,20 +261,20 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "90" 
-	  "BountyGoldMin" "50" 
-	  "BountyGoldMax" "90" 
+	  "BountyXP" "100" 
+	  "BountyGoldMin" "90" 
+	  "BountyGoldMax" "110" 
 	
 	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-	  "MovementSpeed" "300" 
+	  "MovementSpeed" "330" 
 	  "MovementTurnRate" "0.6" 
 	
 	
 	
-	  "StatusHealth" "600" 
-	  "StatusHealthRegen" "5" 
+	  "StatusHealth" "1000" 
+	  "StatusHealthRegen" "15" 
 	  "StatusMana" "800" 
 	  "StatusManaRegen" "2" 
 	
@@ -288,6 +290,8 @@
 	  "VisionNighttimeRange" "800"  
 	
 	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_centaur_doc.lua" 
 	}
 	
 	"jungle_creep_centaur_bob" 
@@ -299,14 +303,14 @@
 	  "precache"
 	  {
 	    "model" "models/creeps/centaurs/centaur_001.vmdl"
-	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
 	  }
 	
 	
 	  "SoundSet" "Hero_Centaur" 
-	  "ModelScale" "0.9" 
-	  "Level" "1" 
+	  "ModelScale" "1" 
+	  "Level" "7" 
 	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1" 
 	
 	
 	
@@ -332,9 +336,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "90" 
-	  "BountyGoldMin" "50" 
-	  "BountyGoldMax" "90" 
+	  "BountyXP" "120" 
+	  "BountyGoldMin" "120" 
+	  "BountyGoldMax" "130" 
 	
 	
 	
@@ -344,10 +348,10 @@
 	
 	
 	
-	  "StatusHealth" "750" 
+	  "StatusHealth" "1200" 
 	  "StatusHealthRegen" "2" 
 	  "StatusMana" "240" 
-	  "StatusManaRegen" "0.5" 
+	  "StatusManaRegen" "1" 
 	
 	
 	
@@ -363,6 +367,203 @@
 	  "HasInventory" "0" 
 	}
 	//End of file jungle_creeps_centaurs.txt
+
+
+	//Start of file jungle_creeps_frostbitten.txt
+	"jungle_creep_frostbitten_warlock" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_01.vmdl"
+	
+	  "SoundSet" "n_creep_Ranged" 
+	  "ModelScale" "1.2" 
+	  "Level" "7" 
+	  "IsAncient" "1"
+	
+	  "Ability1" "frostbitten_warlock_frozen_statue" 
+	  "Ability2" "frostbitten_warlock_frost_aura" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "precache"
+	  {
+	    "model"  "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_01.vmdl"
+	  }
+	
+	  "ArmorPhysical" "4" 
+	  "MagicalResistance" "15" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	  "AttackDamageMin" "40" 
+	  "AttackDamageMax" "80" 
+	  "AttackRate" "1.2" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "600" 
+	  "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
+	  "ProjectileSpeed"     "1200"  
+	
+	  "BountyXP" "100" 
+	  "BountyGoldMin" "100" 
+	  "BountyGoldMax" "120" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "330" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "750" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "400" 
+	  "StatusManaRegen" "2" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_frostbitten_warlock.lua" 
+	}
+	
+	"jungle_creep_frostbitten_shaman" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_shaman01.vmdl"
+	
+	  "SoundSet" "n_creep_Ranged" 
+	  "ModelScale" "1.2" 
+	  "Level" "7"
+	  "IsAncient" "1" 
+	
+	  "Ability1" "frostbitten_shaman_frost_armor" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "precache"
+	  {
+	    "model"  "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_shaman01.vmdl"
+	  }
+	
+	  "ArmorPhysical" "3" 
+	  "MagicalResistance" "15" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	  "AttackDamageMin" "85" 
+	  "AttackDamageMax" "95" 
+	  "AttackRate" "1.2" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "500" 
+	  "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
+	  "ProjectileSpeed"     "1200"  
+	
+	  "BountyXP" "115" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "330" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "1200" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "500" 
+	  "StatusManaRegen" "0.5" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_frostbitten_shaman.lua" 
+	}
+	
+	"jungle_creep_frostbitten_giant" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+	  }
+	
+	
+	  "SoundSet" "n_creep_Melee" 
+	  "ModelScale" "1.5" 
+	  "Level" "10" 
+	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1" 
+	
+	
+	
+	  "Ability1" "frostbitten_giant_ice_spikes" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "10" 
+	  "MagicalResistance" "0" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "150" 
+	  "AttackDamageMax" "180" 
+	  "AttackRate" "1.4" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	  "BountyXP" "180" 
+	  "BountyGoldMin" "160" 
+	  "BountyGoldMax" "170" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "330" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "2000" 
+	  "StatusHealthRegen" "5" 
+	  "StatusMana" "450" 
+	  "StatusManaRegen" "1" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_frostbitten_giant.lua" 
+	}
+	//End of file jungle_creeps_frostbitten.txt
 
 
 	//Start of file jungle_creeps_furbolgs.txt
@@ -512,6 +713,166 @@
 	//End of file jungle_creeps_furbolgs.txt
 
 
+	//Start of file jungle_creeps_ghosts.txt
+	"jungle_creep_ghost_miss_death" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl"
+	
+	  "SoundSet" "n_creep_Ranged" 
+	  "ModelScale" "1.5" 
+	  "Level" "7" 
+	  "IsAncient" "1"
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "ArmorPhysical" "3" 
+	  "MagicalResistance" "15" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK"
+	  "AttackDamageMin" "85" 
+	  "AttackDamageMax" "95" 
+	  "AttackRate" "1.2" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "500" 
+	  "ProjectileModel"     "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf" // Particle system model for projectile.
+	  "ProjectileSpeed"     "1200"  
+	
+	  "BountyXP" "115" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "330" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "1200" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "500" 
+	  "StatusManaRegen" "0.5" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	
+	//  "vscripts"  "AI\jungle_creep_harpy_sorcerer.lua" 
+	}
+	
+	"jungle_creep_ghost_basic" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
+	
+	  "SoundSet" "n_creep_Melee" 
+	  "ModelScale" "1" 
+	  "Level" "3" 
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "ArmorPhysical" "4" 
+	  "MagicalResistance" "10" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "35" 
+	  "AttackDamageMax" "45" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150"  
+	
+	  "BountyXP" "50" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "300" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "500" 
+	  "StatusHealthRegen" "1" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	}
+	
+	"jungle_creep_ghost_ancient_spirit" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
+	
+	  "SoundSet" "n_creep_Melee" 
+	  "ModelScale" "0.7" 
+	  "Level" "1" 
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	  "ArmorPhysical" "0" 
+	  "MagicalResistance" "0" 
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "15" 
+	  "AttackDamageMax" "18" 
+	  "AttackRate" "1.5" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150"  
+	
+	  "BountyXP" "0" 
+	  "BountyGoldMin" "0" 
+	  "BountyGoldMax" "0" 
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "330" 
+	  "MovementTurnRate" "0.6" 
+	
+	  "StatusHealth" "250" 
+	  "StatusHealthRegen" "0" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	}
+	//End of file jungle_creeps_ghosts.txt
+
+
 	//Start of file jungle_creeps_harpies.txt
 	"jungle_creep_harpy_sorcerer" 
 	{
@@ -520,8 +881,8 @@
 	  "Model" "models/creeps/neutral_creeps/n_creep_harpy_a/n_creep_harpy_a.vmdl"
 	
 	  "SoundSet" "n_creep_Ranged" 
-	  "ModelScale" "0.85" 
-	  "Level" "1" 
+	  "ModelScale" "1" 
+	  "Level" "3" 
 	
 	  "Ability1" "harpy_thunder_strike" 
 	  "Ability2" "" 
@@ -574,7 +935,7 @@
 	  "Model" "models/creeps/neutral_creeps/n_creep_harpy_b/n_creep_harpy_b.vmdl"
 	
 	  "SoundSet" "n_creep_Ranged" 
-	  "ModelScale" "1" 
+	  "ModelScale" "1.1" 
 	  "Level" "1" 
 	
 	  "Ability1" "harpy_frost_attack" 
@@ -630,8 +991,8 @@
 	  "Model" "models/items/lone_druid/true_form/form_of_the_atniw/form_of_the_atniw.vmdl"
 	
 	  "SoundSet" "Hero_LoneDruid" 
-	  "ModelScale" "0.9" 
-	  "Level" "1" 
+	  "ModelScale" "0.7" 
+	  "Level" "3" 
 	
 	  "precache"
 	  {
@@ -688,7 +1049,7 @@
 	  "Model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
 	
 	  "SoundSet" "Hero_LoneDruid" 
-	  "ModelScale" "0.7" 
+	  "ModelScale" "0.6" 
 	  "Level" "1" 
 	  
 	  "precache"
@@ -747,8 +1108,8 @@
 	  "Model" "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"
 	
 	  "SoundSet" "n_creep_Melee"
-	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "ModelScale" "1.2" 
+	  "Level" "3" 
 	
 	  "precache"
 	  {
@@ -802,8 +1163,8 @@
 	  "Model" "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl"
 	
 	  "SoundSet" "n_creep_Ranged" 
-	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "ModelScale" "1.2" 
+	  "Level" "5" 
 	
 	
 	
@@ -871,8 +1232,9 @@
 	  "Model" "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega.vmdl"
 	
 	  "SoundSet" "n_creep_Melee"
-	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "ModelScale" "1.5" 
+	  "Level" "7" 
+	  "IsAncient" "1"
 	
 	  "Ability1" "" 
 	  "Ability2" "" 
@@ -975,7 +1337,7 @@
 	
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "Level" "3" 
 	
 	  "Ability1" "kobold_piercing_strike" 
 	  "Ability2" "" 
@@ -1025,7 +1387,7 @@
 	
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "Level" "3" 
 	
 	  "Ability1" "kobold_lash" 
 	  "Ability2" "" 
@@ -1071,24 +1433,25 @@
 	//End of file jungle_creeps_kobolds.txt
 
 
-	//Start of file jungle_creeps_spiders.txt
-	"jungle_creep_spider" 
+	//Start of file jungle_creeps_marmalade_slugs.txt
+	"jungle_creep_fatty_marmalade_slug" 
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
-	  "Model" "models/creeps/spiders/spider_kidnap.vmdl"
+	  "Model" "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
 	
 	  "precache"
 	  {
-	    "model" "models/creeps/spiders/spider_kidnap.vmdl"
+	    "model" "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
 	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	  }
 	
 	
-	  "SoundSet" "Hero_Broodmother" 
+	  "SoundSet" "Hero_Venomancer" 
 	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "Level" "7" 
 	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1"
 	
 	
 	
@@ -1101,22 +1464,169 @@
 	
 	
 	  "ArmorPhysical" "8" 
-	  "MagicalResistance" "20" 
+	  "MagicalResistance" "70" 
 	
 	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "70" 
-	  "AttackDamageMax" "93" 
+	  "AttackDamageMin" "10" 
+	  "AttackDamageMax" "15" 
 	  "AttackRate" "1" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "110" 
-	  "BountyGoldMin" "70" 
-	  "BountyGoldMax" "120" 
+	  "BountyXP" "120" 
+	  "BountyGoldMin" "85" 
+	  "BountyGoldMax" "105" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "350" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "1300" 
+	  "StatusHealthRegen" "7" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	}
+	
+	"jungle_creep_marmalade_slug" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+	  }
+	
+	  "SoundSet" "Hero_Venomancer" 
+	  "ModelScale" "0.7" 
+	  "Level" "3" 
+	  "IsNeutralUnitType"     "1"
+	
+	
+	
+	
+	  "Ability1" "" 
+	  "Ability2" "" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "4" 
+	  "MagicalResistance" "70" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "5" 
+	  "AttackDamageMax" "10" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	  "BountyXP" "35" 
+	  "BountyGoldMin" "30" 
+	  "BountyGoldMax" "40" 
+	
+	
+	
+	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+	  "MovementSpeed" "350" 
+	  "MovementTurnRate" "0.6" 
+	
+	
+	
+	  "StatusHealth" "300" 
+	  "StatusHealthRegen" "3" 
+	  "StatusMana" "0" 
+	  "StatusManaRegen" "0" 
+	
+	
+	
+	  "TeamName" "DOTA_TEAM_NEUTRALS" 
+	  "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	  "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	  "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+	
+	  "VisionDaytimeRange" "1400" 
+	  "VisionNighttimeRange" "800"  
+	
+	  "HasInventory" "0" 
+	}
+	//End of file jungle_creeps_marmalade_slugs.txt
+
+
+	//Start of file jungle_creeps_spiders.txt
+	"jungle_creep_spider" 
+	{
+	
+	  "BaseClass" "npc_dota_creature" 
+	  "Model" "models/creeps/spiders/spider_poison.vmdl"
+	
+	  "precache"
+	  {
+	    "model" "models/creeps/spiders/spider_poison.vmdl"
+	    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+	  }
+	
+	
+	  "SoundSet" "Hero_Broodmother" 
+	  "ModelScale" "1" 
+	  "Level" "7" 
+	  "IsNeutralUnitType"     "1"
+	  "IsAncient" "1"
+	
+	
+	
+	  "Ability1" "spider_paralyzer" 
+	  "Ability2" "spider_spider_web" 
+	  "Ability3" "" 
+	  "Ability4" "" 
+	
+	
+	
+	  "ArmorPhysical" "8" 
+	  "MagicalResistance" "20" 
+	
+	
+	
+	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+	  "AttackDamageMin" "60" 
+	  "AttackDamageMax" "70" 
+	  "AttackRate" "1" 
+	  "AttackAnimationPoint" "0.33" 
+	  "AttackAcquisitionRange" "500" 
+	  "AttackRange" "150" 
+	
+	
+	  "BountyXP" "105" 
+	  "BountyGoldMin" "85" 
+	  "BountyGoldMax" "105" 
 	
 	
 	
@@ -1126,7 +1636,7 @@
 	
 	
 	
-	  "StatusHealth" "800" 
+	  "StatusHealth" "1100" 
 	  "StatusHealthRegen" "3" 
 	  "StatusMana" "240" 
 	  "StatusManaRegen" "0.5" 
@@ -1143,6 +1653,8 @@
 	  "VisionNighttimeRange" "800"  
 	
 	  "HasInventory" "0" 
+	
+	  "vscripts"  "AI\jungle_creep_spider.lua" 
 	}
 	
 	"jungle_creep_spiderling" 
@@ -1159,13 +1671,13 @@
 	
 	  "SoundSet" "Hero_Broodmother" 
 	  "ModelScale" "0.5" 
-	  "Level" "1" 
+	  "Level" "3" 
 	  "IsNeutralUnitType"     "1"
 	
 	
 	
 	
-	  "Ability1" "" 
+	  "Ability1" "spiderling_poison_explosion" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 
@@ -1178,16 +1690,16 @@
 	
 	
 	  "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-	  "AttackDamageMin" "25" 
-	  "AttackDamageMax" "30" 
+	  "AttackDamageMin" "30" 
+	  "AttackDamageMax" "35" 
 	  "AttackRate" "1" 
 	  "AttackAnimationPoint" "0.33" 
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "25" 
-	  "BountyGoldMin" "20" 
+	  "BountyXP" "40" 
+	  "BountyGoldMin" "30" 
 	  "BountyGoldMax" "40" 
 	
 	
@@ -1198,7 +1710,7 @@
 	
 	
 	
-	  "StatusHealth" "350" 
+	  "StatusHealth" "450" 
 	  "StatusHealthRegen" "1" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
@@ -1228,7 +1740,7 @@
 	
 	  "SoundSet" "Hero_Lycan"
 	  "ModelScale" "1" 
-	  "Level" "1" 
+	  "Level" "3" 
 	
 	  "precache"
 	  {

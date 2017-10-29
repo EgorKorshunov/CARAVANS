@@ -6,7 +6,7 @@
 
   "SoundSet" "Hero_Lycan"
   "ModelScale" "1" 
-  "Level" "1" 
+  "Level" "3" 
 
   "precache"
   {

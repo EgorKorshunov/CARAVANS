@@ -5,11 +5,11 @@ function Spawn(entityKeyValues)
 		return
 	end
 	
-	ABILITY_harpy_frozen_statue = thisEntity:FindAbilityByName("harpy_frozen_statue")
-	thisEntity:SetContextThink( "frost_harpy_think", ThinkFrostHarpy , 0.1)
+	ABILITY_frostbitten_warlock_frozen_statue = thisEntity:FindAbilityByName("frostbitten_warlock_frozen_statue")
+	thisEntity:SetContextThink( "frostbitten_warlock_frostbitten_warlock_think", ThinkFrostbittenWarlock , 0.1)
 end
 
-function ThinkFrostHarpy()
+function ThinkFrostbittenWarlock()
 	if not thisEntity:IsAlive() or thisEntity:IsIllusion() then
 		return nil 
 	end
@@ -18,7 +18,7 @@ function ThinkFrostHarpy()
 		return 1
 	end
 		
-	if ABILITY_harpy_frozen_statue:IsFullyCastable() and not thisEntity:IsStunned() then
+	if ABILITY_frostbitten_warlock_frozen_statue:IsFullyCastable() and not thisEntity:IsStunned() then
 		local targets = FindUnitsInRadius(thisEntity:GetTeam(), 
 						  thisEntity:GetOrigin(), 
 						  nil, 
@@ -31,23 +31,22 @@ function ThinkFrostHarpy()
 
 		if #targets > 0 then
 			local randomTarget = targets[RandomInt(1,#targets)]	
-			if randomTarget:GetHealthPercent() < 50 or thisEntity:GetHealthPercent() < 25  then
+			if randomTarget:GetHealthPercent() < 40 or thisEntity:GetHealthPercent() < 25  then
 				CastFrozenStatue( randomTarget )
 			end
 		end
 	end	
 	
 
-	return 2
+	return 1
 end
 
 function CastFrozenStatue( hTarget )
-
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 		TargetIndex = hTarget:entindex(),
-		AbilityIndex = ABILITY_harpy_frozen_statue:entindex(),
+		AbilityIndex = ABILITY_frostbitten_warlock_frozen_statue:entindex(),
 		Queue = false,
 	})
 	return 1.0

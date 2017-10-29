@@ -1,110 +1,141 @@
-"jungle_creep_white_human_bear" 
+"jungle_creep_fatty_marmalade_slug" 
 {
 
   "BaseClass" "npc_dota_creature" 
-  "Model" "models/items/lone_druid/true_form/form_of_the_atniw/form_of_the_atniw.vmdl"
-
-  "SoundSet" "Hero_LoneDruid" 
-  "ModelScale" "0.7" 
-  "Level" "3" 
+  "Model" "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
 
   "precache"
   {
-    "model" "models/items/lone_druid/true_form/form_of_the_atniw/form_of_the_atniw.vmdl"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+    "model" "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+    "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
   }
 
-  "Ability1" "white_human_bear_crush" 
+
+  "SoundSet" "Hero_Venomancer" 
+  "ModelScale" "1" 
+  "Level" "7" 
+  "IsNeutralUnitType"     "1"
+  "IsAncient" "1"
+
+
+
+
+  "Ability1" "" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
 
+
+
   "ArmorPhysical" "8" 
-  "MagicalResistance" "25" 
+  "MagicalResistance" "70" 
+
+
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "30" 
-  "AttackDamageMax" "50" 
-  "AttackRate" "1.2" 
+  "AttackDamageMin" "10" 
+  "AttackDamageMax" "15" 
+  "AttackRate" "1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
-  "BountyXP" "55" 
-  "BountyGoldMin" "40" 
-  "BountyGoldMax" "50" 
+
+  "BountyXP" "120" 
+  "BountyGoldMin" "85" 
+  "BountyGoldMax" "105" 
+
+
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "350" 
   "MovementTurnRate" "0.6" 
 
-  "StatusHealth" "700" 
-  "StatusHealthRegen" "0.5" 
-  "StatusMana" "200" 
+
+
+  "StatusHealth" "1300" 
+  "StatusHealthRegen" "7" 
+  "StatusMana" "0" 
   "StatusManaRegen" "0" 
+
+
 
   "TeamName" "DOTA_TEAM_NEUTRALS" 
   "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
   "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
   "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
 
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
-
-  "vscripts"  "AI\jungle_creep_white_human_bear.lua"
 }
 
-"jungle_creep_black_human_bear" 
+"jungle_creep_marmalade_slug" 
 {
 
   "BaseClass" "npc_dota_creature" 
-  "Model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
+  "Model" "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
 
-  "SoundSet" "Hero_LoneDruid" 
-  "ModelScale" "0.6" 
-  "Level" "1" 
-  
   "precache"
   {
-    "model" "models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+    "model" "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
   }
 
-  "Ability1" "black_human_bear_endurance_aura" 
+  "SoundSet" "Hero_Venomancer" 
+  "ModelScale" "0.7" 
+  "Level" "3" 
+  "IsNeutralUnitType"     "1"
+
+
+
+
+  "Ability1" "" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
 
-  "ArmorPhysical" "2" 
-  "MagicalResistance" "15" 
+
+
+  "ArmorPhysical" "4" 
+  "MagicalResistance" "70" 
+
+
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "24" 
-  "AttackDamageMax" "32" 
-  "AttackRate" "1.2" 
+  "AttackDamageMin" "5" 
+  "AttackDamageMax" "10" 
+  "AttackRate" "1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
-  "BountyXP" "40" 
+
+  "BountyXP" "35" 
   "BountyGoldMin" "30" 
-  "BountyGoldMax" "35" 
+  "BountyGoldMax" "40" 
+
+
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "350" 
   "MovementTurnRate" "0.6" 
 
-  "StatusHealth" "450" 
-  "StatusHealthRegen" "0.5" 
+
+
+  "StatusHealth" "300" 
+  "StatusHealthRegen" "3" 
   "StatusMana" "0" 
   "StatusManaRegen" "0" 
+
+
 
   "TeamName" "DOTA_TEAM_NEUTRALS" 
   "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_BASIC"
   "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
   "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
 
   "VisionDaytimeRange" "1400" 
   "VisionNighttimeRange" "800"  

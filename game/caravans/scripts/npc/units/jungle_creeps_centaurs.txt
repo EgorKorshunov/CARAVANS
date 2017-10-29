@@ -12,15 +12,15 @@
 
 
   "SoundSet" "Hero_Centaur" 
-  "ModelScale" "1" 
-  "Level" "1" 
+  "ModelScale" "1.2" 
+  "Level" "10" 
   "IsNeutralUnitType"     "1"
+  "IsAncient" "1" 
 
 
 
-
-  "Ability1" "" 
-  "Ability2" "" 
+  "Ability1" "centaur_joe_axe_power" 
+  "Ability2" "centaur_joe_war_stomp" 
   "Ability3" "" 
   "Ability4" "" 
 
@@ -32,30 +32,30 @@
 
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "70" 
-  "AttackDamageMax" "93" 
-  "AttackRate" "1" 
+  "AttackDamageMin" "120" 
+  "AttackDamageMax" "150" 
+  "AttackRate" "1.2" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
-  "AttackRange" "150" 
+  "AttackRange" "200" 
 
 
-  "BountyXP" "120" 
-  "BountyGoldMin" "80" 
-  "BountyGoldMax" "120" 
+  "BountyXP" "180" 
+  "BountyGoldMin" "140" 
+  "BountyGoldMax" "160" 
 
 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "320" 
+  "MovementSpeed" "350" 
   "MovementTurnRate" "0.6" 
 
 
 
-  "StatusHealth" "850" 
-  "StatusHealthRegen" "3" 
-  "StatusMana" "400" 
-  "StatusManaRegen" "0.5" 
+  "StatusHealth" "1300" 
+  "StatusHealthRegen" "5" 
+  "StatusMana" "450" 
+  "StatusManaRegen" "1" 
 
 
 
@@ -69,6 +69,8 @@
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
+
+  "vscripts"  "AI\jungle_creep_centaur_joe.lua" 
 
   "Creature"
   {
@@ -111,19 +113,19 @@
   "precache"
   {
     "model" "models/creeps/centaurs/centaur_003_shaman.vmdl"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
   }
 
 
   "SoundSet" "Hero_Centaur" 
-  "ModelScale" "0.9" 
-  "Level" "1" 
+  "ModelScale" "1" 
+  "Level" "7" 
   "IsNeutralUnitType"     "1"
+  "IsAncient" "1" 
 
 
 
 
-  "Ability1" "" 
+  "Ability1" "centaur_doc_life_transfer" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -144,20 +146,20 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "90" 
-  "BountyGoldMin" "50" 
-  "BountyGoldMax" "90" 
+  "BountyXP" "100" 
+  "BountyGoldMin" "90" 
+  "BountyGoldMax" "110" 
 
 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "300" 
+  "MovementSpeed" "330" 
   "MovementTurnRate" "0.6" 
 
 
 
-  "StatusHealth" "600" 
-  "StatusHealthRegen" "5" 
+  "StatusHealth" "1000" 
+  "StatusHealthRegen" "15" 
   "StatusMana" "800" 
   "StatusManaRegen" "2" 
 
@@ -173,6 +175,8 @@
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
+
+  "vscripts"  "AI\jungle_creep_centaur_doc.lua" 
 }
 
 "jungle_creep_centaur_bob" 
@@ -184,14 +188,14 @@
   "precache"
   {
     "model" "models/creeps/centaurs/centaur_001.vmdl"
-    "soundfile" "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
   }
 
 
   "SoundSet" "Hero_Centaur" 
-  "ModelScale" "0.9" 
-  "Level" "1" 
+  "ModelScale" "1" 
+  "Level" "7" 
   "IsNeutralUnitType"     "1"
+  "IsAncient" "1" 
 
 
 
@@ -217,9 +221,9 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "90" 
-  "BountyGoldMin" "50" 
-  "BountyGoldMax" "90" 
+  "BountyXP" "120" 
+  "BountyGoldMin" "120" 
+  "BountyGoldMax" "130" 
 
 
 
@@ -229,10 +233,10 @@
 
 
 
-  "StatusHealth" "750" 
+  "StatusHealth" "1200" 
   "StatusHealthRegen" "2" 
   "StatusMana" "240" 
-  "StatusManaRegen" "0.5" 
+  "StatusManaRegen" "1" 
 
 
 

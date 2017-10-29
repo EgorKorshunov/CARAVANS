@@ -5,8 +5,8 @@
   "Model" "models/creeps/neutral_creeps/n_creep_harpy_a/n_creep_harpy_a.vmdl"
 
   "SoundSet" "n_creep_Ranged" 
-  "ModelScale" "0.85" 
-  "Level" "1" 
+  "ModelScale" "1" 
+  "Level" "3" 
 
   "Ability1" "harpy_thunder_strike" 
   "Ability2" "" 
@@ -59,7 +59,7 @@
   "Model" "models/creeps/neutral_creeps/n_creep_harpy_b/n_creep_harpy_b.vmdl"
 
   "SoundSet" "n_creep_Ranged" 
-  "ModelScale" "1" 
+  "ModelScale" "1.1" 
   "Level" "1" 
 
   "Ability1" "harpy_frost_attack" 

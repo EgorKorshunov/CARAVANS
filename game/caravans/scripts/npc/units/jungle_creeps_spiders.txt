@@ -2,25 +2,25 @@
 {
 
   "BaseClass" "npc_dota_creature" 
-  "Model" "models/creeps/spiders/spider_kidnap.vmdl"
+  "Model" "models/creeps/spiders/spider_poison.vmdl"
 
   "precache"
   {
-    "model" "models/creeps/spiders/spider_kidnap.vmdl"
+    "model" "models/creeps/spiders/spider_poison.vmdl"
     "soundfile" "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
   }
 
 
   "SoundSet" "Hero_Broodmother" 
   "ModelScale" "1" 
-  "Level" "1" 
+  "Level" "7" 
   "IsNeutralUnitType"     "1"
+  "IsAncient" "1"
 
 
 
-
-  "Ability1" "" 
-  "Ability2" "" 
+  "Ability1" "spider_paralyzer" 
+  "Ability2" "spider_spider_web" 
   "Ability3" "" 
   "Ability4" "" 
 
@@ -32,17 +32,17 @@
 
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "70" 
-  "AttackDamageMax" "93" 
+  "AttackDamageMin" "60" 
+  "AttackDamageMax" "70" 
   "AttackRate" "1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
 
-  "BountyXP" "110" 
-  "BountyGoldMin" "70" 
-  "BountyGoldMax" "120" 
+  "BountyXP" "105" 
+  "BountyGoldMin" "85" 
+  "BountyGoldMax" "105" 
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-  "StatusHealth" "800" 
+  "StatusHealth" "1100" 
   "StatusHealthRegen" "3" 
   "StatusMana" "240" 
   "StatusManaRegen" "0.5" 
@@ -69,6 +69,8 @@
   "VisionNighttimeRange" "800"  
 
   "HasInventory" "0" 
+
+  "vscripts"  "AI\jungle_creep_spider.lua" 
 }
 
 "jungle_creep_spiderling" 
@@ -85,13 +87,13 @@
 
   "SoundSet" "Hero_Broodmother" 
   "ModelScale" "0.5" 
-  "Level" "1" 
+  "Level" "3" 
   "IsNeutralUnitType"     "1"
 
 
 
 
-  "Ability1" "" 
+  "Ability1" "spiderling_poison_explosion" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 
@@ -104,16 +106,16 @@
 
 
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
-  "AttackDamageMin" "25" 
-  "AttackDamageMax" "30" 
+  "AttackDamageMin" "30" 
+  "AttackDamageMax" "35" 
   "AttackRate" "1" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
 
-  "BountyXP" "25" 
-  "BountyGoldMin" "20" 
+  "BountyXP" "40" 
+  "BountyGoldMin" "30" 
   "BountyGoldMax" "40" 
 
 
@@ -124,7 +126,7 @@
 
 
 
-  "StatusHealth" "350" 
+  "StatusHealth" "450" 
   "StatusHealthRegen" "1" 
   "StatusMana" "0" 
   "StatusManaRegen" "0" 
