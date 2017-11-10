@@ -1,0 +1,80 @@
+"hunchback_golem_fire_protection"
+{
+	"BaseClass"             		"ability_lua"
+	"ScriptFile"					"abilities/neutrals/hunchback_golem_fire_protection.lua"
+	"AbilityTextureName"			"ember_spirit_flame_guard"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
+	}
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage_per_second"			"60"		
+		}	
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"attack_slow"				"-50"		
+		}	
+		"03"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"duration"					"3"		
+		}
+	}
+}
+
+"hunchback_footman_cripple"
+{
+	"BaseClass"             		"ability_lua"
+	"ScriptFile"					"abilities/neutrals/hunchback_footman_cripple.lua"
+	"AbilityTextureName"			"brewmaster_fire_permanent_immolation"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf"
+		"particle"  "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+	}
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"chance"					"50"		
+		}	
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage"			"100"		
+		}	
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"radius"			"200"		
+		}
+		"04"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"duration"					"6"		
+		}
+	}
+}

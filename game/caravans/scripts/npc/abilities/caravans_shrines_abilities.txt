@@ -1,0 +1,14 @@
+"shrines_invisibility"
+{
+	"BaseClass"             		"ability_lua"
+	"ScriptFile"					"abilities/shrines_invisibility.lua"
+	"AbilityTextureName"			"broodmother_spawn_spiderlings"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+	"AbilitySpecial"
+	{
+
+	}
+}
+

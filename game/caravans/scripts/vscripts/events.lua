@@ -1,6 +1,7 @@
 
 function Caravans:OnHeroDied(t)
 	local hero = EntIndexToHScript(t.entindex_killed)
+	hero:SetTimeUntilRespawn(10)
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(hero:GetPlayerOwnerID()),"ShowDeathScreen",{})
     if hero.presents >= 1 then
 		for i=1,hero.presents do

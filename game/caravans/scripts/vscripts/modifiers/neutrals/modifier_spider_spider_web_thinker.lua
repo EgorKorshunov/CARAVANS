@@ -55,7 +55,7 @@ function modifier_spider_spider_web_thinker:OnCreated( kv )
 	if IsServer() then
 		self.webParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_web.vpcf",PATTACH_ABSORIGIN,self:GetParent())
 		ParticleManager:SetParticleControl(self.webParticle,1,Vector(self.radius,0,self.radius))
-		EmitSoundOn("Hero_Broodmother.SpinWebCast",self:GetParent())
+		--EmitSoundOn("Hero_Broodmother.SpinWebCast",self:GetParent())
 	end
 end
 
