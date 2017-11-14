@@ -455,6 +455,39 @@
 	//End of file jungle_creeps_furbolgs_abilities.txt
 
 
+	//Start of file jungle_creeps_ghosts_abilities.txt
+	"miss_death_fear"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"             		"necrolyte_heartstopper_aura"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"																// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+				
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"700"		// If you change this, also change the AbilityCastRange above
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage"		"3.0" 
+			} 	
+		}
+	}
+	//End of file jungle_creeps_ghosts_abilities.txt
+
+
 	//Start of file jungle_creeps_harpies_abilities.txt
 	"harpy_thunder_strike"
 	{
@@ -627,7 +660,7 @@
 				"var_type"			"FIELD_INTEGER"
 				"crit_chance"			"10"		
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"crit_multiplier"			"150"		
@@ -699,7 +732,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"chance"					"50"		
+				"chance"					"25"		
 			}	
 			"02"
 			{
@@ -715,6 +748,73 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"6"		
+			}
+		}
+	}
+	
+	"hunchback_mage_fire_wave"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"dragon_knight_breathe_fire"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ScriptFile"					"abilities/neutrals/hunchback_mage_fire_wave.lua"
+		
+		
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+	
+		"AbilityCooldown"				"15"
+	
+		"AbilityManaCost"				"150"
+	
+		"AbilityCastAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_jakiro/jakiro_dual_breath_fire.vpcf"
+			"particle"  "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_second"		"30"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"magic_resist_reduction"	"-30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"start_width"				"300"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"end_width"				"500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"length"		"600"		
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"		"900"		
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"6"		
 			}
 		}
 	}
@@ -804,6 +904,74 @@
 		}
 	}
 	//End of file jungle_creeps_kobolds_abilities.txt
+
+
+	//Start of file jungle_creeps_marmalade_slugs_abilities.txt
+	
+	"fatty_marmalade_slug_juicy_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"morphling_waveform"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"ScriptFile"					"abilities/neutrals/fatty_marmalade_slug_juicy_aura.lua"
+		
+		"AbilityCastRange"				"900"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"900"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_health_percentage"	"15"
+			}
+		}
+	}
+	
+	"fatty_marmalade_slug_jelly_mass"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"lone_druid_rabid"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"ScriptFile"					"abilities/neutrals/fatty_marmalade_slug_jelly_mass.lua"
+		
+		"AbilityCastRange"				"250"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"250"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_second"	"60"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_slow"		"-30"
+			}
+		}
+	}
+	//End of file jungle_creeps_marmalade_slugs_abilities.txt
 
 
 	//Start of file jungle_creeps_spiders_abilities.txt

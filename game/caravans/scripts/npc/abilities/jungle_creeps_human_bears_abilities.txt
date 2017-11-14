@@ -84,7 +84,7 @@
 			"var_type"			"FIELD_INTEGER"
 			"crit_chance"			"10"		
 		}
-		"04"
+		"05"
 		{
 			"var_type"			"FIELD_INTEGER"
 			"crit_multiplier"			"150"		

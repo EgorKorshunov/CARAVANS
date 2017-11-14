@@ -12,7 +12,7 @@
 
 
   "SoundSet" "Hero_Venomancer" 
-  "ModelScale" "1" 
+  "ModelScale" "2" 
   "Level" "7" 
   "IsNeutralUnitType"     "1"
   "IsAncient" "1"
@@ -20,8 +20,8 @@
 
 
 
-  "Ability1" "" 
-  "Ability2" "" 
+  "Ability1" "fatty_marmalade_slug_juicy_aura" 
+  "Ability2" "fatty_marmalade_slug_jelly_mass" 
   "Ability3" "" 
   "Ability4" "" 
 
@@ -35,7 +35,7 @@
   "AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
   "AttackDamageMin" "10" 
   "AttackDamageMax" "15" 
-  "AttackRate" "1" 
+  "AttackRate" "1.2" 
   "AttackAnimationPoint" "0.33" 
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
@@ -91,7 +91,7 @@
 
 
 
-  "Ability1" "" 
+  "Ability1" "fatty_marmalade_slug_jelly_mass" 
   "Ability2" "" 
   "Ability3" "" 
   "Ability4" "" 

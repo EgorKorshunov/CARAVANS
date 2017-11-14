@@ -62,10 +62,16 @@ end
 
 function modifier_hunchback_golem_fire_protection_debuff:OnIntervalThink()
 	if IsServer() then
+		if self:GetParent():HasModifier("modifier_hunchback_footman_cripple_debuff") then
+			self.damageToDeal = self.damage_per_second * 2
+		else
+			self.damageToDeal = self.damage_per_second
+		end
+
 		local damage = {
 				victim = self:GetParent(),
 				attacker = self:GetCaster(),
-				damage = self.damage_per_second,
+				damage = self.damageToDeal,
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = self:GetAbility()
 			}

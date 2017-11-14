@@ -41,10 +41,12 @@ function Precache( context )
   	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", context)
   	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts", context)
   	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
+  	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts", context)
   	PrecacheResource("particle", "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf", context)
   	PrecacheResource("particle", "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf", context)
   	PrecacheResource("particle", "particles/econ/items/nyx_assassin/nyx_assassin_ti6/nyx_assassin_impale_ti6.vpcf", context)
   	PrecacheResource("particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf", context)
+  	PrecacheResource("particle", "particles/units/heroes/hero_jakiro/jakiro_dual_breath_fire.vpcf", context)
 end
 
 -- Create the game mode when we activate
@@ -524,7 +526,7 @@ function Caravans:CaravanAI(unit)
 		end
 	end
  
- 	DebugDrawText(unit:GetAbsOrigin(),tostring(DistanceBetweenPoints(unit:GetAbsOrigin(),self.waypoints[self.curwp])),true,0.2)
+ 	--DebugDrawText(unit:GetAbsOrigin(),tostring(DistanceBetweenPoints(unit:GetAbsOrigin(),self.waypoints[self.curwp])),true,0.2)
  	return 0.2
 end
 

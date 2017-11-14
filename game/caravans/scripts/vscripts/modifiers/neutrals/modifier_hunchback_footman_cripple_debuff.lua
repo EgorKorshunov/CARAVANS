@@ -57,10 +57,15 @@ function modifier_hunchback_footman_cripple_debuff:OnDeath(params)
 								  false)
 
 		for k,v in pairs (targets) do
+			if v:HasModifier("modifier_hunchback_footman_cripple_debuff") then
+				self.damageToDeal = self.damage * 2
+			else
+				self.damageToDeal = self.damage
+			end
 			local explosionDamage = {
 						victim = v,
 						attacker = self:GetParent(),
-						damage = self.damage,
+						damage = self.damageToDeal,
 						damage_type = DAMAGE_TYPE_MAGICAL,
 						ability = self:GetAbility()
 					}

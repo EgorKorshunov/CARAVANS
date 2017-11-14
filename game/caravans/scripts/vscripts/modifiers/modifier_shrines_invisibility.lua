@@ -39,7 +39,7 @@ end
 function modifier_shrines_invisibility:CheckState()
 	local state = {
 		[MODIFIER_STATE_INVISIBLE] = true,
-		MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 		[MODIFIER_STATE_INVULNERABLE] = true,
 	}
 
