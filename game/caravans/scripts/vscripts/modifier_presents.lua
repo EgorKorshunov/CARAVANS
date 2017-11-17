@@ -2,6 +2,10 @@ if modifier_presents == nil then
 	modifier_presents = class({})
 end
 
+function modifier_presents:GetTexture() 
+	return "custom/orns_presence"
+end
+
 function modifier_presents:IsDebuff()
 	return true
 end

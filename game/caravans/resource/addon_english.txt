@@ -50,6 +50,9 @@
 		"jungle_creep_fatty_marmalade_slug" "Fatty Marmalade Slug"
 		"jungle_creep_marmalade_slug" "Marmalade Slug"
 
+		"jungle_creep_ghost_miss_death" "Miss Death"
+		"jungle_creep_ghost_basic" "Ghost"
+
 		//Abilities
 		"DOTA_Tooltip_ability_harpy_thunder_strike"					"Thunder Strike"
 		"DOTA_Tooltip_ability_harpy_thunder_strike_Description"		"Calls down a bolt of lightning to strike an enemy unit, causing %lightning_damage% damage and stunning for %stun_duration% seconds."
@@ -181,5 +184,14 @@
 
 		"DOTA_Tooltip_modifier_fatty_marmalade_slug_jelly_mass_effect"					"Juicy Aura"
 		"DOTA_Tooltip_modifier_fatty_marmalade_slug_jelly_mass_effect_Description"		"Movement slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+
+		"DOTA_Tooltip_ability_miss_death_fear"					"Fear"
+		"DOTA_Tooltip_ability_miss_death_fear_Description"		"Causes enemy units in a %aura_radius% radius to lose %aura_damage%% of their max health every second."
+
+		"DOTA_Tooltip_ability_ghost_spiritual_help"					"Spiritual Help"
+		"DOTA_Tooltip_ability_ghost_spiritual_help_Description"		"Reduces physical damage income of allies in a %aura_radius% radius by %damage_reduction_percentage%%. Stacks with itself."
+
+		"DOTA_Tooltip_modifier_ghost_spiritual_help_effect"					"Spiritual Help"
+		"DOTA_Tooltip_modifier_ghost_spiritual_help_effect_Description"		"Physical damage income reduced by %dMODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE%%%."
 	}
 }

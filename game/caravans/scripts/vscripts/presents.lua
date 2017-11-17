@@ -20,6 +20,28 @@ function Caravans:DropPresent(unitFrom,posTo,dropTime,visible)
 	return container
 end
 
+function Caravans:DropPresentOnBlink(pointFrom,posTo,dropTime,visible) 
+	local item = CreateItem("item_present",nil,nil)
+	local container = CreateItemOnPositionForLaunch(pointFrom,item)
+	item:LaunchLoot(false,RandomInt(150,300),dropTime,posTo)
+
+	if visible == nil then
+		visible = true
+	end
+
+	if visible then
+		vision = function(container) 
+				AddFOWViewer(DOTA_TEAM_BADGUYS,container:GetAbsOrigin(), 16, 1, false)
+				AddFOWViewer(DOTA_TEAM_GOODGUYS,container:GetAbsOrigin(), 16, 1, false)
+				return 0.5
+			end
+
+		container:SetContextThink("Vision",vision,1)
+	end
+
+	return container
+end
+
 function Caravans:PickupPresent(hero)
 	hero.presents = (hero.presents or 0) + 1
 	print(hero:GetUnitName().." have "..tostring(hero.presents).." presents")

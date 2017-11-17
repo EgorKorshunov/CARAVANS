@@ -950,13 +950,13 @@
 	{
 	
 	  "BaseClass" "npc_dota_creature" 
-	  "Model" "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
+	  "Model" "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_frost.vmdl"
 	
 	  "SoundSet" "n_creep_Melee" 
 	  "ModelScale" "1" 
 	  "Level" "3" 
 	
-	  "Ability1" "" 
+	  "Ability1" "ghost_spiritual_help" 
 	  "Ability2" "" 
 	  "Ability3" "" 
 	  "Ability4" "" 

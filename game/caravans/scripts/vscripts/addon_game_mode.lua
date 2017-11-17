@@ -17,6 +17,7 @@ LinkLuaModifier("modifier_caravan","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spawnpoint","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_frostivus_aura","modifiers",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bandit_camp","modifier_bandit_camp.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_drop_presents","modifiers/modifier_drop_presents.lua",LUA_MODIFIER_MOTION_NONE)
 
 function Precache( context )
 	--[[
