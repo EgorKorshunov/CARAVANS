@@ -161,6 +161,10 @@ function StartDropPresents()
 	func = function() 
 		local donkey = CaravanUnitTable[5]
 		local dropPos = donkey:GetAbsOrigin() - donkey:GetForwardVector()*300
+
+		if donkey:HasModifier("modifier_lia_presents_no_drop") then
+			return 60
+		end
 		
 		if Caravans.presentsInCaravan > 0 then
 			Caravans:DecrementCaravanPresents()
@@ -168,11 +172,11 @@ function StartDropPresents()
 			Caravans:DropPresent(donkey,dropPos,0.5,true) 
 		end
 
-		return 2
+		return 5
 	end
 
 	Timers:CreateTimer("CaravanDropPresents", {
-		endTime = 2,
+		endTime = 5,
 		callback = func
 	})
 end

@@ -18,6 +18,10 @@
 		"UntilRespawn"															"UNTIL SPAWN"
 		"OnRandomResp"															"ON A RAMDOM TOTEM!"
 
+		"bandit_camp" 	"Bandit Camp"
+		"bandit_camp_big" "Bandit Camp"
+		"npc_dota_caravan_unit"	"Caravan"
+
 		//Creeps
 		"jungle_creep_harpy_sorcerer" 	"Harpy Sorcerer"
 		"jungle_creep_frost_harpy" 		"Frost Harpy"
