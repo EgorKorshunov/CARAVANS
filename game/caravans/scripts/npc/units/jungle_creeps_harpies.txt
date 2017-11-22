@@ -26,9 +26,9 @@
   "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
   "ProjectileSpeed"     "1200"  
 
-  "BountyXP" "40" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "40" 
+  "BountyXP" "55" 
+  "BountyGoldMin" "50" 
+  "BountyGoldMax" "55" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "300" 
@@ -80,9 +80,9 @@
   "ProjectileModel"     "particles/neutral_fx/ghost_frost_attack.vpcf"
   "ProjectileSpeed"     "1200"  
 
-  "BountyXP" "55" 
-  "BountyGoldMin" "40" 
-  "BountyGoldMax" "50" 
+  "BountyXP" "90" 
+  "BountyGoldMin" "75" 
+  "BountyGoldMax" "90" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "300" 

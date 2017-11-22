@@ -58,7 +58,6 @@ end
 
 function Caravans:InitGameMode()
 
-
 	self.round = 0
 
 	self.presentsInCaravan = 25 
@@ -97,6 +96,7 @@ function Caravans:InitGameMode()
 	--GameRules:SetPreGameTime(180)
 	GameRules:SetPreGameTime(0)
 	--GameRules:LockCustomGameSetupTeamAssignment(true)
+	GameRules:SetGoldTickTime(0.4)
     GameRules:SetCustomGameSetupRemainingTime(15)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(3)
 

@@ -27,15 +27,15 @@
   "ProjectileModel"     "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf" // Particle system model for projectile.
   "ProjectileSpeed"     "1200"  
 
-  "BountyXP" "115" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "40" 
+  "BountyXP" "200" 
+  "BountyGoldMin" "180" 
+  "BountyGoldMax" "200" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "330" 
   "MovementTurnRate" "0.6" 
 
-  "StatusHealth" "1200" 
+  "StatusHealth" "1400" 
   "StatusHealthRegen" "3" 
   "StatusMana" "500" 
   "StatusManaRegen" "0.5" 
@@ -79,15 +79,15 @@
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150"  
 
-  "BountyXP" "50" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "40" 
+  "BountyXP" "75" 
+  "BountyGoldMin" "60" 
+  "BountyGoldMax" "75" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "300" 
   "MovementTurnRate" "0.6" 
 
-  "StatusHealth" "500" 
+  "StatusHealth" "600" 
   "StatusHealthRegen" "1" 
   "StatusMana" "0" 
   "StatusManaRegen" "0" 

@@ -10,12 +10,13 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_black_human_bear_endurance_aura_effect:OnCreated( kv )
-	self.bonus_damage_pct = self:GetAbility():GetSpecialValueFor( "bonus_damage_pct" )
-	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor( "bonus_attack_speed" )
-	self.crit_chance = self:GetAbility():GetSpecialValueFor( "crit_chance" )
-	self.crit_multiplier = self:GetAbility():GetSpecialValueFor( "crit_multiplier" )
-
 	if IsServer() then
+		self.bonus_damage_pct = self:GetAbility():GetSpecialValueFor( "bonus_damage_pct" )
+		self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor( "bonus_attack_speed" )
+		self.crit_chance = self:GetAbility():GetSpecialValueFor( "crit_chance" )
+		self.crit_multiplier = self:GetAbility():GetSpecialValueFor( "crit_multiplier" )
+
+	
 		self.pseudo = PseudoRandom:New(self:GetAbility():GetSpecialValueFor("crit_chance")*0.01)
 		self.bIsCrit = false
 	end

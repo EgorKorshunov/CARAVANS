@@ -32,9 +32,9 @@
   "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
   "ProjectileSpeed"     "1200"  
 
-  "BountyXP" "100" 
-  "BountyGoldMin" "100" 
-  "BountyGoldMax" "120" 
+  "BountyXP" "160" 
+  "BountyGoldMin" "130" 
+  "BountyGoldMax" "160" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "330" 
@@ -92,9 +92,9 @@
   "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
   "ProjectileSpeed"     "1200"  
 
-  "BountyXP" "115" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "40" 
+  "BountyXP" "140" 
+  "BountyGoldMin" "120" 
+  "BountyGoldMax" "140" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "330" 
@@ -159,9 +159,9 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "180" 
-  "BountyGoldMin" "160" 
-  "BountyGoldMax" "170" 
+  "BountyXP" "300" 
+  "BountyGoldMin" "250" 
+  "BountyGoldMax" "300" 
 
 
 

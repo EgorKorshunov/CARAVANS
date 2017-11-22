@@ -30,9 +30,9 @@
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
-  "BountyXP" "55" 
-  "BountyGoldMin" "40" 
-  "BountyGoldMax" "50" 
+  "BountyXP" "80" 
+  "BountyGoldMin" "75" 
+  "BountyGoldMax" "80" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "350" 
@@ -88,9 +88,9 @@
   "AttackAcquisitionRange" "500" 
   "AttackRange" "150" 
 
-  "BountyXP" "40" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "35" 
+  "BountyXP" "60" 
+  "BountyGoldMin" "50" 
+  "BountyGoldMax" "60" 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
   "MovementSpeed" "350" 

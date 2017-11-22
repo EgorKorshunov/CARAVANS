@@ -40,9 +40,9 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "105" 
-  "BountyGoldMin" "85" 
-  "BountyGoldMax" "105" 
+  "BountyXP" "170" 
+  "BountyGoldMin" "150" 
+  "BountyGoldMax" "170" 
 
 
 
@@ -114,9 +114,9 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "40" 
-  "BountyGoldMin" "30" 
-  "BountyGoldMax" "40" 
+  "BountyXP" "60" 
+  "BountyGoldMin" "50" 
+  "BountyGoldMax" "60" 
 
 
 

@@ -40,9 +40,9 @@
   "AttackRange" "200" 
 
 
-  "BountyXP" "180" 
-  "BountyGoldMin" "140" 
-  "BountyGoldMax" "160" 
+  "BountyXP" "300" 
+  "BountyGoldMin" "250" 
+  "BountyGoldMax" "300" 
 
 
 
@@ -146,9 +146,9 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "100" 
-  "BountyGoldMin" "90" 
-  "BountyGoldMax" "110" 
+  "BountyXP" "140" 
+  "BountyGoldMin" "120" 
+  "BountyGoldMax" "140" 
 
 
 
@@ -207,8 +207,8 @@
 
 
 
-  "ArmorPhysical" "6" 
-  "MagicalResistance" "15" 
+  "ArmorPhysical" "12" 
+  "MagicalResistance" "30" 
 
 
 
@@ -221,14 +221,14 @@
   "AttackRange" "150" 
 
 
-  "BountyXP" "120" 
-  "BountyGoldMin" "120" 
-  "BountyGoldMax" "130" 
+  "BountyXP" "160" 
+  "BountyGoldMin" "130" 
+  "BountyGoldMax" "160" 
 
 
 
   "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-  "MovementSpeed" "300" 
+  "MovementSpeed" "370" 
   "MovementTurnRate" "0.6" 
 
 

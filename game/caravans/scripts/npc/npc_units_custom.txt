@@ -332,9 +332,9 @@
 	  "AttackRange" "200" 
 	
 	
-	  "BountyXP" "180" 
-	  "BountyGoldMin" "140" 
-	  "BountyGoldMax" "160" 
+	  "BountyXP" "300" 
+	  "BountyGoldMin" "250" 
+	  "BountyGoldMax" "300" 
 	
 	
 	
@@ -438,9 +438,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "100" 
-	  "BountyGoldMin" "90" 
-	  "BountyGoldMax" "110" 
+	  "BountyXP" "140" 
+	  "BountyGoldMin" "120" 
+	  "BountyGoldMax" "140" 
 	
 	
 	
@@ -499,8 +499,8 @@
 	
 	
 	
-	  "ArmorPhysical" "6" 
-	  "MagicalResistance" "15" 
+	  "ArmorPhysical" "12" 
+	  "MagicalResistance" "30" 
 	
 	
 	
@@ -513,14 +513,14 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "120" 
-	  "BountyGoldMin" "120" 
-	  "BountyGoldMax" "130" 
+	  "BountyXP" "160" 
+	  "BountyGoldMin" "130" 
+	  "BountyGoldMax" "160" 
 	
 	
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
-	  "MovementSpeed" "300" 
+	  "MovementSpeed" "370" 
 	  "MovementTurnRate" "0.6" 
 	
 	
@@ -581,9 +581,9 @@
 	  "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
 	  "ProjectileSpeed"     "1200"  
 	
-	  "BountyXP" "100" 
-	  "BountyGoldMin" "100" 
-	  "BountyGoldMax" "120" 
+	  "BountyXP" "160" 
+	  "BountyGoldMin" "130" 
+	  "BountyGoldMax" "160" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "330" 
@@ -641,9 +641,9 @@
 	  "ProjectileModel"     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
 	  "ProjectileSpeed"     "1200"  
 	
-	  "BountyXP" "115" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "140" 
+	  "BountyGoldMin" "120" 
+	  "BountyGoldMax" "140" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "330" 
@@ -708,9 +708,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "180" 
-	  "BountyGoldMin" "160" 
-	  "BountyGoldMax" "170" 
+	  "BountyXP" "300" 
+	  "BountyGoldMin" "250" 
+	  "BountyGoldMax" "300" 
 	
 	
 	
@@ -920,15 +920,15 @@
 	  "ProjectileModel"     "particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf" // Particle system model for projectile.
 	  "ProjectileSpeed"     "1200"  
 	
-	  "BountyXP" "115" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "200" 
+	  "BountyGoldMin" "180" 
+	  "BountyGoldMax" "200" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "330" 
 	  "MovementTurnRate" "0.6" 
 	
-	  "StatusHealth" "1200" 
+	  "StatusHealth" "1400" 
 	  "StatusHealthRegen" "3" 
 	  "StatusMana" "500" 
 	  "StatusManaRegen" "0.5" 
@@ -972,15 +972,15 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150"  
 	
-	  "BountyXP" "50" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "75" 
+	  "BountyGoldMin" "60" 
+	  "BountyGoldMax" "75" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
 	  "MovementTurnRate" "0.6" 
 	
-	  "StatusHealth" "500" 
+	  "StatusHealth" "600" 
 	  "StatusHealthRegen" "1" 
 	  "StatusMana" "0" 
 	  "StatusManaRegen" "0" 
@@ -1079,9 +1079,9 @@
 	  "ProjectileModel"     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
 	  "ProjectileSpeed"     "1200"  
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "55" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "55" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
@@ -1133,9 +1133,9 @@
 	  "ProjectileModel"     "particles/neutral_fx/ghost_frost_attack.vpcf"
 	  "ProjectileSpeed"     "1200"  
 	
-	  "BountyXP" "55" 
-	  "BountyGoldMin" "40" 
-	  "BountyGoldMax" "50" 
+	  "BountyXP" "90" 
+	  "BountyGoldMin" "75" 
+	  "BountyGoldMax" "90" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
@@ -1193,9 +1193,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "55" 
-	  "BountyGoldMin" "40" 
-	  "BountyGoldMax" "50" 
+	  "BountyXP" "80" 
+	  "BountyGoldMin" "75" 
+	  "BountyGoldMax" "80" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
@@ -1251,9 +1251,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "35" 
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "60" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
@@ -1309,9 +1309,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "70" 
+	  "BountyGoldMin" "60" 
+	  "BountyGoldMax" "70" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "320" 
@@ -1369,9 +1369,9 @@
 	  "ProjectileSpeed"     "1200"  
 	
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "35" 
-	  "BountyGoldMax" "45" 
+	  "BountyXP" "100" 
+	  "BountyGoldMin" "90" 
+	  "BountyGoldMax" "100" 
 	
 	
 	
@@ -1429,9 +1429,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "100" 
-	  "BountyGoldMin" "80" 
-	  "BountyGoldMax" "100" 
+	  "BountyXP" "180" 
+	  "BountyGoldMin" "150" 
+	  "BountyGoldMax" "180" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "320" 
@@ -1482,9 +1482,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "20" 
-	  "BountyGoldMin" "15" 
-	  "BountyGoldMax" "20" 
+	  "BountyXP" "30" 
+	  "BountyGoldMin" "25" 
+	  "BountyGoldMax" "30" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "280" 
@@ -1532,9 +1532,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "250" 
 	
-	  "BountyXP" "45" 
-	  "BountyGoldMin" "20" 
-	  "BountyGoldMax" "30" 
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "55" 
+	  "BountyGoldMax" "60" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "300" 
@@ -1582,9 +1582,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "25" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "50" 
+	  "BountyGoldMin" "45" 
+	  "BountyGoldMax" "50" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "280" 
@@ -1654,9 +1654,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "120" 
-	  "BountyGoldMin" "85" 
-	  "BountyGoldMax" "105" 
+	  "BountyXP" "170" 
+	  "BountyGoldMin" "150" 
+	  "BountyGoldMax" "170" 
 	
 	
 	
@@ -1725,9 +1725,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "35" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "60" 
 	
 	
 	
@@ -1801,9 +1801,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "105" 
-	  "BountyGoldMin" "85" 
-	  "BountyGoldMax" "105" 
+	  "BountyXP" "170" 
+	  "BountyGoldMin" "150" 
+	  "BountyGoldMax" "170" 
 	
 	
 	
@@ -1875,9 +1875,9 @@
 	  "AttackRange" "150" 
 	
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "60" 
 	
 	
 	
@@ -1941,9 +1941,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "55" 
-	  "BountyGoldMin" "40" 
-	  "BountyGoldMax" "50" 
+	  "BountyXP" "80" 
+	  "BountyGoldMin" "75" 
+	  "BountyGoldMax" "80" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 
@@ -2024,9 +2024,9 @@
 	  "AttackAcquisitionRange" "500" 
 	  "AttackRange" "150" 
 	
-	  "BountyXP" "40" 
-	  "BountyGoldMin" "30" 
-	  "BountyGoldMax" "40" 
+	  "BountyXP" "60" 
+	  "BountyGoldMin" "50" 
+	  "BountyGoldMax" "60" 
 	
 	  "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
 	  "MovementSpeed" "350" 

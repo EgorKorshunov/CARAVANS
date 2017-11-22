@@ -1,0 +1,63 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"Version"		"1"
+	
+	//=================================================================================================================
+	// Remove Dagon
+	//=================================================================================================================
+	"item_energy_booster"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_vitality_booster"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_point_booster"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_platemail"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_talisman_of_evasion"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_hyperstone"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_ultimate_orb"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_demon_edge"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_mystic_staff"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_reaver"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_eagle"
+	{
+		"GlobalShop"	"1"
+	}
+	"item_relic"
+	{
+		"GlobalShop"	"1"
+	}
+
+
+
+
+	
+}
