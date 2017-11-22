@@ -37,6 +37,8 @@ function Neutrals:OnDeath(killed)
 		function()
 			local unit = CreateUnitByName(unitName,killed.spawnPoint,true,nil,nil,DOTA_TEAM_NEUTRALS)
 			unit.spawnPoint = killed.spawnPoint
+			unit:SetContextThink("neutralAI",NeutralsAI,0.2)
+			unit.timerName = DoUniqueString("Neutrals")
 		end
 	)
 end

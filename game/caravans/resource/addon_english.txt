@@ -6,8 +6,7 @@
 		"addon_game_name"			"CARAVANS"
 		"hpbarlabel"				"CARAVAN"
 		"DOTA_GAMEMODE_15"			"Choose a Hero"
-		"DOTA_Tooltip_modifier_frostivus_aura"									"FROSTIVUS AURA"
-		"DOTA_Tooltip_modifier_frostivus_aura_Description"						"Every second you get experience!"
+		
 		"DOTA_Tooltip_modifier_item_healing_salve_use"							"Large Healing Salve"
 		"DOTA_Tooltip_modifier_item_healing_salve_use_Description"				"You heal 60 hit points per second!"
 		"DOTA_Tooltip_ability_item_healing_salve_use"							"Potion"
@@ -21,6 +20,14 @@
 		"bandit_camp" 	"Bandit Camp"
 		"bandit_camp_big" "Bandit Camp"
 		"npc_dota_caravan_unit"	"Caravan"
+
+		"DOTA_Tooltip_modifier_drop_presents"					"Presents Drop"
+		"DOTA_Tooltip_modifier_drop_presents_Description"		"If the hero moves by 400 units or more, he will lose his presents."
+
+		"DOTA_Tooltip_modifier_presents"					"PRESENTS COUNT"
+
+		"DOTA_Tooltip_modifier_frostivus_aura"									"FROSTIVUS AURA"
+		"DOTA_Tooltip_modifier_frostivus_aura_Description"						"Every second you get experience!"
 
 		//Creeps
 		"jungle_creep_harpy_sorcerer" 	"Harpy Sorcerer"
