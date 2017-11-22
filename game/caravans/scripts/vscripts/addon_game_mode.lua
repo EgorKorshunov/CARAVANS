@@ -75,7 +75,8 @@ function Caravans:InitGameMode()
 
 	self.checkPoints = {12,21}
 	self.checkPointsTime = 240
-	self.checkPointCampTime = 60
+	self.checkPointCampTime = 1
+	self.stopDropPresents = false
 
 	_G.CaravanUnitTable = {}
 
@@ -138,15 +139,18 @@ function Caravans:PrepareToRound()
 	self.preRoundTime = true
 	
 	if self.round ~= 1 then
-		self.curwp = 2
+		
 		CaravanUnitTable[1]:MoveToPosition(self.waypoints[#self.waypoints])
 		Timers:CreateTimer(14,
 			function()
 				for _,unit in pairs(CaravanUnitTable) do
 					unit:RemoveSelf()
+					self.curwp = 2
+					self.stopDropPresents = false
 				end
 			end
 		)
+
 	end
 
 	Timers:CreateTimer(15,function() Caravans:SpawnCaravan() end)
@@ -162,7 +166,7 @@ function StartDropPresents()
 		local donkey = CaravanUnitTable[5]
 		local dropPos = donkey:GetAbsOrigin() - donkey:GetForwardVector()*300
 
-		if donkey:HasModifier("modifier_lia_presents_no_drop") then
+		if self.stopDropPresents then
 			return 60
 		end
 		
@@ -473,6 +477,7 @@ function Caravans:CaravanAI(unit)
 			end
 
 			self.curwp = self.curwp + 1
+			if self.curwp == 31 then self.stopDropPresents = true end
 			if self.curwp == #self.waypoints then Caravans:OnRoundEnd() return end
 
 		end

@@ -852,7 +852,7 @@
 	{
 		"BaseClass"             		"ability_lua"
 		"ScriptFile"					"abilities/neutrals/kobold_piercing_strike.lua"
-		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+		"AbilityTextureName"			"kobold_piercing_strike"
 	
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"

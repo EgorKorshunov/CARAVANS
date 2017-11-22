@@ -3,7 +3,7 @@ if modifier_presents == nil then
 end
 
 function modifier_presents:GetTexture() 
-	return "custom/orns_presence"
+	return "present"
 end
 
 function modifier_presents:IsDebuff()
