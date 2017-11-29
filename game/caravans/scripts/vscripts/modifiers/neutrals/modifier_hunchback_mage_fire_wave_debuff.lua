@@ -25,9 +25,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_hunchback_mage_fire_wave_debuff:OnCreated( kv )
-	self.damage_per_second = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
-	self.magic_resist_reduction = self:GetAbility():GetSpecialValueFor( "magic_resist_reduction" )
 	if IsServer() then
+		self.damage_per_second = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
+		self.magic_resist_reduction = self:GetAbility():GetSpecialValueFor( "magic_resist_reduction" )
+	
 		if self:GetParent():HasModifier("modifier_hunchback_footman_cripple_debuff") then
 			self.damageToDeal = self.damage_per_second * 2
 		else

@@ -3,8 +3,10 @@ modifier_frostbitten_warlock_frost_aura_effect = class({})
 --------------------------------------------------------------------------------
 
 function modifier_frostbitten_warlock_frost_aura_effect:OnCreated( kv )
-	self.movement_slow_percentage = self:GetAbility():GetSpecialValueFor( "movement_slow_percentage" )
-	self.attack_slow = self:GetAbility():GetSpecialValueFor( "attack_slow" )
+	if IsServer() then
+		self.movement_slow_percentage = self:GetAbility():GetSpecialValueFor( "movement_slow_percentage" )
+		self.attack_slow = self:GetAbility():GetSpecialValueFor( "attack_slow" )
+	end
 end
 
 --------------------------------------------------------------------------------

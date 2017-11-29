@@ -25,8 +25,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_hunchback_footman_cripple_debuff:OnCreated( kv )
-	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
-	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
+	if IsServer() then
+		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
+		self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
+	end
 end
 
 --------------------------------------------------------------------------------

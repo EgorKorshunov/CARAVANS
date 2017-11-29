@@ -1,4 +1,3 @@
-//Generated using Dota Custom KVScript Files Merger by cris9696
 "DOTAAbilities"
 {
 	

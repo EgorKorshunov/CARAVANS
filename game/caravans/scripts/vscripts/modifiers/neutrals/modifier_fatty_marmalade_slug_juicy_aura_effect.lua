@@ -4,7 +4,9 @@ modifier_fatty_marmalade_slug_juicy_aura_effect = class({})
 --------------------------------------------------------------------------------
 
 function modifier_fatty_marmalade_slug_juicy_aura_effect:OnCreated( kv )
-	self.bonus_health_percentage = self:GetAbility():GetSpecialValueFor( "bonus_health_percentage" ) * 0.01
+	if IsServer() then
+		self.bonus_health_percentage = self:GetAbility():GetSpecialValueFor( "bonus_health_percentage" ) * 0.01
+	end
 end
 
 --------------------------------------------------------------------------------

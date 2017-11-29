@@ -15,8 +15,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_spider_paralyzer_root:OnCreated( kv )
-	self.damage_per_second = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
 	if IsServer() then
+		self.damage_per_second = self:GetAbility():GetSpecialValueFor( "damage_per_second" )
+	
 		local damage = {
 					victim = self:GetParent(),
 					attacker = self:GetCaster(),

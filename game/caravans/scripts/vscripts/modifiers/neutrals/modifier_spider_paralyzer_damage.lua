@@ -16,7 +16,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_spider_paralyzer_damage:OnCreated( kv )
-	self.root_duration = self:GetAbility():GetSpecialValueFor( "root_duration" )
+	if IsServer() then
+		self.root_duration = self:GetAbility():GetSpecialValueFor( "root_duration" )
+	end
 end
 
 --------------------------------------------------------------------------------

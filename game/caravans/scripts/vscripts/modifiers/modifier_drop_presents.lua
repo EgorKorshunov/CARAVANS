@@ -3,7 +3,7 @@ modifier_drop_presents = class({})
 --------------------------------------------------------------------------------
 
 function modifier_drop_presents:GetTexture() 
-	return "custom/orns_presence"
+	return "modifier_drop_presents"
 end
 
 --------------------------------------------------------------------------------

@@ -10,7 +10,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_ghost_spiritual_help_effect:OnCreated( kv )
-	self.damage_reduction_percentage = self:GetAbility():GetSpecialValueFor( "damage_reduction_percentage" )
+	if IsServer() then
+		self.damage_reduction_percentage = self:GetAbility():GetSpecialValueFor( "damage_reduction_percentage" )
+	end
 end
 
 --------------------------------------------------------------------------------

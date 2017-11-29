@@ -1,0 +1,10 @@
+"addon"
+{
+	"addon_game_name"			"CARAVANS"
+	"error_max_presents" "Нельзя взять больше подарков"
+	"unit_cant_pickup_presents" "Только герои могут подбирать подарки"
+
+	"dota_game_end_victory_title_radiant"	"Стражники победили"
+	"dota_game_end_victory_title_dire"		"Бандиты победили"
+}
+
