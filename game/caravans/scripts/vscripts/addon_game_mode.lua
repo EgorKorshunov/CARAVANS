@@ -170,11 +170,13 @@ function StartDropPresents()
 			return 60
 		end
 		
-		if Caravans.presentsInCaravan > 0 then
-			Caravans:DecrementCaravanPresents()
-			Caravans:IncrementDirePresents()
-			Caravans:DropPresent(donkey,dropPos,0.5,true) 
+		if Caravans.presentsInCaravan <= 0 then
+			return 5
 		end
+
+		Caravans:DecrementCaravanPresents()
+		Caravans:IncrementDirePresents()
+		Caravans:DropPresent(donkey,dropPos,0.5,true) 
 
 		return 5
 	end

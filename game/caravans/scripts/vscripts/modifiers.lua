@@ -50,11 +50,11 @@ function modifier_caravan:GetModifierProvidesFOWVision()
 end
 
 function modifier_caravan:GetModifierMoveSpeed_AbsoluteMin()
-	return 100
+	return 80
 end
 
 function modifier_caravan:GetModifierMoveSpeed_Limit()
-	return 100
+	return 80
 end
 
 if IsServer() then
